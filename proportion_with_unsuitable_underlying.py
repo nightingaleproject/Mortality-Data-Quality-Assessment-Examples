@@ -1,7 +1,9 @@
 import pandas as pd
 
 # Load the death records data
-death_records = pd.read_csv("NotionalDeathRecordData.csv")
+death_records = pd.read_csv(
+    "NotionalDeathRecordData.csv", keep_default_na=False, na_values=[""]
+)
 
 # Load the unsuitable causes of death data
 unsuitable_causes = pd.read_csv("unsuitable_COD_codes.csv")
