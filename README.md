@@ -75,3 +75,21 @@ The proportion of records with an unsuitable underlying cause of death is 0.20
 ```
 
 The examples have an embedded reference to the sample mortality data file. The code is not intended to be run directly in a jurisdiction environment since each jurisdiction may organize data differently, but rather is intended to serve as examples that can be adapted as needed or simply serve as reference materials when developing systems to measure quality metrics.
+
+## License
+
+Copyright 2024 The MITRE Corporation
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+
+```
+http://www.apache.org/licenses/LICENSE-2.0
+```
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+
+### Contact Information
+
+For questions or comments about this code repository please send email to
+
+    nvssmodernization@cdc.gov
