@@ -26,7 +26,7 @@ Assessment Framework.
 
 This code reporitory contains
 
-* An example synthetic data file ([NotionalDeathRecordData.csv](blob/main/NotionalDeathRecordData.csv)) containing synthetic mortality data representing the type of data that a juridiction should have available for quality assessment.
+* An example synthetic data file ([NotionalDeathRecordData.csv](NotionalDeathRecordData.csv)) containing synthetic mortality data representing the type of data that a juridiction should have available for quality assessment.
 
 * Two data files containing ICD10 codes representing unsuitable causes of death and mechanism as cause of death:
 
