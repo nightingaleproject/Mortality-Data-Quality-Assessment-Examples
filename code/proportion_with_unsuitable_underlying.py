@@ -2,11 +2,11 @@ import pandas as pd
 
 # Load the death records data
 death_records = pd.read_csv(
-    "NotionalDeathRecordData.csv", keep_default_na=False, na_values=[""]
+    "../data/NotionalDeathRecordData.csv", keep_default_na=False, na_values=[""]
 )
 
 # Load the unsuitable causes of death data
-unsuitable_causes = pd.read_csv("unsuitable_COD_codes.csv")
+unsuitable_causes = pd.read_csv("../data/unsuitable_COD_codes.csv")
 
 # Extract the unsuitable codes
 unsuitable_codes = unsuitable_causes["code"].values

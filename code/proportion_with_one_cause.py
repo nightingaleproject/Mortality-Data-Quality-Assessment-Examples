@@ -2,7 +2,7 @@ import pandas as pd
 
 # Load the CSV file into a DataFrame
 death_records = pd.read_csv(
-    "NotionalDeathRecordData.csv", keep_default_na=False, na_values=[""]
+    "../data/NotionalDeathRecordData.csv", keep_default_na=False, na_values=[""]
 )
 
 # Create a new column that is True when Record Axis COD 1 is present and Record Axis COD 2-10 are not

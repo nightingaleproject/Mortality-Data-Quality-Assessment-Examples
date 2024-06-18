@@ -2,11 +2,11 @@ import pandas as pd
 
 # Load the death records data
 death_records = pd.read_csv(
-    "NotionalDeathRecordData.csv", keep_default_na=False, na_values=[""]
+    "../data/NotionalDeathRecordData.csv", keep_default_na=False, na_values=[""]
 )
 
 # Load the mechanism causes of death data
-mechanism_causes = pd.read_csv("mechanism_COD_codes.csv")
+mechanism_causes = pd.read_csv("../data/mechanism_COD_codes.csv")
 
 # Extract the mechanism codes
 mechanism_codes = mechanism_causes["code"].values
