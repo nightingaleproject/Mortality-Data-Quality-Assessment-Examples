@@ -5,7 +5,9 @@ Prevention and is the system of record for all vital events (e.g., births, death
 States. This system, for example, is used to manage approximately 2.8 million death records annually
 and was constructed to ensure accurate and timely data availability (NCHS 2024). Death certificate
 data, however, have at times been found to incomplete, inaccurate, and untimely, affecting the
-utility of the death certificate data (Flagg 2021). To address some of these challenges, over the
+utility of the death certificate data
+([Flagg 2021](https://stacks.cdc.gov/view/cdc/100414)).
+To address some of these challenges, over the
 last decade, 54 of 57 jurisdictions implemented an electronic death reporting system (EDRS). These
 EDRSs allow for electronic capture of data, thus gaining efficiency in data sharing and reporting.
 
@@ -16,15 +18,15 @@ has improved data quality,
 Comprehensive, monitoring of data quality over time is essential to identify gaps and identify
 opportunities to improve data quality.
 
-This library of simple code examples complements the recently
-developed Data Quality Assessment Framework and complementary Jurisdictional Playbook for
-Implementation of Mortality Data Quality Assessment Framework.
+This library of simple code examples complements the recently developed Data Quality Assessment
+Framework and complementary Jurisdictional Playbook for Implementation of Mortality Data Quality
+Assessment Framework.
 
 ## Overview
 
 This code reporitory contains
 
-* An example synthetic data file ([NotionalDeathRecordData.csv]()) containing synthetic mortality data representing the type of data that a juridiction should have available for quality assessment.
+* An example synthetic data file ([NotionalDeathRecordData.csv](blob/main/NotionalDeathRecordData.csv)) containing synthetic mortality data representing the type of data that a juridiction should have available for quality assessment.
 
 * Two data files containing ICD10 codes representing unsuitable causes of death and mechanism as cause of death:
 
