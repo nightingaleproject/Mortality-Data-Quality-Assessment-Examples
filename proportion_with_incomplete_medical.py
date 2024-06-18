@@ -8,7 +8,7 @@ death_records = pd.read_csv(
 # Define the medical columns
 medical_columns = ["Pregnancy", "Tobacco"]  # add or remove columns as needed
 
-# Create a new column that is True where at least one medical field is empty
+# Create a new column that is True when at least one medical field is empty
 death_records["Incomplete Medical Fields"] = (
     death_records[medical_columns].isna().any(axis=1)
 )

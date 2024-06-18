@@ -13,7 +13,7 @@ demographic_columns = [
     "Hispanic origin",
 ]  # add or remove columns as needed
 
-# Create a new column that is True where at least one demographic field is empty
+# Create a new column that is True when at least one demographic field is empty
 death_records["Incomplete Demographics"] = (
     death_records[demographic_columns].isna().any(axis=1)
 )

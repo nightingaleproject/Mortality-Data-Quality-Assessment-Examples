@@ -11,7 +11,7 @@ certifier_columns = [
     "Certifier Type",
 ]  # add or remove columns as needed
 
-# Create a new column that is True where at least one certifier field is empty
+# Create a new column that is True when at least one certifier field is empty
 death_records["Incomplete Certifier Fields"] = (
     death_records[certifier_columns].isna().any(axis=1)
 )
