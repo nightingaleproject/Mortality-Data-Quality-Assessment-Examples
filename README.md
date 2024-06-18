@@ -26,23 +26,23 @@ Assessment Framework.
 
 This code reporitory contains
 
-* An example synthetic data file ([NotionalDeathRecordData.csv](NotionalDeathRecordData.csv)) containing synthetic mortality data representing the type of data that a juridiction should have available for quality assessment.
+* An example synthetic data file ([](NotionalDeathRecordData.csv)) containing synthetic mortality data representing the type of data that a juridiction should have available for quality assessment.
 
 * Two data files containing ICD10 codes representing unsuitable causes of death and mechanism as cause of death:
 
-  * The [unsuitable_COD_codes.csv]() file contains ICD10 codes that have been identified as unsuitable underlying causes of death.
+  * The [unsuitable_COD_codes.csv](unsuitable_COD_codes.csv) file contains ICD10 codes that have been identified as unsuitable underlying causes of death.
 
-  * The [mechanism_COD_codes.csv]() file contains ICD10 codes that have been identified as mechanisms that are not appropriate to include in cause of death.
+  * The [mechanism_COD_codes.csv](mechanism_COD_codes.csv) file contains ICD10 codes that have been identified as mechanisms that are not appropriate to include in cause of death.
 
 * Example python scripts to demonstrate calculation of various metrics for assessing mortality data quality:
 
-  * [proportion_not_certified_within_required_time.py]() – Proportion of records with only one cause of death condition – multiple clinical conditions are typically reported by the medical certifier within Part I and Part II of the death certificate.
+  * [proportion_not_certified_within_required_time.py](proportion_not_certified_within_required_time.py) – Proportion of records with only one cause of death condition – multiple clinical conditions are typically reported by the medical certifier within Part I and Part II of the death certificate.
 
-  * [proportion_with_incomplete_certifier.py]() – Proportion of records with at least one “medical certifier” field incomplete – the medical certifier is the medical professional or authorized person who determines the cause of death and manner of death.
+  * [proportion_with_incomplete_certifier.py](proportion_with_incomplete_certifier.py) – Proportion of records with at least one “medical certifier” field incomplete – the medical certifier is the medical professional or authorized person who determines the cause of death and manner of death.
 
-  * [proportion_with_incomplete_demographic.py]() – Proportion of records with at least one demographic field incomplete – demographic fields include variables such as age, race/ethnicity, and occupation.
+  * [proportion_with_incomplete_demographic.py](proportion_with_incomplete_demographic.py) – Proportion of records with at least one demographic field incomplete – demographic fields include variables such as age, race/ethnicity, and occupation.
 
-  * [proportion_with_incomplete_medical.py]() – Proportion of records with at least one “other medical factors” field incomplete – other medical factors include variables such as tobacco use and pregnancy status.
+  * [proportion_with_incomplete_medical.py](proportion_with_incomplete_medical.py) – Proportion of records with at least one “other medical factors” field incomplete – other medical factors include variables such as tobacco use and pregnancy status.
 
   * [proportion_with_mechanism_as_underlying.py]() – Proportion of records with a mechanism as a cause of death – mechanisms of death (e.g., homicide) provide only the condition or fact of death and do not provide any information about the cause of death.
 
