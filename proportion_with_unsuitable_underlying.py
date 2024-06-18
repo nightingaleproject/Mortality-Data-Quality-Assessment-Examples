@@ -12,7 +12,9 @@ unsuitable_causes = pd.read_csv("unsuitable_COD_codes.csv")
 unsuitable_codes = unsuitable_causes["code"].values
 
 # Create a new column that is True when the underlying COD is unsuitable
-death_records["Unsuitable Underlying"] = death_records["Underlying COD"].isin(unsuitable_codes)
+death_records["Unsuitable Underlying"] = death_records["Underlying COD"].isin(
+    unsuitable_codes
+)
 
 # Calculate the proportion of records with an unsuitable underlying cause of death
 proportion = death_records["Unsuitable Underlying"].mean()
@@ -22,7 +24,9 @@ print(
 )
 
 # Group the records by certifier and calculate the proportion of unsuitable records for each certifier
-certifier_proportions = death_records.groupby("Certifier Name")["Unsuitable Underlying"].mean()
+certifier_proportions = death_records.groupby("Certifier Name")[
+    "Unsuitable Underlying"
+].mean()
 
 # Print the proportions for each certifier
 for certifier, proportion in certifier_proportions.items():
