@@ -26,7 +26,7 @@ Assessment Framework.
 
 This code reporitory contains
 
-* An example synthetic data file ([](NotionalDeathRecordData.csv)) containing synthetic mortality data representing the type of data that a juridiction should have available for quality assessment.
+* An example synthetic data file ([NotionalDeathRecordData.csv](NotionalDeathRecordData.csv)) containing synthetic mortality data representing the type of data that a juridiction should have available for quality assessment.
 
 * Two data files containing ICD10 codes representing unsuitable causes of death and mechanism as cause of death:
 
@@ -44,13 +44,13 @@ This code reporitory contains
 
   * [proportion_with_incomplete_medical.py](proportion_with_incomplete_medical.py) – Proportion of records with at least one “other medical factors” field incomplete – other medical factors include variables such as tobacco use and pregnancy status.
 
-  * [proportion_with_mechanism_as_underlying.py]() – Proportion of records with a mechanism as a cause of death – mechanisms of death (e.g., homicide) provide only the condition or fact of death and do not provide any information about the cause of death.
+  * [proportion_with_mechanism_as_underlying.py](proportion_with_mechanism_as_underlying.py) – Proportion of records with a mechanism as a cause of death – mechanisms of death (e.g., homicide) provide only the condition or fact of death and do not provide any information about the cause of death.
 
-  * [proportion_with_one_cause.py]() – Proportion of records with only one cause of death condition – multiple clinical conditions are typically reported by the medical certifier within Part I and Part II of the death certificate.
+  * [proportion_with_one_cause.py](proportion_with_one_cause.py) – Proportion of records with only one cause of death condition – multiple clinical conditions are typically reported by the medical certifier within Part I and Part II of the death certificate.
 
-  * [proportion_with_unsuitable_underlying.py]() – Proportion of records with unsuitable underlying cause of death (UCOD) – unsuitable UCODs are those which are unknown and ill-defined; immediate and intermediate; and nonspecific.
+  * [proportion_with_unsuitable_underlying.py](proportion_with_unsuitable_underlying.py) – Proportion of records with unsuitable underlying cause of death (UCOD) – unsuitable UCODs are those which are unknown and ill-defined; immediate and intermediate; and nonspecific.
 
-  * [proportion_without_other_conditions.py]() – Proportion of records without other significant conditions – part II of the death certificate contains medical conditions that contributed to the death but were not considered to be part of the chain of events that led to death.
+  * [proportion_without_other_conditions.py](proportion_without_other_conditions.py) – Proportion of records without other significant conditions – part II of the death certificate contains medical conditions that contributed to the death but were not considered to be part of the chain of events that led to death.
 
 Note that there is currently no example code to determine the proportion of records with an implausible sequence for cause of death.
 
