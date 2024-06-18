@@ -24,9 +24,9 @@ Assessment Framework.
 
 ## Overview
 
-This code reporitory contains
+This code repository contains
 
-* An example synthetic data file ([NotionalDeathRecordData.csv](NotionalDeathRecordData.csv)) containing synthetic mortality data representing the type of data that a juridiction should have available for quality assessment.
+* An example synthetic data file ([NotionalDeathRecordData.csv](NotionalDeathRecordData.csv)) containing synthetic mortality data representing the type of data that a jurisdiction should have available for quality assessment.
 
 * Two data files containing ICD10 codes representing unsuitable causes of death and mechanism as cause of death:
 
@@ -48,7 +48,7 @@ This code reporitory contains
 
   * [proportion_with_one_cause.py](proportion_with_one_cause.py) – Proportion of records with only one cause of death condition – multiple clinical conditions are typically reported by the medical certifier within Part I and Part II of the death certificate.
 
-  * [proportion_with_unsuitable_underlying.py](proportion_with_unsuitable_underlying.py) – Proportion of records with unsuitable underlying cause of death (UCOD) – unsuitable UCODs are those which are unknown and ill-defined; immediate and intermediate; and nonspecific.
+  * [proportion_with_unsuitable_underlying.py](proportion_with_unsuitable_underlying.py) – Proportion of records with unsuitable underlying cause of death (UCOD) – unsuitable UCODs are those which are unknown and ill-defined; immediate and intermediate; and nonspecific. This code example also shows how the results can be displayed on a per-certifier basis.
 
   * [proportion_without_other_conditions.py](proportion_without_other_conditions.py) – Proportion of records without other significant conditions – part II of the death certificate contains medical conditions that contributed to the death but were not considered to be part of the chain of events that led to death.
 
