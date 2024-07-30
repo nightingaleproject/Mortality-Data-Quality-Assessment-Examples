@@ -5,6 +5,7 @@ A483,Immediate and intermediate causes,Toxic shock syndrome
 C77,Immediate and intermediate causes,Secondary and unspecified malignant neoplasm of lymph nodes
 C78,Immediate and intermediate causes,Secondary malignant neoplasm of respiratory and digestive organs
 C79,Immediate and intermediate causes,Secondary malignant neoplasm of other and unspecified sites
+D500,Immediate and intermediate causes,Iron deficiency anemia secondary to blood loss (chronic)
 D62,Immediate and intermediate causes,Acute posthemorrhagic anemia
 D641,Immediate and intermediate causes,Secondary sideroblastic anemia due to disease
 D649,Immediate and intermediate causes,"Anemia, unspecified"
@@ -62,6 +63,7 @@ K66,Immediate and intermediate causes,Other disorders of peritoneum
 K72,Immediate and intermediate causes,"Hepatic failure, not elsewhere classified"
 K744,Immediate and intermediate causes,Secondary biliary cirrhosis
 K750,Immediate and intermediate causes,Abscess of liver
+K760,Immediate and intermediate causes,"Fatty (change of) liver, not elsewhere classified"
 K761,Immediate and intermediate causes,Chronic passive congestion of liver
 K762,Immediate and intermediate causes,Central hemorrhagic necrosis of liver
 K822,Immediate and intermediate causes,Perforation of gallbladder
