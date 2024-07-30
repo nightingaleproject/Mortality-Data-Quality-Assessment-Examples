@@ -30,7 +30,7 @@ This code repository contains
 
 * Two data files containing ICD10 codes representing unsuitable causes of death and mechanism as cause of death:
 
-  * The [unsuitable_COD_codes.csv](data/unsuitable_COD_codes.csv) file contains ICD10 codes that have been identified as unsuitable underlying causes of death.
+  * The [unsuitable_COD_codes.csv](data/unsuitable_COD_codes.csv) file contains ICD10 codes that have been identified as unsuitable underlying causes of death as listed in ([Flagg 2021](https://stacks.cdc.gov/view/cdc/100414)).
 
   * The [mechanism_COD_codes.csv](data/mechanism_COD_codes.csv) file contains ICD10 codes that have been identified as mechanisms that are not appropriate to include in cause of death.
 
