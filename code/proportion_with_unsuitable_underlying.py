@@ -11,9 +11,13 @@ unsuitable_causes = pd.read_csv("../data/unsuitable_COD_codes.csv")
 # Extract the unsuitable codes
 unsuitable_codes = unsuitable_causes["code"].values
 
+# Function to check if any unsuitable code is a prefix to the code in the record
+def is_unsuitable(code):
+    return any(code.startswith(unsuitable) for unsuitable in unsuitable_codes)
+
 # Create a new column that is True when the underlying COD is unsuitable
-death_records["Unsuitable Underlying"] = death_records["Underlying COD"].isin(
-    unsuitable_codes
+death_records["Unsuitable Underlying"] = death_records["Underlying COD"].apply(
+    is_unsuitable
 )
 
 # Calculate the proportion of records with an unsuitable underlying cause of death
