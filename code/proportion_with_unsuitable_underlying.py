@@ -1,12 +1,17 @@
+import os
 import pandas as pd
+
+data_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "data")
 
 # Load the death records data
 death_records = pd.read_csv(
-    "../data/NotionalDeathRecordData.csv", keep_default_na=False, na_values=[""]
+    os.path.join(data_path, "NotionalDeathRecordData.csv"),
+    keep_default_na=False,
+    na_values=[""],
 )
 
 # Load the unsuitable causes of death data
-unsuitable_causes = pd.read_csv("../data/unsuitable_COD_codes.csv")
+unsuitable_causes = pd.read_csv(os.path.join(data_path, "unsuitable_COD_codes.csv"))
 
 # Extract the unsuitable codes
 unsuitable_codes = unsuitable_causes["code"].values
