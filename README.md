@@ -36,7 +36,7 @@ This code repository contains
 
 * Example python scripts to demonstrate calculation of various metrics for assessing mortality data quality:
 
-  * [proportion_not_certified_within_required_time.py](code/proportion_not_certified_within_required_time.py) – Proportion of records with only one cause of death condition – multiple clinical conditions are typically reported by the medical certifier within Part I and Part II of the death certificate.
+  * [proportion_not_certified_within_required_time.py](code/proportion_not_certified_within_required_time.py) – Proportion of records that were not certified within the expected time – jurisdictions typically specify how quickly a death should be certified after the actual date of death.
 
   * [proportion_with_incomplete_certifier.py](code/proportion_with_incomplete_certifier.py) – Proportion of records with at least one “medical certifier” field incomplete – the medical certifier is the medical professional or authorized person who determines the cause of death and manner of death.
 
