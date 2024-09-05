@@ -1,21 +1,21 @@
 code,category,display
-A419,Immediate and intermediate causes,"Sepsis, unspecified organism"
+A419,Immediate and intermediate causes,"Sepsis, unspecified"
 A480,Immediate and intermediate causes,Gas gangrene
 A483,Immediate and intermediate causes,Toxic shock syndrome
 C77,Immediate and intermediate causes,Secondary and unspecified malignant neoplasm of lymph nodes
 C78,Immediate and intermediate causes,Secondary malignant neoplasm of respiratory and digestive organs
-C79,Immediate and intermediate causes,Secondary malignant neoplasm of other and unspecified sites
-D500,Immediate and intermediate causes,Iron deficiency anemia secondary to blood loss (chronic)
-D62,Immediate and intermediate causes,Acute posthemorrhagic anemia
-D641,Immediate and intermediate causes,Secondary sideroblastic anemia due to disease
-D649,Immediate and intermediate causes,"Anemia, unspecified"
+C79,Immediate and intermediate causes,Secondary malignant neoplasm of other sites
+D500,Immediate and intermediate causes,Iron deficiency anaemia secondary to blood loss [chronic]
+D62,Immediate and intermediate causes,Acute posthaemorrhagic anaemia
+D641,Immediate and intermediate causes,Secondary sideroblastic anaemia due to disease
+D649,Immediate and intermediate causes,"Anaemia, unspecified"
 D65,Immediate and intermediate causes,Disseminated intravascular coagulation [defibrination syndrome]
 D695,Immediate and intermediate causes,Secondary thrombocytopenia
-D699,Immediate and intermediate causes,"Hemorrhagic condition, unspecified"
-D751,Immediate and intermediate causes,Secondary polycythemia
+D699,Immediate and intermediate causes,"Haemorrhagic condition, unspecified"
+D751,Immediate and intermediate causes,Secondary polycythaemia
 E033,Immediate and intermediate causes,Postinfectious hypothyroidism
-E161,Immediate and intermediate causes,Other hypoglycemia
-E162,Immediate and intermediate causes,"Hypoglycemia, unspecified"
+E161,Immediate and intermediate causes,Other hypoglycaemia
+E162,Immediate and intermediate causes,"Hypoglycaemia, unspecified"
 E211,Immediate and intermediate causes,"Secondary hyperparathyroidism, not elsewhere classified"
 E261,Immediate and intermediate causes,Secondary hyperaldosteronism
 E731,Immediate and intermediate causes,Secondary lactase deficiency
@@ -30,10 +30,10 @@ G918,Immediate and intermediate causes,Other hydrocephalus
 G919,Immediate and intermediate causes,"Hydrocephalus, unspecified"
 G92,Immediate and intermediate causes,Toxic encephalopathy
 G931,Immediate and intermediate causes,"Anoxic brain damage, not elsewhere classified"
-G933,Immediate and intermediate causes,Postviral and related fatigue syndromes
-G934,Immediate and intermediate causes,Other and unspecified encephalopathy
+G933,Immediate and intermediate causes,Postviral fatigue syndrome
+G934,Immediate and intermediate causes,"Encephalopathy, unspecified"
 G935,Immediate and intermediate causes,Compression of brain
-G936,Immediate and intermediate causes,Cerebral edema
+G936,Immediate and intermediate causes,Cerebral oedema
 I15,Immediate and intermediate causes,Secondary hypertension
 I26,Immediate and intermediate causes,Pulmonary embolism
 I272,Immediate and intermediate causes,Other secondary pulmonary hypertension
@@ -47,12 +47,12 @@ I81,Immediate and intermediate causes,Portal vein thrombosis
 I82,Immediate and intermediate causes,Other venous embolism and thrombosis
 I958,Immediate and intermediate causes,Other hypotension
 I959,Immediate and intermediate causes,"Hypotension, unspecified"
-J18,Immediate and intermediate causes,"Pneumonia, unspecified organism"
-J80,Immediate and intermediate causes,Acute respiratory distress syndrome
-J81,Immediate and intermediate causes,Pulmonary edema
+J18,Immediate and intermediate causes,"Pneumonia, organism unspecified"
+J80,Immediate and intermediate causes,Adult respiratory distress syndrome
+J81,Immediate and intermediate causes,Pulmonary oedema
 J86,Immediate and intermediate causes,Pyothorax
 J90,Immediate and intermediate causes,"Pleural effusion, not elsewhere classified"
-J938,Immediate and intermediate causes,Other pneumothorax and air leak
+J938,Immediate and intermediate causes,Other pneumothorax
 J939,Immediate and intermediate causes,"Pneumothorax, unspecified"
 J94,Immediate and intermediate causes,Other pleural conditions
 J981,Immediate and intermediate causes,Pulmonary collapse
@@ -63,33 +63,33 @@ K66,Immediate and intermediate causes,Other disorders of peritoneum
 K72,Immediate and intermediate causes,"Hepatic failure, not elsewhere classified"
 K744,Immediate and intermediate causes,Secondary biliary cirrhosis
 K750,Immediate and intermediate causes,Abscess of liver
-K760,Immediate and intermediate causes,"Fatty (change of) liver, not elsewhere classified"
+K760,Immediate and intermediate causes,"Fatty [change of] liver, not elsewhere classified"
 K761,Immediate and intermediate causes,Chronic passive congestion of liver
-K762,Immediate and intermediate causes,Central hemorrhagic necrosis of liver
+K762,Immediate and intermediate causes,Central haemorrhagic necrosis of liver
 K822,Immediate and intermediate causes,Perforation of gallbladder
-K920,Immediate and intermediate causes,Hematemesis
-K921,Immediate and intermediate causes,Melena
-K922,Immediate and intermediate causes,"Gastrointestinal hemorrhage, unspecified"
+K920,Immediate and intermediate causes,Haematemesis
+K921,Immediate and intermediate causes,Melaena
+K922,Immediate and intermediate causes,"Gastrointestinal haemorrhage, unspecified"
 L02,Immediate and intermediate causes,"Cutaneous abscess, furuncle and carbuncle"
-L03,Immediate and intermediate causes,Cellulitis and acute lymphangitis
-L89,Immediate and intermediate causes,Pressure ulcer
-M02,Immediate and intermediate causes,Postinfective and reactive arthropathies
+L03,Immediate and intermediate causes,Cellulitis
+L89,Immediate and intermediate causes,Decubitus ulcer and pressure area
+M02,Immediate and intermediate causes,Reactive arthropathies
 M104,Immediate and intermediate causes,Other secondary gout
-M153,Immediate and intermediate causes,Secondary multiple arthritis
-M164,Immediate and intermediate causes,Bilateral post-traumatic osteoarthritis of hip
-M165,Immediate and intermediate causes,Unilateral post-traumatic osteoarthritis of hip
-M166,Immediate and intermediate causes,Other bilateral secondary osteoarthritis of hip
-M167,Immediate and intermediate causes,Other unilateral secondary osteoarthritis of hip
-M172,Immediate and intermediate causes,Bilateral post-traumatic osteoarthritis of knee
-M173,Immediate and intermediate causes,Unilateral post-traumatic osteoarthritis of knee
-M174,Immediate and intermediate causes,Other bilateral secondary osteoarthritis of knee
-M175,Immediate and intermediate causes,Other unilateral secondary osteoarthritis of knee
-M182,Immediate and intermediate causes,Bilateral post-traumatic osteoarthritis of first carpometacarpal joints
-M183,Immediate and intermediate causes,Unilateral post-traumatic osteoarthritis of first carpometacarpal joint
-M184,Immediate and intermediate causes,Other bilateral secondary osteoarthritis of first carpometacarpal joints
-M185,Immediate and intermediate causes,Other unilateral secondary osteoarthritis of first carpometacarpal joint
-M191,Immediate and intermediate causes,Post-traumatic osteoarthritis of other joints
-M192,Immediate and intermediate causes,Secondary osteoarthritis of other joints
+M153,Immediate and intermediate causes,Secondary multiple arthrosis
+M164,Immediate and intermediate causes,"Post-traumatic coxarthrosis, bilateral"
+M165,Immediate and intermediate causes,Other post-traumatic coxarthrosis
+M166,Immediate and intermediate causes,"Other secondary coxarthrosis, bilateral"
+M167,Immediate and intermediate causes,Other secondary coxarthrosis
+M172,Immediate and intermediate causes,"Post-traumatic gonarthrosis, bilateral"
+M173,Immediate and intermediate causes,Other post-traumatic gonarthrosis
+M174,Immediate and intermediate causes,"Other secondary gonarthrosis, bilateral"
+M175,Immediate and intermediate causes,Other secondary gonarthrosis
+M182,Immediate and intermediate causes,"Post-traumatic arthrosis of first carpometacarpal joints, bilateral"
+M183,Immediate and intermediate causes,Other post-traumatic arthrosis of first carpometacarpal joint
+M184,Immediate and intermediate causes,"Other secondary arthrosis of first carpometacarpal joints, bilateral"
+M185,Immediate and intermediate causes,Other secondary arthrosis of first carpometacarpal joint
+M191,Immediate and intermediate causes,Post-traumatic arthrosis of other joints
+M192,Immediate and intermediate causes,Other secondary arthrosis
 M415,Immediate and intermediate causes,Other secondary scoliosis
 M801,Immediate and intermediate causes,Postoophorectomy osteoporosis with pathological fracture
 M803,Immediate and intermediate causes,Postsurgical malabsorption osteoporosis with pathological fracture
@@ -97,8 +97,8 @@ M811,Immediate and intermediate causes,Postoophorectomy osteoporosis
 M813,Immediate and intermediate causes,Postsurgical malabsorption osteoporosis
 M86,Immediate and intermediate causes,Osteomyelitis
 M873,Immediate and intermediate causes,Other secondary osteonecrosis
-N17,Immediate and intermediate causes,Acute kidney failure
-N18,Immediate and intermediate causes,Chronic kidney disease (CKD)
+N17,Immediate and intermediate causes,Acute renal failure
+N18,Immediate and intermediate causes,Chronic kidney disease
 N19,Immediate and intermediate causes,Unspecified kidney failure
 N350,Immediate and intermediate causes,Post-traumatic urethral stricture
 N351,Immediate and intermediate causes,"Postinfective urethral stricture, not elsewhere classified"
@@ -106,10 +106,10 @@ N390,Immediate and intermediate causes,"Urinary tract infection, site not specif
 O104,Immediate and intermediate causes,"Pre-existing secondary hypertension complicating pregnancy, childbirth and the puerperium"
 O621,Immediate and intermediate causes,Secondary uterine inertia
 P22,Immediate and intermediate causes,Respiratory distress of newborn
-P509,Immediate and intermediate causes,"Newborn affected by intrauterine (fetal) blood loss, unspecified"
-P549,Immediate and intermediate causes,"Neonatal hemorrhage, unspecified"
+P509,Immediate and intermediate causes,"Fetal blood loss, unspecified"
+P549,Immediate and intermediate causes,"Neonatal haemorrhage, unspecified"
 P90,Immediate and intermediate causes,Convulsions of newborn
-A09,Nonspecific underlying causes of death,"Infectious gastroenteritis and colitis, unspecified"
+A09,Nonspecific underlying causes of death,Other gastroenteritis and colitis of infectious and unspecified origin
 A499,Nonspecific underlying causes of death,"Bacterial infection, unspecified"
 A64,Nonspecific underlying causes of death,Unspecified sexually transmitted disease
 B349,Nonspecific underlying causes of death,"Viral infection, unspecified"
@@ -117,40 +117,40 @@ B49,Nonspecific underlying causes of death,Unspecified mycosis
 B64,Nonspecific underlying causes of death,Unspecified protozoal disease
 B889,Nonspecific underlying causes of death,"Infestation, unspecified"
 B89,Nonspecific underlying causes of death,Unspecified parasitic disease
-B949,Nonspecific underlying causes of death,Sequelae of unspecified infectious and parasitic disease
-C260,Nonspecific underlying causes of death,"Malignant neoplasm of intestinal tract, part unspecified"
-C269,Nonspecific underlying causes of death,Malignant neoplasm of ill-defined sites within the digestive system
-C390,Nonspecific underlying causes of death,"Malignant neoplasm of upper respiratory tract, part unspecified"
-C399,Nonspecific underlying causes of death,"Malignant neoplasm of lower respiratory tract, part unspecified"
-C579,Nonspecific underlying causes of death,"Malignant neoplasm of female genital organ, unspecified"
-C639,Nonspecific underlying causes of death,"Malignant neoplasm of male genital organ, unspecified"
-C689,Nonspecific underlying causes of death,"Malignant neoplasm of urinary organ, unspecified"
-C729,Nonspecific underlying causes of death,"Malignant neoplasm of central nervous system, unspecified"
-C759,Nonspecific underlying causes of death,"Malignant neoplasm of endocrine gland, unspecified"
+B949,Nonspecific underlying causes of death,Sequelae of unspecified infectious or parasitic disease
+C260,Nonspecific underlying causes of death,"Intestinal tract, part unspecified"
+C269,Nonspecific underlying causes of death,Ill-defined sites within the digestive system
+C390,Nonspecific underlying causes of death,"Upper respiratory tract, part unspecified"
+C399,Nonspecific underlying causes of death,Ill-defined sites within the respiratory system
+C579,Nonspecific underlying causes of death,"Female genital organ, unspecified"
+C639,Nonspecific underlying causes of death,"Male genital organ, unspecified"
+C689,Nonspecific underlying causes of death,"Urinary organ, unspecified"
+C729,Nonspecific underlying causes of death,"Central nervous system, unspecified"
+C759,Nonspecific underlying causes of death,"Endocrine gland, unspecified"
 C76,Nonspecific underlying causes of death,Malignant neoplasm of other and ill-defined sites
-C80,Nonspecific underlying causes of death,Malignant neoplasm without specification of site
-C969,Nonspecific underlying causes of death,"Malignant neoplasm of lymphoid, hematopoietic and related tissue, unspecified"
-D019,Nonspecific underlying causes of death,"Carcinoma in situ of digestive organ, unspecified"
-D024,Nonspecific underlying causes of death,"Carcinoma in situ of respiratory system, unspecified"
+C80,Nonspecific underlying causes of death,"Malignant neoplasm, without specification of site"
+C969,Nonspecific underlying causes of death,"Malignant neoplasm of lymphoid, haematopoietic and related tissue, unspecified"
+D019,Nonspecific underlying causes of death,"Digestive organ, unspecified"
+D024,Nonspecific underlying causes of death,"Respiratory system, unspecified"
 D099,Nonspecific underlying causes of death,"Carcinoma in situ, unspecified"
-D139,Nonspecific underlying causes of death,Benign neoplasm of ill-defined sites within the digestive system
-D144,Nonspecific underlying causes of death,"Benign neoplasm of respiratory system, unspecified"
-D159,Nonspecific underlying causes of death,"Benign neoplasm of intrathoracic organ, unspecified"
-D289,Nonspecific underlying causes of death,"Benign neoplasm of female genital organ, unspecified"
-D299,Nonspecific underlying causes of death,"Benign neoplasm of male genital organ, unspecified"
-D309,Nonspecific underlying causes of death,"Benign neoplasm of urinary organ, unspecified"
-D339,Nonspecific underlying causes of death,"Benign neoplasm of central nervous system, unspecified"
-D359,Nonspecific underlying causes of death,"Benign neoplasm of endocrine gland, unspecified"
-D369,Nonspecific underlying causes of death,"Benign neoplasm, unspecified site"
-D379,Nonspecific underlying causes of death,"Neoplasm of uncertain behavior of digestive organ, unspecified"
-D386,Nonspecific underlying causes of death,"Neoplasm of uncertain behavior of respiratory organ, unspecified"
-D399,Nonspecific underlying causes of death,"Neoplasm of uncertain behavior of female genital organ, unspecified"
-D409,Nonspecific underlying causes of death,"Neoplasm of uncertain behavior of male genital organ, unspecified"
-D419,Nonspecific underlying causes of death,Neoplasm of uncertain behavior of unspecified urinary organ
-D439,Nonspecific underlying causes of death,"Neoplasm of uncertain behavior of central nervous system, unspecified"
-D449,Nonspecific underlying causes of death,Neoplasm of uncertain behavior of unspecified endocrine gland
-D479,Nonspecific underlying causes of death,"Neoplasm of uncertain behavior of lymphoid, hematopoietic and related tissue, unspecified"
-D489,Nonspecific underlying causes of death,"Neoplasm of uncertain behavior, unspecified"
+D139,Nonspecific underlying causes of death,Ill-defined sites within the digestive system
+D144,Nonspecific underlying causes of death,"Respiratory system, unspecified"
+D159,Nonspecific underlying causes of death,"Intrathoracic organ, unspecified"
+D289,Nonspecific underlying causes of death,"Female genital organ, unspecified"
+D299,Nonspecific underlying causes of death,"Male genital organ, unspecified"
+D309,Nonspecific underlying causes of death,"Urinary organ, unspecified"
+D339,Nonspecific underlying causes of death,"Central nervous system, unspecified"
+D359,Nonspecific underlying causes of death,"Endocrine gland, unspecified"
+D369,Nonspecific underlying causes of death,Benign neoplasm of unspecified site
+D379,Nonspecific underlying causes of death,"Digestive organ, unspecified"
+D386,Nonspecific underlying causes of death,"Respiratory organ, unspecified"
+D399,Nonspecific underlying causes of death,"Female genital organ, unspecified"
+D409,Nonspecific underlying causes of death,"Male genital organ, unspecified"
+D419,Nonspecific underlying causes of death,"Urinary organ, unspecified"
+D439,Nonspecific underlying causes of death,"Central nervous system, unspecified"
+D449,Nonspecific underlying causes of death,"Endocrine gland, unspecified"
+D479,Nonspecific underlying causes of death,"Neoplasm of uncertain or unknown behaviour of lymphoid, haematopoietic and related tissue, unspecified"
+D489,Nonspecific underlying causes of death,"Neoplasm of uncertain or unknown behaviour, unspecified"
 D689,Nonspecific underlying causes of death,"Coagulation defect, unspecified"
 D729,Nonspecific underlying causes of death,"Disorder of white blood cells, unspecified"
 D739,Nonspecific underlying causes of death,"Disease of spleen, unspecified"
@@ -170,24 +170,24 @@ E349,Nonspecific underlying causes of death,"Endocrine disorder, unspecified"
 E889,Nonspecific underlying causes of death,"Metabolic disorder, unspecified"
 F03,Nonspecific underlying causes of death,Unspecified dementia
 F069,Nonspecific underlying causes of death,Unspecified mental disorder due to brain damage and dysfunction and to physical disease
-F079,Nonspecific underlying causes of death,Unspecified personality and behavioral disorder due to known physiological condition
-F09,Nonspecific underlying causes of death,Unspecified mental disorder due to known physiological condition
+F079,Nonspecific underlying causes of death,"Unspecified organic personality and behavioural disorder due to brain disease, damage and dysfunction"
+F09,Nonspecific underlying causes of death,Unspecified organic or symptomatic mental disorder
 F99,Nonspecific underlying causes of death,"Mental disorder, not otherwise specified"
 G319,Nonspecific underlying causes of death,"Degenerative disease of nervous system, unspecified"
 G629,Nonspecific underlying causes of death,"Polyneuropathy, unspecified"
 G729,Nonspecific underlying causes of death,"Myopathy, unspecified"
-G909,Nonspecific underlying causes of death,"Disorder of the autonomic nervous system, unspecified"
+G909,Nonspecific underlying causes of death,"Disorder of autonomic nervous system, unspecified"
 G939,Nonspecific underlying causes of death,"Disorder of brain, unspecified"
 G959,Nonspecific underlying causes of death,"Disease of spinal cord, unspecified"
 G969,Nonspecific underlying causes of death,"Disorder of central nervous system, unspecified"
-H059,Nonspecific underlying causes of death,Unspecified disorder of orbit
-H449,Nonspecific underlying causes of death,Unspecified disorder of globe
-H699,Nonspecific underlying causes of death,Unspecified Eustachian tube disorder
-H739,Nonspecific underlying causes of death,Unspecified disorder of tympanic membrane
-H749,Nonspecific underlying causes of death,Unspecified disorder of middle ear and mastoid
+H059,Nonspecific underlying causes of death,"Disorder of orbit, unspecified"
+H449,Nonspecific underlying causes of death,"Disorder of globe, unspecified"
+H699,Nonspecific underlying causes of death,"Eustachian tube disorder, unspecified"
+H739,Nonspecific underlying causes of death,"Disorder of tympanic membrane, unspecified"
+H749,Nonspecific underlying causes of death,"Disorder of middle ear and mastoid, unspecified"
 I250,Nonspecific underlying causes of death,"Atherosclerotic cardiovascular disease, so described"
-I251,Nonspecific underlying causes of death,Atherosclerotic heart disease of native coronary artery
-I259,Nonspecific underlying causes of death,"Chronic ischemic heart disease, unspecified"
+I251,Nonspecific underlying causes of death,Atherosclerotic heart disease
+I259,Nonspecific underlying causes of death,"Chronic ischaemic heart disease, unspecified"
 I289,Nonspecific underlying causes of death,"Disease of pulmonary vessels, unspecified"
 I459,Nonspecific underlying causes of death,"Conduction disorder, unspecified"
 I516,Nonspecific underlying causes of death,"Cardiovascular disease, unspecified"
@@ -196,7 +196,7 @@ I519,Nonspecific underlying causes of death,"Heart disease, unspecified"
 I64,Nonspecific underlying causes of death,"Stroke, not specified as haemorrhage or infarction"
 I679,Nonspecific underlying causes of death,"Cerebrovascular disease, unspecified"
 I694,Nonspecific underlying causes of death,"Sequelae of stroke, not specified as haemorrhage or infarction"
-I729,Nonspecific underlying causes of death,Aneurysm of unspecified site
+I729,Nonspecific underlying causes of death,Aneurysm and dissection of unspecified site
 I779,Nonspecific underlying causes of death,"Disorder of arteries and arterioles, unspecified"
 I789,Nonspecific underlying causes of death,"Disease of capillaries, unspecified"
 I879,Nonspecific underlying causes of death,"Disorder of vein, unspecified"
@@ -205,7 +205,7 @@ J22,Nonspecific underlying causes of death,Unspecified acute lower respiratory i
 J399,Nonspecific underlying causes of death,"Disease of upper respiratory tract, unspecified"
 J709,Nonspecific underlying causes of death,Respiratory conditions due to unspecified external agent
 J989,Nonspecific underlying causes of death,"Respiratory disorder, unspecified"
-K229,Nonspecific underlying causes of death,"Disease of esophagus, unspecified"
+K229,Nonspecific underlying causes of death,"Disease of oesophagus, unspecified"
 K319,Nonspecific underlying causes of death,"Disease of stomach and duodenum, unspecified"
 K389,Nonspecific underlying causes of death,"Disease of appendix, unspecified"
 K629,Nonspecific underlying causes of death,"Disease of anus and rectum, unspecified"
@@ -218,7 +218,7 @@ K869,Nonspecific underlying causes of death,"Disease of pancreas, unspecified"
 K929,Nonspecific underlying causes of death,"Disease of digestive system, unspecified"
 L279,Nonspecific underlying causes of death,Dermatitis due to unspecified substance taken internally
 M509,Nonspecific underlying causes of death,"Cervical disc disorder, unspecified"
-M519,Nonspecific underlying causes of death,"Unspecified thoracic, thoracolumbar and lumbosacral intervertebral disc disorder"
+M519,Nonspecific underlying causes of death,"Intervertebral disc disorder, unspecified"
 M629,Nonspecific underlying causes of death,"Disorder of muscle, unspecified"
 M729,Nonspecific underlying causes of death,"Fibroblastic disorder, unspecified"
 M899,Nonspecific underlying causes of death,"Disorder of bone, unspecified"
@@ -233,36 +233,36 @@ N489,Nonspecific underlying causes of death,"Disorder of penis, unspecified"
 N509,Nonspecific underlying causes of death,"Disorder of male genital organs, unspecified"
 N63,Nonspecific underlying causes of death,Unspecified lump in breast
 N649,Nonspecific underlying causes of death,"Disorder of breast, unspecified"
-N759,Nonspecific underlying causes of death,"Disease of Bartholin's gland, unspecified"
+N759,Nonspecific underlying causes of death,"Disease of Bartholin gland, unspecified"
 N839,Nonspecific underlying causes of death,"Noninflammatory disorder of ovary, fallopian tube and broad ligament, unspecified"
 O06,Nonspecific underlying causes of death,Unspecified abortion
-O249,Nonspecific underlying causes of death,"Unspecified diabetes mellitus in pregnancy, childbirth and the puerperium"
-O269,Nonspecific underlying causes of death,"Pregnancy related conditions, unspecified"
+O249,Nonspecific underlying causes of death,"Diabetes mellitus in pregnancy, unspecified"
+O269,Nonspecific underlying causes of death,"Pregnancy-related condition, unspecified"
 O419,Nonspecific underlying causes of death,"Disorder of amniotic fluid and membranes, unspecified"
-O439,Nonspecific underlying causes of death,Unspecified placental disorder
+O439,Nonspecific underlying causes of death,"Placental disorder, unspecified"
 O719,Nonspecific underlying causes of death,"Obstetric trauma, unspecified"
-O759,Nonspecific underlying causes of death,"Complication of labor and delivery, unspecified"
+O759,Nonspecific underlying causes of death,"Complication of labour and delivery, unspecified"
 O909,Nonspecific underlying causes of death,"Complication of the puerperium, unspecified"
 O95,Nonspecific underlying causes of death,Obstetric death of unspecified cause
 O969,Nonspecific underlying causes of death,Death from unspecified obstetric cause
 O979,Nonspecific underlying causes of death,"Death from sequelae of obstetric cause, unspecified"
-O989,Nonspecific underlying causes of death,"Unspecified maternal infectious and parasitic disease complicating pregnancy, childbirth and the puerperium"
-P009,Nonspecific underlying causes of death,Newborn affected by unspecified maternal condition
-P019,Nonspecific underlying causes of death,"Newborn affected by maternal complication of pregnancy, unspecified"
-P029,Nonspecific underlying causes of death,"Newborn affected by abnormality of membranes, unspecified"
-P039,Nonspecific underlying causes of death,"Newborn affected by complication of labor and delivery, unspecified"
-P049,Nonspecific underlying causes of death,"Newborn affected by maternal noxious substance, unspecified"
+O989,Nonspecific underlying causes of death,"Unspecified maternal infectious or parasitic disease complicating pregnancy, childbirth and the puerperium"
+P009,Nonspecific underlying causes of death,Fetus and newborn affected by unspecified maternal condition
+P019,Nonspecific underlying causes of death,"Fetus and newborn affected by maternal complication of pregnancy, unspecified"
+P029,Nonspecific underlying causes of death,"Fetus and newborn affected by abnormality of membranes, unspecified"
+P039,Nonspecific underlying causes of death,"Fetus and newborn affected by complication of labour and delivery, unspecified"
+P049,Nonspecific underlying causes of death,"Fetus and newborn affected by maternal noxious influence, unspecified"
 P289,Nonspecific underlying causes of death,"Respiratory condition of newborn, unspecified"
 P299,Nonspecific underlying causes of death,"Cardiovascular disorder originating in the perinatal period, unspecified"
 P359,Nonspecific underlying causes of death,"Congenital viral disease, unspecified"
 P369,Nonspecific underlying causes of death,"Bacterial sepsis of newborn, unspecified"
-P379,Nonspecific underlying causes of death,"Congenital infectious or parasitic disease, unspecified"
+P379,Nonspecific underlying causes of death,"Congenital infectious and parasitic disease, unspecified"
 P399,Nonspecific underlying causes of death,"Infection specific to the perinatal period, unspecified"
-P619,Nonspecific underlying causes of death,"Perinatal hematological disorder, unspecified"
+P619,Nonspecific underlying causes of death,"Perinatal haematological disorder, unspecified"
 P729,Nonspecific underlying causes of death,"Transitory neonatal endocrine disorder, unspecified"
 P749,Nonspecific underlying causes of death,"Transitory metabolic disturbance of newborn, unspecified"
 P789,Nonspecific underlying causes of death,"Perinatal digestive system disorder, unspecified"
-P839,Nonspecific underlying causes of death,"Condition of the integument specific to newborn, unspecified"
+P839,Nonspecific underlying causes of death,"Condition of integument specific to fetus and newborn, unspecified"
 P919,Nonspecific underlying causes of death,"Disturbance of cerebral status of newborn, unspecified"
 P949,Nonspecific underlying causes of death,"Disorder of muscle tone of newborn, unspecified"
 P969,Nonspecific underlying causes of death,"Condition originating in the perinatal period, unspecified"
@@ -278,7 +278,7 @@ Q999,Nonspecific underlying causes of death,"Chromosomal abnormality, unspecifie
 U019,Nonspecific underlying causes of death,"Terrorism, unspecified"
 V99,Nonspecific underlying causes of death,Unspecified transport accident
 W19,Nonspecific underlying causes of death,Unspecified fall
-W74,Nonspecific underlying causes of death,Unspecified cause of accidental drowning and submersion
+W74,Nonspecific underlying causes of death,Unspecified drowning and submersion
 W84,Nonspecific underlying causes of death,Unspecified threat to breathing
 X29,Nonspecific underlying causes of death,Contact with unspecified venomous animal or plant
 X57,Nonspecific underlying causes of death,Unspecified privation
@@ -288,112 +288,103 @@ X90,Nonspecific underlying causes of death,Assault by unspecified chemical or no
 Y09,Nonspecific underlying causes of death,Assault by unspecified means
 Y34,Nonspecific underlying causes of death,"Unspecified event, undetermined intent"
 Y357,Nonspecific underlying causes of death,"Legal intervention, means unspecified"
-Y369,Nonspecific underlying causes of death,Other and unspecified war operations
+Y369,Nonspecific underlying causes of death,"War operations, unspecified"
 Y579,Nonspecific underlying causes of death,"Drug or medicament, unspecified"
 Y599,Nonspecific underlying causes of death,"Vaccine or biological substance, unspecified"
 Y69,Nonspecific underlying causes of death,Unspecified misadventure during surgical and medical care
-Y839,Nonspecific underlying causes of death,"Surgical procedure, unspecified as the cause of abnormal reaction of the patient, or of later complication, without mention of misadventure at the time of the procedure"
-Y849,Nonspecific underlying causes of death,"Medical procedure, unspecified as the cause of abnormal reaction of the patient, or of later complication, without mention of misadventure at the time of the procedure"
+Y839,Nonspecific underlying causes of death,"Surgical procedure, unspecified"
+Y849,Nonspecific underlying causes of death,"Medical procedure, unspecified"
 Y899,Nonspecific underlying causes of death,Sequelae of unspecified external cause
 I46,Unknown and ill-defined causes,Cardiac arrest
 J96,Unknown and ill-defined causes,"Respiratory failure, not elsewhere classified"
 P285,Unknown and ill-defined causes,Respiratory failure of newborn
 R00,Unknown and ill-defined causes,Abnormalities of heart beat
 R01,Unknown and ill-defined causes,Cardiac murmurs and other cardiac sounds
-R02,Unknown and ill-defined causes,"Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified"
+R02,Unknown and ill-defined causes,"Gangrene, not elsewhere classified"
 R03,Unknown and ill-defined causes,"Abnormal blood-pressure reading, without diagnosis"
-R04,Unknown and ill-defined causes,Hemorrhage from respiratory passages
+R04,Unknown and ill-defined causes,Haemorrhage from respiratory passages
 R05,Unknown and ill-defined causes,Cough
 R06,Unknown and ill-defined causes,Abnormalities of breathing
 R07,Unknown and ill-defined causes,Pain in throat and chest
-R08,Unknown and ill-defined causes,"Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified"
-R09,Unknown and ill-defined causes,Other symptoms and signs involving the circulatory and respiratory system
+R09,Unknown and ill-defined causes,Other symptoms and signs involving the circulatory and respiratory systems
 R10,Unknown and ill-defined causes,Abdominal and pelvic pain
 R11,Unknown and ill-defined causes,Nausea and vomiting
 R12,Unknown and ill-defined causes,Heartburn
-R13,Unknown and ill-defined causes,Aphagia and dysphagia
+R13,Unknown and ill-defined causes,Dysphagia
 R14,Unknown and ill-defined causes,Flatulence and related conditions
-R15,Unknown and ill-defined causes,Fecal incontinence
+R15,Unknown and ill-defined causes,Faecal incontinence
 R16,Unknown and ill-defined causes,"Hepatomegaly and splenomegaly, not elsewhere classified"
-R17,Unknown and ill-defined causes,Unspecified jaundice
+R17,Unknown and ill-defined causes,"Hyperbilirubinaemia, with or without jaundice, not elsewhere classified"
 R18,Unknown and ill-defined causes,Ascites
 R19,Unknown and ill-defined causes,Other symptoms and signs involving the digestive system and abdomen
 R20,Unknown and ill-defined causes,Disturbances of skin sensation
 R21,Unknown and ill-defined causes,Rash and other nonspecific skin eruption
 R22,Unknown and ill-defined causes,"Localized swelling, mass and lump of skin and subcutaneous tissue"
 R23,Unknown and ill-defined causes,Other skin changes
-R24,Unknown and ill-defined causes,"Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified"
 R25,Unknown and ill-defined causes,Abnormal involuntary movements
 R26,Unknown and ill-defined causes,Abnormalities of gait and mobility
 R27,Unknown and ill-defined causes,Other lack of coordination
-R28,Unknown and ill-defined causes,"Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified"
 R29,Unknown and ill-defined causes,Other symptoms and signs involving the nervous and musculoskeletal systems
 R30,Unknown and ill-defined causes,Pain associated with micturition
-R31,Unknown and ill-defined causes,Hematuria
+R31,Unknown and ill-defined causes,Unspecified haematuria
 R32,Unknown and ill-defined causes,Unspecified urinary incontinence
 R33,Unknown and ill-defined causes,Retention of urine
 R34,Unknown and ill-defined causes,Anuria and oliguria
 R35,Unknown and ill-defined causes,Polyuria
 R36,Unknown and ill-defined causes,Urethral discharge
-R37,Unknown and ill-defined causes,"Sexual dysfunction, unspecified"
-R38,Unknown and ill-defined causes,"Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified"
-R39,Unknown and ill-defined causes,Other and unspecified symptoms and signs involving the genitourinary system
+R39,Unknown and ill-defined causes,Other symptoms and signs involving the urinary system
 R40,Unknown and ill-defined causes,"Somnolence, stupor and coma"
 R41,Unknown and ill-defined causes,Other symptoms and signs involving cognitive functions and awareness
 R42,Unknown and ill-defined causes,Dizziness and giddiness
 R43,Unknown and ill-defined causes,Disturbances of smell and taste
 R44,Unknown and ill-defined causes,Other symptoms and signs involving general sensations and perceptions
 R45,Unknown and ill-defined causes,Symptoms and signs involving emotional state
-R46,Unknown and ill-defined causes,Symptoms and signs involving appearance and behavior
+R46,Unknown and ill-defined causes,Symptoms and signs involving appearance and behaviour
 R47,Unknown and ill-defined causes,"Speech disturbances, not elsewhere classified"
 R48,Unknown and ill-defined causes,"Dyslexia and other symbolic dysfunctions, not elsewhere classified"
-R49,Unknown and ill-defined causes,Voice and resonance disorders
+R49,Unknown and ill-defined causes,Voice disturbances
 R50,Unknown and ill-defined causes,Fever of other and unknown origin
 R51,Unknown and ill-defined causes,Headache
-R52,Unknown and ill-defined causes,"Pain, unspecified"
+R52,Unknown and ill-defined causes,"Pain, not elsewhere classified"
 R53,Unknown and ill-defined causes,Malaise and fatigue
-R54,Unknown and ill-defined causes,Age-related physical debility
+R54,Unknown and ill-defined causes,Senility
 R55,Unknown and ill-defined causes,Syncope and collapse
 R56,Unknown and ill-defined causes,"Convulsions, not elsewhere classified"
 R57,Unknown and ill-defined causes,"Shock, not elsewhere classified"
-R58,Unknown and ill-defined causes,"Hemorrhage, not elsewhere classified"
+R58,Unknown and ill-defined causes,"Haemorrhage, not elsewhere classified"
 R59,Unknown and ill-defined causes,Enlarged lymph nodes
-R60,Unknown and ill-defined causes,"Edema, not elsewhere classified"
-R61,Unknown and ill-defined causes,Generalized hyperhidrosis
-R62,Unknown and ill-defined causes,Lack of expected normal physiological development in childhood and adults
+R60,Unknown and ill-defined causes,"Oedema, not elsewhere classified"
+R61,Unknown and ill-defined causes,Hyperhidrosis
+R62,Unknown and ill-defined causes,Lack of expected normal physiological development
 R63,Unknown and ill-defined causes,Symptoms and signs concerning food and fluid intake
 R64,Unknown and ill-defined causes,Cachexia
-R65,Unknown and ill-defined causes,Symptoms and signs specifically associated with systemic inflammation and infection
-R66,Unknown and ill-defined causes,"Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified"
-R67,Unknown and ill-defined causes,"Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified"
+R65,Unknown and ill-defined causes,Systemic Inflammatory Response Syndrome [SIRS]
 R68,Unknown and ill-defined causes,Other general symptoms and signs
-R69,Unknown and ill-defined causes,"Illness, unspecified"
+R69,Unknown and ill-defined causes,Unknown and unspecified causes of morbidity
 R70,Unknown and ill-defined causes,Elevated erythrocyte sedimentation rate and abnormality of plasma viscosity
 R71,Unknown and ill-defined causes,Abnormality of red blood cells
-R72,Unknown and ill-defined causes,"Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified"
+R72,Unknown and ill-defined causes,"Abnormality of white blood cells, not elsewhere classified"
 R73,Unknown and ill-defined causes,Elevated blood glucose level
 R74,Unknown and ill-defined causes,Abnormal serum enzyme levels
-R75,Unknown and ill-defined causes,Inconclusive laboratory evidence of human immunodeficiency virus [HIV]
+R75,Unknown and ill-defined causes,Laboratory evidence of human immunodeficiency virus [HIV]
 R76,Unknown and ill-defined causes,Other abnormal immunological findings in serum
 R77,Unknown and ill-defined causes,Other abnormalities of plasma proteins
 R78,Unknown and ill-defined causes,"Findings of drugs and other substances, not normally found in blood"
 R79,Unknown and ill-defined causes,Other abnormal findings of blood chemistry
-R80,Unknown and ill-defined causes,Proteinuria
+R80,Unknown and ill-defined causes,Isolated proteinuria
 R81,Unknown and ill-defined causes,Glycosuria
-R82,Unknown and ill-defined causes,Other and unspecified abnormal findings in urine
+R82,Unknown and ill-defined causes,Other abnormal findings in urine
 R83,Unknown and ill-defined causes,Abnormal findings in cerebrospinal fluid
 R84,Unknown and ill-defined causes,Abnormal findings in specimens from respiratory organs and thorax
 R85,Unknown and ill-defined causes,Abnormal findings in specimens from digestive organs and abdominal cavity
 R86,Unknown and ill-defined causes,Abnormal findings in specimens from male genital organs
 R87,Unknown and ill-defined causes,Abnormal findings in specimens from female genital organs
-R88,Unknown and ill-defined causes,Abnormal findings in other body fluids and substances
 R89,Unknown and ill-defined causes,"Abnormal findings in specimens from other organs, systems and tissues"
 R90,Unknown and ill-defined causes,Abnormal findings on diagnostic imaging of central nervous system
 R91,Unknown and ill-defined causes,Abnormal findings on diagnostic imaging of lung
-R92,Unknown and ill-defined causes,Abnormal and inconclusive findings on diagnostic imaging of breast
+R92,Unknown and ill-defined causes,Abnormal findings on diagnostic imaging of breast
 R93,Unknown and ill-defined causes,Abnormal findings on diagnostic imaging of other body structures
 R94,Unknown and ill-defined causes,Abnormal results of function studies
-R96,Unknown and ill-defined causes,"Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified"
-R97,Unknown and ill-defined causes,Abnormal tumor markers
-R98,Unknown and ill-defined causes,"Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified"
-R99,Unknown and ill-defined causes,Ill-defined and unknown cause of mortality
+R96,Unknown and ill-defined causes,"Other sudden death, cause unknown"
+R98,Unknown and ill-defined causes,Unattended death
+R99,Unknown and ill-defined causes,Other ill-defined and unspecified causes of mortality
