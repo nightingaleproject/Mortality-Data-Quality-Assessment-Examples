@@ -30,6 +30,10 @@ This code repository contains
 
 * A data file ([unsuitable_COD_codes.csv](data/unsuitable_COD_codes.csv)), located in the [data](data) directory, containing ICD10 codes that have been identified as unsuitable underlying causes of death as listed in ([Flagg 2021](https://stacks.cdc.gov/view/cdc/100414)).
 
+    * Note that the file contains both specific four digit ICD-10 codes, which don't include the decimal point (e.g., I959, referring to "Hypotension, unspecified") and three digit ICD-10 codes for broader categories, e.g., J18, referring to "Pneumonia, organism unspecified".
+    * Three digit codes imply the inclusion of all related four digit codes, e.g., J18, referring to "Pneumonia, organism unspecified", also implicitly means the inclusion of J180, referring to "Bronchopneumonia, unspecified", J181, referring to "Lobar pneumonia, unspecified", etc.
+    * Software that tests for matches to the list of unsuitable underlying causes of death should simply test if the underlying code in a record begins with an unsuitable code from the data file, e.g., J189 appearing as the underlying code in a record should match against J18 from the list of unsuitable codes since J189 begins with J18.
+
 * A Jupyter Notebook ([MortalityDataQualityAssessment.ipynb](MortalityDataQualityAssessment.ipynb)) that demonstrates calculation of several metrics for assessing mortality data quality.
 
 * Example python scripts to demonstrate calculation of various metrics for assessing mortality data quality:
