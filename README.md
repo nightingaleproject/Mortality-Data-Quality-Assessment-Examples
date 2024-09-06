@@ -30,6 +30,8 @@ This code repository contains
 
 * A data file [unsuitable_COD_codes.csv](data/unsuitable_COD_codes.csv), located in the [data](data) directory, containing ICD10 codes that have been identified as unsuitable underlying causes of death as listed in ([Flagg 2021](https://stacks.cdc.gov/view/cdc/100414)).
 
+* A Jupyter Notebook [MortalityDataQualityAssessment.ipynb](MortalityDataQualityAssessment.ipynb) that demonstrates calculation of several metrics for assessing mortality data quality.
+
 * Example python scripts to demonstrate calculation of various metrics for assessing mortality data quality:
 
   * [proportion_not_certified_within_required_time.py](code/proportion_not_certified_within_required_time.py) – Proportion of records that were not certified within the expected time – jurisdictions typically specify how quickly a death should be certified after the actual date of death.
