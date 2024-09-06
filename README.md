@@ -28,9 +28,9 @@ This code repository contains
 
 * An example synthetic data file ([NotionalDeathRecordData.csv](data/NotionalDeathRecordData.csv)), located in the [data](data) directory, containing synthetic mortality data representing the type of data that a jurisdiction should have available for quality assessment.
 
-* A data file [unsuitable_COD_codes.csv](data/unsuitable_COD_codes.csv), located in the [data](data) directory, containing ICD10 codes that have been identified as unsuitable underlying causes of death as listed in ([Flagg 2021](https://stacks.cdc.gov/view/cdc/100414)).
+* A data file ([unsuitable_COD_codes.csv](data/unsuitable_COD_codes.csv)), located in the [data](data) directory, containing ICD10 codes that have been identified as unsuitable underlying causes of death as listed in ([Flagg 2021](https://stacks.cdc.gov/view/cdc/100414)).
 
-* A Jupyter Notebook [MortalityDataQualityAssessment.ipynb](MortalityDataQualityAssessment.ipynb) that demonstrates calculation of several metrics for assessing mortality data quality.
+* A Jupyter Notebook ([MortalityDataQualityAssessment.ipynb](MortalityDataQualityAssessment.ipynb)) that demonstrates calculation of several metrics for assessing mortality data quality.
 
 * Example python scripts to demonstrate calculation of various metrics for assessing mortality data quality:
 
