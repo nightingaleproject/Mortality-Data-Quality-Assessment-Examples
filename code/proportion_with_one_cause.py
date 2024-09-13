@@ -1,8 +1,14 @@
+import os
 import pandas as pd
 
-# Load the CSV file into a DataFrame
+# Locate the relative path to the data location
+data_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "data")
+
+# Load the death records data
 death_records = pd.read_csv(
-    "../data/NotionalDeathRecordData.csv", keep_default_na=False, na_values=[""]
+    os.path.join(data_path, "NotionalDeathRecordData.csv"),
+    keep_default_na=False,
+    na_values=[""],
 )
 
 # Create a new column that is True when Record Axis COD 1 is present and Record Axis COD 2-10 are not

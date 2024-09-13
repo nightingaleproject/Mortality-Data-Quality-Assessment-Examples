@@ -1,8 +1,14 @@
+import os
 import pandas as pd
 
-# Load the death records data
+# Locate the relative path to the data location
+data_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "data")
+
+# Load the death record data
 death_records = pd.read_csv(
-    "../data/NotionalDeathRecordData.csv", keep_default_na=False, na_values=[""]
+    os.path.join(data_path, "NotionalDeathRecordData.csv"),
+    keep_default_na=False,
+    na_values=[""],
 )
 
 # Find all 'Entity Axis Line' columns
