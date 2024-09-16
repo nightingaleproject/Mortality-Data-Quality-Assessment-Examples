@@ -21,5 +21,5 @@ death_records["Incomplete Demographics"] = death_records[demographic_columns].ap
 proportion = death_records["Incomplete Demographics"].mean()
 
 print(
-    f"The proportion of records with at least one demographic field incomplete is {proportion:.4f}"
+    f"The proportion of records with at least one demographic field incomplete is {proportion:.3f}"
 )

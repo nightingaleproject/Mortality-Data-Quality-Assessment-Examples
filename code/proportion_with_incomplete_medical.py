@@ -12,11 +12,13 @@ death_records = pd.read_csv(
 )
 
 # Define the medical columns
-medical_columns = ["Pregnancy", "Tobacco"]  # add or remove columns as needed
+medical_columns = ["Tobacco Use Contributed to Death"]  # add or remove columns as needed
 
 # Create a new column that is True when at least one medical field is empty
 death_records["Incomplete Medical Fields"] = (
-    death_records[medical_columns].isna().any(axis=1)
+    # We special case the column with pregnancy status since it only applies to female decedents
+    death_records[medical_columns].apply(lambda row: row.str.contains('Unknown').any() or row.isna().any(), axis=1) |
+    ((death_records["Sex"] == 'F') & ((death_records["Pregnancy Status"] == 'Unknown') | death_records["Pregnancy Status"].isnull()))
 )
 
 # Calculate the proportion of records with incomplete medical fields
