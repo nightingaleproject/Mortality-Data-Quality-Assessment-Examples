@@ -12,10 +12,16 @@ death_records = pd.read_csv(
 )
 
 # Define the demographic columns we're interested in; this example identifies race and ethnicity columns
-demographic_columns = [col for col in death_records.columns if col.startswith('Race') or col.startswith('Hispanic')]
+demographic_columns = [
+    col
+    for col in death_records.columns
+    if col.startswith("Race") or col.startswith("Hispanic")
+]
 
 # Create a new column that is True when at least one demographic field is "unknown"
-death_records["Incomplete Demographics"] = death_records[demographic_columns].apply(lambda row: row.str.contains('U').any(), axis=1)
+death_records["Incomplete Demographics"] = death_records[demographic_columns].apply(
+    lambda row: row.str.contains("U").any(), axis=1
+)
 
 # Calculate the proportion of records with incomplete demographic fields
 proportion = death_records["Incomplete Demographics"].mean()

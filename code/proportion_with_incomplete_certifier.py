@@ -18,8 +18,8 @@ certifier_columns = [
 ]  # add or remove columns as needed
 
 # Create a new column that is True when at least one certifier field is empty or unknown
-death_records["Incomplete Certifier Fields"] = (
-    death_records[certifier_columns].apply(lambda row: row.str.contains('Unknown').any() or row.isna().any(), axis=1)
+death_records["Incomplete Certifier Fields"] = death_records[certifier_columns].apply(
+    lambda row: row.str.contains("Unknown").any() or row.isna().any(), axis=1
 )
 
 # Calculate the proportion of records with incomplete certifier fields

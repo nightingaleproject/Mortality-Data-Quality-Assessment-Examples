@@ -58,7 +58,7 @@ Note that there is currently no example code to determine the proportion of reco
 
 ## Requirements
 
-Running this example code requires
+Running the standalone example code requires
 
 * Python 3.6 or higher
 * The pandas library
@@ -67,6 +67,12 @@ You can install pandas with pip:
 
 ```
 pip install pandas
+```
+
+Running the Jupyter Notebook example requires Jupyter Notebook to be installed. Jupyter Notebook can be installed with pip:
+
+```
+pip install notebook
 ```
 
 ## Usage
@@ -78,6 +84,14 @@ Running the example code can be done by invoking each script with python, e.g.:
 > python proportion_with_unsuitable_underlying.py   
 The proportion of records with an unsuitable underlying cause of death is 0.20
 ```
+
+Running the Jupyter Notebook can be done by starting the Jupyter Notebook server:
+
+```
+jupyter notebook
+```
+
+Once Jupyter Notebook is running you can open the `MortalityDataQualityAssessment.ipynb` notebook file within Jupyter.
 
 The examples have an embedded reference to the sample mortality data file. The code is not intended to be run directly in a jurisdiction environment since each jurisdiction may organize data differently, but rather is intended to serve as examples that can be adapted as needed or simply serve as reference materials when developing systems to measure quality metrics.
 
