@@ -54,9 +54,13 @@ This code repository contains
 
   * [proportion_without_other_conditions.py](code/proportion_without_other_conditions.py) – Proportion of records without other significant conditions – part II of the death certificate contains medical conditions that contributed to the death but were not considered to be part of the chain of events that led to death.
 
+* Example R scripts (currently just one) to demonstrate calculation of various metrics for assessing mortality data quality:
+
+  * [proportion_with_unsuitable_underlying.R](code/proportion_with_unsuitable_underlying.R) – operates identically to the related python script.
+
 Note that there is currently no example code to determine the proportion of records with an implausible sequence for cause of death.
 
-## Requirements
+## Requirements: Python
 
 Running the standalone example code requires
 
@@ -75,7 +79,7 @@ Running the Jupyter Notebook example requires Jupyter Notebook to be installed. 
 pip install notebook
 ```
 
-## Usage
+## Usage: Python
 
 Running the example code can be done by invoking each script with python, e.g.:
 
@@ -94,6 +98,29 @@ jupyter notebook
 Once Jupyter Notebook is running you can open the `MortalityDataQualityAssessment.ipynb` notebook file within Jupyter.
 
 The examples have an embedded reference to the sample mortality data file. The code is not intended to be run directly in a jurisdiction environment since each jurisdiction may organize data differently, but rather is intended to serve as examples that can be adapted as needed or simply serve as reference materials when developing systems to measure quality metrics.
+
+## Requirements: R
+
+Running the standalone example code requires
+
+* RStudio
+* The dplyr library
+
+You can install dplyr with
+
+```
+install.packages("dplyr", dependencies = TRUE)
+```
+
+## Usage: R
+
+Running the example code can be done by invoking each script in RStudio, e.g.:
+
+```
+source("~/Mortality-Data-Quality-Assessment-Examples/code/proportion_with_unsuitable_underlying.R")
+```
+
+(updating the path to the code as appropriate)
 
 ## License
 
