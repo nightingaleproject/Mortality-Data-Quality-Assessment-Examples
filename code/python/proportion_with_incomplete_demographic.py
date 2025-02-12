@@ -2,7 +2,7 @@ import os
 import pandas as pd
 
 # Locate the relative path to the data location
-data_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "data")
+data_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "..", "data")
 
 # Load the death record data
 death_records = pd.read_csv(

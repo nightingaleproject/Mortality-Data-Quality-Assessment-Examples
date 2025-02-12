@@ -2,7 +2,7 @@
 library(dplyr)
 
 # Locate the relative path to the data location
-data_path <- file.path(dirname(normalizePath(sys.frame(1)$ofile)), "..", "data")
+data_path <- file.path(dirname(normalizePath(sys.frame(1)$ofile)), "..", "..", "data")
 
 # Load the death records data
 death_records <- read.csv(
