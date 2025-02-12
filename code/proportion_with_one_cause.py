@@ -22,3 +22,14 @@ proportion = death_records["COD1 Only"].mean()
 print(
     f"The proportion of records with an entry in the Record Axis COD 1 column but not in the Record Axis COD 2-10 columns is {proportion:.2f}"
 )
+
+# Group the records by certifier and calculate the proportion of flagged records for each certifier
+certifier_proportions = death_records.groupby("Certifier Name")[
+    "COD1 Only"
+].mean()
+
+# Print the proportions for each certifier
+for certifier, proportion in certifier_proportions.items():
+    print(
+        f"The proportion of records with an entry in the Record Axis COD 1 column but not in the Record Axis COD 2-10 columns provided by {certifier} is {proportion:.2f}"
+    )
