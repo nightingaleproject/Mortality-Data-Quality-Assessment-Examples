@@ -12,25 +12,24 @@ death_records <- read.csv(
   na.strings = ""
 )
 
-# Create a new column that is TRUE when Record Axis COD 1 is present and Record Axis COD 2-10 are not
+# Create a new column that is True when a single Record Axis COD column is populated
 death_records <- death_records %>%
-  mutate(`COD1 Only` = !is.na(`Record Axis COD 1`) & 
-           rowSums(is.na(select(., starts_with("Record Axis COD "))[-1])) == 9)
+  mutate(`Single Record Axis COD` = rowSums(!is.na(select(., starts_with("Record Axis COD")))) == 1)
 
-# Calculate the proportion of records with only Record Axis COD 1
-proportion <- mean(death_records$`COD1 Only`, na.rm = TRUE)
+# Calculate the proportion of records with only one Record Axis COD
+proportion <- mean(death_records$`Single Record Axis COD`, na.rm = TRUE)
 
-cat(paste("The proportion of records with an entry in the Record Axis COD 1 column but not in the Record Axis COD 2-10 columns is",
+cat(paste("The proportion of records with a single Record Axis COD is",
           round(proportion, 2), "\n"))
 
 # Group the records by certifier and calculate the proportion of flagged records for each certifier
 certifier_proportions <- death_records %>%
   group_by(`Certifier Name`) %>%
-  summarize(Proportion = mean(`COD1 Only`, na.rm = TRUE))
+  summarize(Proportion = mean(`Single Record Axis COD`, na.rm = TRUE))
 
 # Print the proportions for each certifier
 for(i in 1:nrow(certifier_proportions)) {
-  cat(paste("The proportion of records with an entry in the Record Axis COD 1 column but not in the Record Axis COD 2-10 columns provided by",
+  cat(paste("The proportion of records with a single Record Axis COD provided by",
             certifier_proportions[i, "Certifier Name"],
             "is",
             round(certifier_proportions[i, "Proportion"], 2), "\n"))

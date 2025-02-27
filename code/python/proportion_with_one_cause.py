@@ -11,25 +11,26 @@ death_records = pd.read_csv(
     na_values=[""],
 )
 
-# Create a new column that is True when Record Axis COD 1 is present and Record Axis COD 2-10 are not
-death_records["COD1 Only"] = death_records["Record Axis COD 1"].notna() & death_records[
-    [f"Record Axis COD {i}" for i in range(2, 11)]
-].isna().all(axis=1)
+# Find all the Record Axis COD columns
+record_axis_cod_columns = [col for col in death_records.columns if col.startswith("Record Axis COD")]
 
-# Calculate the proportion of records with only Record Axis COD 1
-proportion = death_records["COD1 Only"].mean()
+# Create a new column that is True when a single Record Axis COD column is populated
+death_records['Single Record Axis COD'] = death_records[record_axis_cod_columns].notna().sum(axis=1) == 1
+
+# Calculate the proportion of records with only one Record Axis COD
+proportion = death_records["Single Record Axis COD"].mean()
 
 print(
-    f"The proportion of records with an entry in the Record Axis COD 1 column but not in the Record Axis COD 2-10 columns is {proportion:.2f}"
+    f"The proportion of records with a single Record Axis COD is {proportion:.2f}"
 )
 
 # Group the records by certifier and calculate the proportion of flagged records for each certifier
 certifier_proportions = death_records.groupby("Certifier Name")[
-    "COD1 Only"
+    "Single Record Axis COD"
 ].mean()
 
 # Print the proportions for each certifier
 for certifier, proportion in certifier_proportions.items():
     print(
-        f"The proportion of records with an entry in the Record Axis COD 1 column but not in the Record Axis COD 2-10 columns provided by {certifier} is {proportion:.2f}"
+        f"The proportion of records with a single Record Axis COD provided by {certifier} is {proportion:.2f}"
     )
