@@ -6,7 +6,7 @@ data_path <- file.path(dirname(normalizePath(sys.frame(1)$ofile)), "..", "..", "
 
 # Load the death records data
 death_records <- read.csv(
-  file.path(data_path, "NotionalDeathRecordData.csv"),
+  file.path(data_path, "SyntheticDeathRecordData.csv"),
   stringsAsFactors = FALSE,
   check.names = FALSE,
   na.strings = ""

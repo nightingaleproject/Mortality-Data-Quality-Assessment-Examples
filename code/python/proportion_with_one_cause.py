@@ -6,7 +6,7 @@ data_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", ".."
 
 # Load the death records data
 death_records = pd.read_csv(
-    os.path.join(data_path, "NotionalDeathRecordData.csv"),
+    os.path.join(data_path, "SyntheticDeathRecordData.csv"),
     keep_default_na=False,
     na_values=[""],
 )
