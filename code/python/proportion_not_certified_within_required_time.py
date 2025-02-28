@@ -29,3 +29,14 @@ proportion = death_records["Not Within 5 Days"].mean()
 print(
     f"The proportion of records where the Date Certified is not within 5 days of the Date of Death is {proportion:.2f}"
 )
+
+# Group the records by certifier and calculate the proportion of flagged records for each certifier
+certifier_proportions = death_records.groupby("Certifier Name")[
+    "Not Within 5 Days"
+].mean()
+
+# Print the proportions for each certifier
+for certifier, proportion in certifier_proportions.items():
+    print(
+        f"The proportion of records where the Date Certified is not within 5 days of the Date of Death provided by {certifier} is {proportion:.2f}"
+    )

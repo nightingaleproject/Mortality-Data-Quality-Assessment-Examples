@@ -107,11 +107,13 @@ Running the standalone example code requires
 
 * RStudio
 * The dplyr library
+* The lubridate library
 
-You can install dplyr with
+You can install dplyr and lubridate with
 
 ```
 install.packages("dplyr", dependencies = TRUE)
+install.packages("lubridate", dependencies = TRUE)
 ```
 
 ## Usage: R
