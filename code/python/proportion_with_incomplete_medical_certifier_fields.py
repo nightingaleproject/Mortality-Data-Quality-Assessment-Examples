@@ -14,11 +14,13 @@ death_records = pd.read_csv(
 # Define the medical columns
 medical_columns = [
     "Tobacco Use Contributed to Death"
+    "Date Certified",
+    "Certifier Type",
 ]  # add or remove columns as needed
 
-# Create a column that's True when any medical field is empty; special
+# Create a column that's True when any medical certifier field is empty; special
 # case pregnancy status since it only applies to female decedents
-death_records["Incomplete Medical Fields"] = (death_records["Sex"] == "F") & (
+death_records["Incomplete Medical Certifier Fields"] = (death_records["Sex"] == "F") & (
     death_records["Pregnancy Status"].isnull()
     | (death_records["Pregnancy Status"] == "Unknown")
 ) | death_records[medical_columns].apply(
@@ -26,8 +28,8 @@ death_records["Incomplete Medical Fields"] = (death_records["Sex"] == "F") & (
 )
 
 # Calculate the proportion of records with incomplete medical fields
-proportion = death_records["Incomplete Medical Fields"].mean()
+proportion = death_records["Incomplete Medical Certifier Fields"].mean()
 
 print(
-    f"The proportion of records with at least one medical field incomplete is {proportion:.2f}"
+    f"The proportion of records with at least one medical certifier field incomplete is {proportion:.2f}"
 )
