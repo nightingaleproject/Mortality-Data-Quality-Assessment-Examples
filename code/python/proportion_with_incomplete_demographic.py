@@ -45,7 +45,10 @@ for field in demographic_fields:
 
     # TODO: We need to special case pregnancy status; do it with a lambda in the fields list?
     # TODO: Pregnancy has "No response", is that equivalent to unknown?
+    # TODO: Explore configuration file for e.g., what is "unknown", threshold for flagging certifiers, etc. (multiple tests could use common code)
+    # TODO: May need to consider "Not applicable" as well
     # TODO: Pregnancy has "Unknown if pregnant within the past year", should we look for any match to an "Unknown" regex?
+    # TODO: Perhaps allow jurisdiction to configure which values mean "missing" and which "unknown"?
     # TODO: Maybe field list lambda includes the check to use?
 
     # The field is present, so now find the proportion that are blank
