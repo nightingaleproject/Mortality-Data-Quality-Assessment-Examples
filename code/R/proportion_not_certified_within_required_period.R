@@ -28,18 +28,15 @@ death_records <- death_records %>%
 # Calculate the proportion of records where the Date Certified is not within 5 days of the Date of Death
 proportion <- mean(death_records$`Not Within 5 Days`, na.rm = TRUE)
 
-cat(paste("The proportion of records where the Date Certified is not within 5 days of the Date of Death is",
+cat(paste("Proportion of records where the Date Certified is not within 5 days of the Date of Death: ",
           round(proportion, 2), "\n"))
 
 # Group the records by certifier and calculate the proportion of flagged records for each certifier
 certifier_proportions <- death_records %>%
   group_by(`Certifier Name`) %>%
-  summarize(Proportion = mean(`Not Within 5 Days`, na.rm = TRUE))
+  summarize(Proportion = mean(`Not Within 5 Days`, na.rm = TRUE)) %>%
+  arrange(desc(Proportion))
 
-# Print the proportions for each certifier
-for(i in 1:nrow(certifier_proportions)) {
-  cat(paste("The proportion of records where the Date Certified is not within 5 days of the Date of Death provided by",
-            certifier_proportions[i, "Certifier Name"],
-            "is",
-            round(certifier_proportions[i, "Proportion"], 2), "\n"))
-}
+cat("Proportion of records where the Date Certified is not within 5 days of the Date of Death by certifier:\n")
+
+print(n=50, certifier_proportions)

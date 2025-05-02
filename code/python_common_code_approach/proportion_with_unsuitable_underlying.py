@@ -16,15 +16,16 @@ def is_unsuitable(code):
 # Define metric
 def metric(records):
     # Return a column that is True when the underlying COD is unsuitable
+    # Jurisdictions: update the column name from "Underlying COD" to match your data
     return records["Underlying COD"].apply(is_unsuitable)
 
-description = "The proportion of records with an unsuitable underlying cause of death"
+description = "Proportion of records with an unsuitable underlying cause of death"
 
 # Use metric to calculate overall proportion 
 proportion = dqaf_metrics.proportion(metric)
-print(f"{description} is {proportion:.2f}")
+print(f"{description}: {proportion:.2f}\n")
 
 # Use metric to calculate proportion for each certifier
 proportion_by_certifier = dqaf_metrics.proportion_by_column(metric, "Certifier Name")
-for certifier, proportion in proportion_by_certifier:
-    print(f"{description} provided by {certifier} is {proportion:.2f}")
+print(f"{description} by certifier:\n")
+print(proportion_by_certifier.to_string(index=False))

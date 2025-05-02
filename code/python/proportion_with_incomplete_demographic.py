@@ -56,11 +56,11 @@ for field in demographic_fields:
         lambda row: row.isna().any(), axis=1
     )
     proportion = death_records[f"Blank {field}"].mean()
-    print(f"  The proportion of records with blank values for '{field}': {proportion:.3f}")
+    print(f"  Proportion of records with blank values for '{field}': {proportion:.3f}")
 
     # Now find the proportion that are "unknown"
     death_records[f"Unknown {field}"] = death_records[matching_columns].apply(
         lambda row: row.str.contains("U").any() or row.str.contains("Unknown").any(), axis=1
     )
     proportion = death_records[f"Unknown {field}"].mean()
-    print(f"  The proportion of records with explicit 'unknown' values for '{field}': {proportion:.3f}\n")
+    print(f"  Proportion of records with explicit 'unknown' values for '{field}': {proportion:.3f}\n")

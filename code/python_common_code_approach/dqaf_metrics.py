@@ -24,4 +24,5 @@ def proportion(metric):
 # Calculate the proportion of the provided metric for each distinct value in supplied column
 def proportion_by_column(metric, column):
     death_records["Results Column"] = metric(death_records)
-    return list(death_records.groupby(column)["Results Column"].mean().items())
+    #return list(death_records.groupby(column)["Results Column"].mean().items())
+    return death_records.groupby(column)["Results Column"].mean().reset_index(name="Proportion").sort_values(by="Proportion", ascending=False)
