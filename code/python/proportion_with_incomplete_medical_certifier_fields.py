@@ -1,3 +1,6 @@
+# NOTE: needs to be converted to common code approach
+
+import os
 import os
 import pandas as pd
 
