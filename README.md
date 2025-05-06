@@ -103,16 +103,15 @@ The examples have an embedded reference to the sample mortality data file. The c
 
 ## Requirements: R
 
-Running the standalone example code requires
+Running the standalone example code requires [RStudio](https://posit.co/download/rstudio-desktop/) and the following packages:
 
-* RStudio
-* The dplyr library
-* The lubridate library
+* here
+* lubridate
 
-You can install dplyr and lubridate with
+You can install dplyr and lubridate with:
 
 ```
-install.packages("dplyr", dependencies = TRUE)
+install.packages("here", dependencies = TRUE)
 install.packages("lubridate", dependencies = TRUE)
 ```
 
@@ -125,6 +124,8 @@ source("~/Mortality-Data-Quality-Assessment-Examples/code/proportion_with_unsuit
 ```
 
 (updating the path to the code as appropriate)
+
+Additionally, R notebooks with example use of R implementations can be found under `code/R notebook`.
 
 ## License
 
