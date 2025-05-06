@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-he following code demonstrates some simple examples of calculating metrics that are part of the Data Quality Assessment Framework and  Jurisdictional Playbook.
+The following code demonstrates some simple examples of calculating metrics that are part of the Data Quality Assessment Framework and  Jurisdictional Playbook.
 
 ## Calculating Metrics Related to Unsuitable Underlying Cause of Death
 
@@ -35,6 +35,7 @@ death_records <- read.csv(
 Then we calculate which causes of death in our data are unsuitable:
 
 ```{r}
+# Load the unsuitable causes of death data
 unsuitable_causes <- read.csv(file.path(data_path, "unsuitable_COD_codes.csv"))
 
 # Extract the unsuitable codes
