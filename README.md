@@ -107,25 +107,41 @@ Running the standalone example code requires [RStudio](https://posit.co/download
 
 * here
 * lubridate
+* knitr
+* rmarkdown
 
-You can install dplyr and lubridate with:
+You can install these packages with:
 
-```
+```{r}
 install.packages("here", dependencies = TRUE)
 install.packages("lubridate", dependencies = TRUE)
+install.packages("knitr", dependencies = TRUE)
+install.packages("rmarkdown", dependencies = TRUE)
 ```
 
 ## Usage: R
 
-Running the example code can be done by invoking each script in RStudio, e.g.:
+First, open the *mortality-data-quality-assessment-examples.Rproj* file in RStudio. This will set the project and working directory to the folder for this repository.
 
+Then, running the example code can be done by invoking each script in the RStudio console, e.g.:
+
+```{r}
+source(file.path(getwd(), "code", "R", "proportion_with_unsuitable_underlying.R"))
 ```
-source("~/Mortality-Data-Quality-Assessment-Examples/code/proportion_with_unsuitable_underlying.R")
+
+(updating the script as appropriate)
+
+Additionally, R notebooks with example use of R implementations can be found under `code/R_notebook`. 
+
+To run an R notebook, enter the following in the console:
+```{r}
+rmarkdown::render(
+  file.path(getwd(), "code", "R_notebook", "MortalityDataQualityAssessment.Rmd")
+)
 ```
+(update the notebook as appropriate)
 
-(updating the path to the code as appropriate)
-
-Additionally, R notebooks with example use of R implementations can be found under `code/R notebook`.
+Alternatively, open the relevant notebook in RStudio, such as [MortalityDataQualityAssessment.Rmd](code/R_notebook/MortalityDataQualityAssessment.Rmd). Then click the "Knit" button at the top of the script.
 
 ## License
 
