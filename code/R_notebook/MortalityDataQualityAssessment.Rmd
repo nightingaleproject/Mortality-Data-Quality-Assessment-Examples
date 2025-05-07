@@ -1,4 +1,23 @@
-# Load necessary libraries
+---
+title: "Calculating Metrics for Assessing Mortality Data Quality"
+author: "MITRE"
+date: "2025-05-05"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+The following code demonstrates some simple examples of calculating metrics that are part of the Data Quality Assessment Framework and  Jurisdictional Playbook.
+
+## Calculating Metrics Related to Unsuitable Underlying Cause of Death
+
+The following code demonstrates how mortality records can be evaluated against a list of unsuitable underlying cause of death codes, derived from **R/proportion_with_unsuitable_underlying.R**.
+
+We start by loading necessary libraries for processing, as well as our data:
+
+```{r}
 library(here)
 
 # Specify the relative path to the data location
@@ -11,7 +30,11 @@ death_records <- read.csv(
   check.names = FALSE,
   na.strings = ""
 )
+```
 
+Then we calculate which causes of death in our data are unsuitable:
+
+```{r}
 # Load the unsuitable causes of death data
 unsuitable_causes <- read.csv(file.path(data_path, "unsuitable_COD_codes.csv"))
 
@@ -25,14 +48,22 @@ death_records[, "Unsuitable Underlying"] <- sapply(
     return(any(startsWith(code, unsuitable_codes)))
   }
 )
+```
 
+How many records have an unsuitable cause of death?
+
+```{r}
 # Calculate the proportion of records with an unsuitable underlying cause of death
 proportion <- mean(death_records$`Unsuitable Underlying`, na.rm = TRUE)
 
 cat(paste("The proportion of records with an unsuitable underlying cause of death is",
           round(proportion, 2),
           "\n"))
+```
 
+Let's examine the records with unsuitable cause of death by certifier:
+
+```{r}
 # Group the records by certifier and calculate the proportion of unsuitable records for each certifier
 certifier_proportions <- 
   aggregate(
@@ -48,3 +79,22 @@ for(i in 1:nrow(certifier_proportions)) {
             "is",
             round(certifier_proportions[i, "Proportion"], 2), "\n"))
 }
+```
+
+Let's visualize that using ggplot to see the certifiers with the highest proportion of unsuitable records:
+
+```{r, out.height="120%"}
+library(ggplot2)
+
+ggplot(
+  certifier_proportions[order(certifier_proportions$Proportion, 
+                              decreasing = FALSE),], 
+       aes(
+         factor(.data[["Certifier Name"]], levels = .data[["Certifier Name"]]),
+         .data[["Proportion"]]))+
+  geom_col(fill = "lightblue", color = "black")+
+  xlab("Certifier Name")+
+  coord_flip()+
+  theme_bw()
+```
+
