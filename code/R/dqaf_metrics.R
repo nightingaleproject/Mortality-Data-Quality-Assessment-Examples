@@ -46,7 +46,7 @@ calculate_proportion_by_column <- function(death_records, metric, metric_descrip
       "The proportion of records with a(n)",
       metric_description,
       "by",
-      column,
+      col_proportions[i, column],
       "is",
       round(col_proportions[i, "Proportion"], 2), "\n"))
   }

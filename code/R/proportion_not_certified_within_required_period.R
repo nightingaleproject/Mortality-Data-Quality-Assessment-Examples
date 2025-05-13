@@ -2,16 +2,13 @@
 library(lubridate)
 library(here)
 
-# Specify the relative path to the data location
-data_path <- here::here("data")
+# Load supporting functions
+source(here::here("code", "R", "dqaf_metrics.R"))
 
 # Load the death records data
-death_records <- read.csv(
-  file.path(data_path, "SyntheticDeathRecordData.csv"),
-  stringsAsFactors = FALSE,
-  check.names = FALSE,
-  na.strings = ""
-)
+file_path <- here::here("data", "SyntheticDeathRecordData.csv")
+death_records <- 
+  load_death_records(file_path)
 
 # Parse the dates
 death_records$`Date of Death` <- as.Date(death_records$`Date of Death`)
@@ -27,25 +24,16 @@ death_records[, "Not Within 5 Days"] <-
   death_records$`Days Difference` > 5
 
 # Calculate the proportion of records where the Date Certified is not within 5 days of the Date of Death
-proportion <- mean(death_records$`Not Within 5 Days`, na.rm = TRUE)
-
-cat(paste("Proportion of records where the Date Certified is not within 5 days of the Date of Death: ",
-          round(proportion, 2), "\n"))
+proportion <- calculate_proportion(
+  death_records, 
+  metric = "Not Within 5 Days",
+  metric_description = "Date Certified is not within 5 days of the Date of Death"
+)
 
 # Group the records by certifier and calculate the proportion of flagged records for each certifier
-certifier_proportions <- 
-  aggregate(
-    list("Proportion" = death_records$`Not Within 5 Days`),
-    list("Certifier Name" = death_records$`Certifier Name`),
-    FUN = mean,
-    na.rm = TRUE)
-certifier_proportions <- 
-  certifier_proportions[order(certifier_proportions$Proportion, decreasing = T),]
-
-# Print the proportions for each certifier
-for(i in 1:nrow(certifier_proportions)) {
-  cat(paste("The proportion of records where the Date Certified is not within 5 days of the Date of Death by",
-            certifier_proportions[i, "Certifier Name"],
-            "is",
-            round(certifier_proportions[i, "Proportion"], 2), "\n"))
-}
+certifier_proportions <- calculate_proportion_by_column(
+  death_records, 
+  metric = "Not Within 5 Days",
+  metric_description = "Date Certified is not within 5 days of the Date of Death",
+  column = "Certifier Name"
+)
