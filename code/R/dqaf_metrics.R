@@ -20,7 +20,7 @@ calculate_proportion <- function(death_records, metric, metric_description){
   proportion <- mean(death_records[, metric], na.rm = TRUE)
   
   cat(paste(
-    "The proportion of records with a(n)", metric_description, "is",
+    "The proportion of records with", metric_description, "is",
     round(proportion, 2),
     "\n"))
   
@@ -43,7 +43,7 @@ calculate_proportion_by_column <- function(death_records, metric, metric_descrip
   # Print the proportions for each of the columns
   for(i in 1:nrow(col_proportions)) {
     cat(paste(
-      "The proportion of records with a(n)",
+      "The proportion of records with",
       metric_description,
       "by",
       col_proportions[i, column],
