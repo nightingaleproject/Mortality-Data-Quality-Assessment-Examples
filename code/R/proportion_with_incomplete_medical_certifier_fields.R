@@ -19,6 +19,12 @@ medical_columns <- c(
 sex_column <- "Sex"
 pregancy_column <- "Pregnancy Status"
 
+# Define responses corresponding to "unknown"
+unknown_responses <- c(
+  "Unknown",
+  "U"
+)
+
 # Subset the medical columns to those that appear in the data
 medical_columns <- 
   medical_columns[
@@ -31,10 +37,10 @@ death_records["Incomplete Medical Certifier Fields"] =
   rowSums(
     (death_records[, sex_column] == "F" & (
       is.na(death_records[, pregancy_column]) |
-        death_records[, pregancy_column] == "Unknown"
+        death_records[, pregancy_column] %in% unknown_responses
     )) |
-      is.na(death_records[, medical_columns, drop = F]) | 
-      (death_records[, medical_columns, drop = F] == "Unknown")
+      is.na(death_records[, medical_columns]) | 
+      (death_records[, medical_columns] %in% unknown_responses)
   ) > 0
 
 # Calculate the proportion of records with incomplete funeral director fields

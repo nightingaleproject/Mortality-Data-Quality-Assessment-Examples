@@ -23,6 +23,11 @@ demographic_fields = c(
   "Tobacco Use Contributed to Death"
 )
 
+# Define responses corresponding to "unknown"
+unknown_responses <- c(
+  "Unknown",
+  "U"
+)
 
 # For each field we first check if the field is present in the data;
 # if it's present, we evaluate the proportion of records that have a
@@ -67,8 +72,7 @@ for (field in demographic_fields){
     
     # Now find the proportion that are "unknown"
     death_records[, paste0("Unknown ", mc)] <- 
-      as.numeric(grepl("Unknown", death_records[, mc]) |
-                   grepl("U", death_records[, mc]))
+      as.numeric(death_records[, mc] %in% unknown_responses)
     
     proportion <- calculate_proportion(
       death_records, 

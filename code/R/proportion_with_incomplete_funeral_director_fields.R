@@ -14,6 +14,12 @@ funeral_director_columns <- c(
   "Funeral Facility"
 )  # add or remove columns as needed
 
+# Define responses corresponding to "unknown"
+unknown_responses <- c(
+  "Unknown",
+  "U"
+)
+
 # Subset the funeral director columns to those that appear in the data
 funeral_director_columns <- 
   funeral_director_columns[
@@ -23,8 +29,8 @@ funeral_director_columns <-
 # Create a new column that is True when at least one funeral director field is empty or unknown
 death_records["Incomplete Funeral Director Fields"] =
   rowSums(
-    is.na(death_records[, funeral_director_columns, drop = F]) | 
-      (death_records[, funeral_director_columns, drop = F] == "Unknown")
+    is.na(death_records[, funeral_director_columns]) | 
+      (death_records[, funeral_director_columns]  %in% unknown_responses)
   ) > 0
 
 # Calculate the proportion of records with incomplete funeral director fields
