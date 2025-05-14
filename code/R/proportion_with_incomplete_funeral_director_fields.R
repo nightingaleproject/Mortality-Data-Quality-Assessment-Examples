@@ -11,9 +11,7 @@ death_records <-
 
 # Define the funeral director columns
 funeral_director_columns <- c(
-  "Funeral Facility",
-  "FFF",
-  "AAAAA"
+  "Funeral Facility"
 )  # add or remove columns as needed
 
 # Define responses corresponding to "unknown"
