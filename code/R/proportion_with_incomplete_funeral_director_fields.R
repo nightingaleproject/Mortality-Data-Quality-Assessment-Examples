@@ -9,9 +9,8 @@ file_path <- here::here("data", "SyntheticDeathRecordData.csv")
 death_records <- 
   load_death_records(file_path)
 
-
 # Define the funeral director columns
-funeral_director_columns = c(
+funeral_director_columns <- c(
   "Funeral Facility"
 )  # add or remove columns as needed
 
