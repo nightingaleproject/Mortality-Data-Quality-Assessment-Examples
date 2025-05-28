@@ -67,7 +67,8 @@ for (field in demographic_fields){
     proportion <- calculate_proportion(
       death_records, 
       metric = paste0("Blank ", mc),
-      metric_description = paste0("blank values for ", mc)
+      metric_description = paste0("blank values for ", mc), 
+      print_output = TRUE
     )
     
     # Now find the proportion that are "unknown"
@@ -77,7 +78,8 @@ for (field in demographic_fields){
     proportion <- calculate_proportion(
       death_records, 
       metric = paste0("Unknown ", mc),
-      metric_description = paste0("explicit 'unknown' values for ", mc)
+      metric_description = paste0("explicit 'unknown' values for ", mc), 
+      print_output = TRUE
     )
   }
   

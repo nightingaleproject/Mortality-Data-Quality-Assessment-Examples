@@ -47,6 +47,7 @@ death_records["Incomplete Funeral Director Fields"] =
 proportion <- calculate_proportion(
   death_records, 
   metric = "Incomplete Funeral Director Fields",
-  metric_description = "at least one funeral director field incomplete"
+  metric_description = "at least one funeral director field incomplete", 
+  print_output = TRUE
 )
 

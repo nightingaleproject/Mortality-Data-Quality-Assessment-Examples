@@ -19,12 +19,14 @@ death_records[, "Single Record Axis COD"] <-
 proportion <- calculate_proportion(
   death_records, 
   metric = "Single Record Axis COD",
-  metric_description = "Single Record Axis COD"
+  metric_description = "Single Record Axis COD", 
+  print_output = TRUE
 )
 
 # Group the records by certifier and calculate the proportion of flagged records for each certifier
 certifier_proportions <- calculate_proportion_by_column(
   death_records, 
   metric = "Single Record Axis COD",
-  column = "Certifier Name"
+  column = "Certifier Name", 
+  print_output = TRUE
 )

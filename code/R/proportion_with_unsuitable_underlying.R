@@ -27,12 +27,14 @@ death_records[, "Unsuitable Underlying"] <- sapply(
 proportion <- calculate_proportion(
   death_records, 
   metric = "Unsuitable Underlying",
-  metric_description = "unsuitable underlying cause of death"
+  metric_description = "unsuitable underlying cause of death", 
+  print_output = TRUE
 )
 
 # Group the records by certifier and calculate the proportion of unsuitable records for each certifier
 certifier_proportions <- calculate_proportion_by_column(
   death_records, 
   metric = "Unsuitable Underlying",
-  column = "Certifier Name"
+  column = "Certifier Name", 
+  print_output = TRUE
 )

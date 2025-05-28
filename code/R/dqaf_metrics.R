@@ -16,19 +16,25 @@ load_death_records <- function(file){
 }
 
 # Calculate and print the overall proportion of the provided metric on the records we loaded above
-calculate_proportion <- function(death_records, metric, metric_description){
+calculate_proportion <- function(
+    death_records, metric, metric_description, print_output = TRUE
+  ){
   proportion <- mean(death_records[, metric], na.rm = TRUE)
   
-  cat(paste(
-    "The proportion of records with", metric_description, "is",
-    round(proportion, 2),
-    "\n"))
+  if (print_output){
+    cat(paste(
+      "The proportion of records with", metric_description, "is",
+      round(proportion, 2),
+      "\n"))
+  }
   
   return(proportion)
 }
 
 # Calculate the proportion of the provided metric for each distinct value in supplied column
-calculate_proportion_by_column <- function(death_records, metric, column){
+calculate_proportion_by_column <- function(
+    death_records, metric, column, print_output = TRUE
+  ){
   col_proportions <- 
     aggregate(
       list("Proportion" = death_records[, metric]),
@@ -39,8 +45,10 @@ calculate_proportion_by_column <- function(death_records, metric, column){
     col_proportions[order(col_proportions$Proportion, decreasing = T),]
   colnames(col_proportions) <- c(column, "Proportion")
   
-  # Print the proportions for each of the columns
-  print(col_proportions)
+  if (print_output){
+    # Print the proportions for each of the columns
+    print(col_proportions)
+  }
   
   return(col_proportions)
 }
