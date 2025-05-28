@@ -28,7 +28,7 @@ calculate_proportion <- function(death_records, metric, metric_description){
 }
 
 # Calculate the proportion of the provided metric for each distinct value in supplied column
-calculate_proportion_by_column <- function(death_records, metric, metric_description, column){
+calculate_proportion_by_column <- function(death_records, metric, column){
   col_proportions <- 
     aggregate(
       list("Proportion" = death_records[, metric]),
@@ -39,17 +39,8 @@ calculate_proportion_by_column <- function(death_records, metric, metric_descrip
     col_proportions[order(col_proportions$Proportion, decreasing = T),]
   colnames(col_proportions) <- c(column, "Proportion")
   
-  
   # Print the proportions for each of the columns
-  for(i in 1:nrow(col_proportions)) {
-    cat(paste(
-      "The proportion of records with",
-      metric_description,
-      "by",
-      col_proportions[i, column],
-      "is",
-      round(col_proportions[i, "Proportion"], 2), "\n"))
-  }
+  print(col_proportions)
   
   return(col_proportions)
 }

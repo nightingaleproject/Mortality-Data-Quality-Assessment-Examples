@@ -34,6 +34,5 @@ proportion <- calculate_proportion(
 certifier_proportions <- calculate_proportion_by_column(
   death_records, 
   metric = "Unsuitable Underlying",
-  metric_description = "unsuitable underlying cause of death",
   column = "Certifier Name"
 )

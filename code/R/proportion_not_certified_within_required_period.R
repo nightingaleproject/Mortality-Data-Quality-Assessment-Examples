@@ -34,6 +34,5 @@ proportion <- calculate_proportion(
 certifier_proportions <- calculate_proportion_by_column(
   death_records, 
   metric = "Not Within 5 Days",
-  metric_description = "Date Certified is not within 5 days of the Date of Death",
   column = "Certifier Name"
 )

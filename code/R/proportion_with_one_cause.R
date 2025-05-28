@@ -26,6 +26,5 @@ proportion <- calculate_proportion(
 certifier_proportions <- calculate_proportion_by_column(
   death_records, 
   metric = "Single Record Axis COD",
-  metric_description = "Single Record Axis COD",
   column = "Certifier Name"
 )
