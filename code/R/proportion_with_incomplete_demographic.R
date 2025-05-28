@@ -34,7 +34,7 @@ unknown_responses <- c(
 # blank value for the field and the proportion of records that have
 # an explicit "Unknown" value for the field
 for (field in demographic_fields){
-  cat(paste0("Evaluating fields matching ", field), "\n")
+  cat(paste0("  Evaluating fields matching ", field), "\n")
   
   # Find the columns that match this field (may be more than one if it's a regex)
   matching_columns <- if (!grepl("\\.\\*", field)){
