@@ -11,9 +11,32 @@ death_records <-
 
 # Define the medical columns
 medical_columns <- c(
+  "Date of Death",
+  "Time Pronounced Dead",
+  "Signature of Person Pronouncing Death",
+  "License Number",
+  "Date Signed",
+  "Actual or Presumed Date of Death",
+  "Actual or Presumed Time of Death",
+  "Medical Examiner or Coroner Contacted",,
+  "Cause of Death",
+  "Autopsy Performed",
+  "Autopsy Findings Available",
   "Tobacco Use Contributed to Death",
-  "Date Certified",
-  "Certifier Type"
+  "Pregnancy Status",
+  "Manner of Death",
+  "Date of Injury",
+  "Time of Injury",
+  "Place of Injury",
+  "Injury at Work",
+  "Location of Injury",
+  "Describe How Injury Occurred",
+  "Transportation Injury",
+  "Certifier Type",
+  "Certifier Name",
+  "Title of Certifier",
+  "License Number",
+  "Date Certified"
 )  # add or remove columns as needed
 # Additionally, define column for sex and pregnancy columns in the data
 sex_column <- "Sex"
