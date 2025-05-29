@@ -27,13 +27,14 @@ death_records[, "Not Within 5 Days"] <-
 proportion <- calculate_proportion(
   death_records, 
   metric = "Not Within 5 Days",
-  metric_description = "Date Certified is not within 5 days of the Date of Death"
+  metric_description = "Date Certified is not within 5 days of the Date of Death", 
+  print_output = TRUE
 )
 
 # Group the records by certifier and calculate the proportion of flagged records for each certifier
 certifier_proportions <- calculate_proportion_by_column(
   death_records, 
   metric = "Not Within 5 Days",
-  metric_description = "Date Certified is not within 5 days of the Date of Death",
-  column = "Certifier Name"
+  column = "Certifier Name", 
+  print_output = TRUE
 )

@@ -80,6 +80,7 @@ death_records["Incomplete Medical Certifier Fields"] =
 proportion <- calculate_proportion(
   death_records, 
   metric = "Incomplete Medical Certifier Fields",
-  metric_description = "at least one medical certifier field incomplete"
+  metric_description = "at least one medical certifier field incomplete", 
+  print_output = TRUE
 )
 
