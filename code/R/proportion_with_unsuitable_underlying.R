@@ -1,19 +1,16 @@
 # Load necessary libraries
 library(here)
 
-# Specify the relative path to the data location
-data_path <- here::here("data")
+# Load supporting functions
+source(here::here("code", "R", "dqaf_metrics.R"))
 
 # Load the death records data
-death_records <- read.csv(
-  file.path(data_path, "SyntheticDeathRecordData.csv"),
-  stringsAsFactors = FALSE,
-  check.names = FALSE,
-  na.strings = ""
-)
+file_path <- here::here("data", "SyntheticDeathRecordData.csv")
+death_records <- 
+  load_death_records(file_path)
 
 # Load the unsuitable causes of death data
-unsuitable_causes <- read.csv(file.path(data_path, "unsuitable_COD_codes.csv"))
+unsuitable_causes <- read.csv(here::here("data", "unsuitable_COD_codes.csv"))
 
 # Extract the unsuitable codes
 unsuitable_codes <- unsuitable_causes$code
@@ -27,24 +24,17 @@ death_records[, "Unsuitable Underlying"] <- sapply(
 )
 
 # Calculate the proportion of records with an unsuitable underlying cause of death
-proportion <- mean(death_records$`Unsuitable Underlying`, na.rm = TRUE)
-
-cat(paste("The proportion of records with an unsuitable underlying cause of death is",
-          round(proportion, 2),
-          "\n"))
+proportion <- calculate_proportion(
+  death_records, 
+  metric = "Unsuitable Underlying",
+  metric_description = "unsuitable underlying cause of death", 
+  print_output = TRUE
+)
 
 # Group the records by certifier and calculate the proportion of unsuitable records for each certifier
-certifier_proportions <- 
-  aggregate(
-    list("Proportion" = death_records$`Unsuitable Underlying`),
-    list("Certifier Name" = death_records$`Certifier Name`),
-    FUN = mean,
-    na.rm = TRUE)
-
-# Print the proportions for each certifier
-for(i in 1:nrow(certifier_proportions)) {
-  cat(paste("The proportion of records with an unsuitable underlying cause of death provided by",
-            certifier_proportions[i, "Certifier Name"],
-            "is",
-            round(certifier_proportions[i, "Proportion"], 2), "\n"))
-}
+certifier_proportions <- calculate_proportion_by_column(
+  death_records, 
+  metric = "Unsuitable Underlying",
+  column = "Certifier Name", 
+  print_output = TRUE
+)
