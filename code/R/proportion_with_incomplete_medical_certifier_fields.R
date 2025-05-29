@@ -10,6 +10,11 @@ death_records <-
   load_death_records(file_path)
 
 # Define the medical columns
+# also includes the cause of death columns, which we'll specify on their own for clarity
+cause_of_death_columns <- c(
+  "Underlying COD",
+  colnames(death_records)[startsWith(colnames(death_records), "Record Axis COD")]
+)
 medical_columns <- c(
   "Date of Death",
   "Time Pronounced Dead",
@@ -19,7 +24,7 @@ medical_columns <- c(
   "Actual or Presumed Date of Death",
   "Actual or Presumed Time of Death",
   "Medical Examiner or Coroner Contacted",,
-  "Cause of Death",
+  cause_of_death_columns,
   "Autopsy Performed",
   "Autopsy Findings Available",
   "Tobacco Use Contributed to Death",
