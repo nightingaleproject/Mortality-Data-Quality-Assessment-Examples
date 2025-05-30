@@ -29,6 +29,10 @@ unknown_responses <- c(
   "U"
 )
 
+# Additionally, define column for sex and pregnancy columns in the data
+sex_column <- "Sex"
+pregancy_column <- "Pregnancy Status"
+
 # For each field we first check if the field is present in the data;
 # if it's present, we evaluate the proportion of records that have a
 # blank value for the field and the proportion of records that have
@@ -60,23 +64,31 @@ for (field in demographic_fields){
   # TODO: Maybe field list lambda includes the check to use?
   
   for (mc in matching_columns){
+    # If the field relates to pregnancy, we only need to consider missingness
+    # for female 
+    considered_records <- death_records
+    if (grepl("pregnancy", tolower(mc))){
+      cat(paste0("Only considering female records for pregnancy status", "\n"))    considered_records <- 
+        considered_records[considered_records[, sex_column] == "F",]
+    }
+    
     # The field is present, so now find the proportion that are blank
-    death_records[, paste0("Blank ", mc)] <- 
-      as.numeric(is.na(death_records[, mc]))
+    deaconsideredcords[, paste0("Blank ", mc)] <- 
+      as.numeric(is.na(deaconsidered_records[, mc]))
     
     proportion <- calculate_proportion(
-      death_records, 
+      considered_records, 
       metric = paste0("Blank ", mc),
       metric_description = paste0("blank values for ", mc), 
       print_output = TRUE
     )
     
     # Now find the proportion that are "unknown"
-    death_records[, paste0("Unknown ", mc)] <- 
-      as.numeric(death_records[, mc] %in% unknown_responses)
+    considered_records[, paste0("Unknown ", mc)] <- 
+      as.numeric(considered_records[, mc] %in% unknown_responses)
     
     proportion <- calculate_proportion(
-      death_records, 
+      consideredcords, 
       metric = paste0("Unknown ", mc),
       metric_description = paste0("explicit 'unknown' values for ", mc), 
       print_output = TRUE
