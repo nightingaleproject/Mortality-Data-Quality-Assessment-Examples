@@ -1,3 +1,5 @@
+# Load libraries and supporting functions ----
+
 # Load necessary libraries
 library(lubridate)
 library(here)
@@ -5,18 +7,26 @@ library(here)
 # Load supporting functions
 source(here::here("code", "R", "dqaf_metrics.R"))
 
+# Specify data and column names ----
+
 # Load the death records data
 file_path <- here::here("data", "SyntheticDeathRecordData.csv")
 death_records <- 
   load_death_records(file_path)
 
+# Specify required metric column names here
+date_of_death_column <- "Date of Death"
+date_certified_column <- "Date Certified"
+
+# Calculate metric ----
+
 # Parse the dates
-death_records$`Date of Death` <- as.Date(death_records$`Date of Death`)
-death_records$`Date Certified` <- as.Date(death_records$`Date Certified`)
+death_records$`Date of Death` <- as.Date(death_records[, date_of_death_column])
+death_records$`Date Certified` <- as.Date(death_records[, date_certified_column])
 
 # Calculate the difference in days between the Date Certified and the Date of Death
 death_records[, "Days Difference"] <- 
-  as.numeric(death_records$`Date Certified` - death_records$`Date Certified`)
+  as.numeric(death_records$`Date Certified` - death_records$`Date of Death`)
 
 # Create a column that is TRUE when the time between death and certification is not within 5 days
 death_records[, "Not Within 5 Days"] <- 

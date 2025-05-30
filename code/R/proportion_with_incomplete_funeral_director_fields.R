@@ -2,7 +2,11 @@
 library(here)
 
 # Load supporting functions
+# Load libraries and supporting functions ----
+
 source(here::here("code", "R", "dqaf_metrics.R"))
+
+# Specify data and column names ----
 
 # Load the death records data
 file_path <- here::here("data", "SyntheticDeathRecordData.csv")
@@ -74,16 +78,20 @@ unknown_responses <- c(
   "U"
 )
 
+# Calculate metric ----
+
 # Subset the funeral director columns to those that appear in the data
 if (any(!funeral_director_columns %in% colnames(death_records))){
-  cat(paste0(
-    "The following specified funeral director fields do not appear in the data: ",
-    paste(
-      funeral_director_columns[
-        !funeral_director_columns %in% colnames(death_records)
-      ], collapse = ", ")
-  ),
-  "\n")
+  cat(
+    paste0(
+      "The following specified funeral director fields do not appear in the data: ",
+      paste(
+        funeral_director_columns[
+          !funeral_director_columns %in% colnames(death_records)
+        ], collapse = ", ")
+    ),
+    "\n"
+  )
   funeral_director_columns <- 
     funeral_director_columns[
       funeral_director_columns %in% colnames(death_records)
@@ -91,7 +99,7 @@ if (any(!funeral_director_columns %in% colnames(death_records))){
 }
 
 # Create a new column that is True when at least one funeral director field is empty or unknown
-death_records["Incomplete Funeral Director Fields"] =
+death_records["Incomplete Funeral Director Fields"] <-
   rowSums(
     is.na(death_records[, funeral_director_columns, drop = F]) | 
       (death_records[, funeral_director_columns, drop = F] %in% unknown_responses)

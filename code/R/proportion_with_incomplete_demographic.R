@@ -1,8 +1,12 @@
+# Load libraries and supporting functions ----
+
 # Load necessary libraries
 library(here)
 
 # Load supporting functions
 source(here::here("code", "R", "dqaf_metrics.R"))
+
+# Specify data and column names ----
 
 # Load the death records data
 file_path <- here::here("data", "SyntheticDeathRecordData.csv")
@@ -29,9 +33,11 @@ unknown_responses <- c(
   "U"
 )
 
-# Additionally, define column for sex and pregnancy columns in the data
+# Additionally, define columns for sex and pregnancy in the data
 sex_column <- "Sex"
 pregancy_column <- "Pregnancy Status"
+
+# Calculate metric ----
 
 # For each field we first check if the field is present in the data;
 # if it's present, we evaluate the proportion of records that have a
@@ -68,7 +74,8 @@ for (field in demographic_fields){
     # for female 
     considered_records <- death_records
     if (grepl("pregnancy", tolower(mc))){
-      cat(paste0("Only considering female records for pregnancy status", "\n"))    considered_records <- 
+      cat(paste0("Only considering female records for pregnancy status", "\n"))
+      considered_records <- 
         considered_records[considered_records[, sex_column] == "F",]
     }
     
