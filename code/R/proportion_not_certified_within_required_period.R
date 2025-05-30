@@ -18,6 +18,9 @@ death_records <-
 date_of_death_column <- "Date of Death"
 date_certified_column <- "Date Certified"
 
+# Specify amount of days appropriate for certification
+number_of_days <- 5
+
 # Calculate metric ----
 
 # Parse the dates
@@ -29,22 +32,24 @@ death_records[, "Days Difference"] <-
   as.numeric(death_records$`Date Certified` - death_records$`Date of Death`)
 
 # Create a column that is TRUE when the time between death and certification is not within 5 days
-death_records[, "Not Within 5 Days"] <- 
+death_records[, "Not Within Required Days"] <- 
   death_records$`Days Difference` < 0 |
-  death_records$`Days Difference` > 5
+  death_records$`Days Difference` > number_of_days
 
 # Calculate the proportion of records where the Date Certified is not within 5 days of the Date of Death
 proportion <- calculate_proportion(
   death_records, 
-  metric = "Not Within 5 Days",
-  metric_description = "Date Certified is not within 5 days of the Date of Death", 
+  metric = "Not Within Required Days",
+  metric_description = paste0(
+    "Date Certified is not within ", number_of_days, " days of the Date of Death"
+  ), 
   print_output = TRUE
 )
 
 # Group the records by certifier and calculate the proportion of flagged records for each certifier
 certifier_proportions <- calculate_proportion_by_column(
   death_records, 
-  metric = "Not Within 5 Days",
+  metric = "Not Within Required Days",
   column = "Certifier Name", 
   print_output = TRUE
 )
