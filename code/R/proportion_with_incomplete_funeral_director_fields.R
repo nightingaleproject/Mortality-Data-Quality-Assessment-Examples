@@ -1,9 +1,9 @@
+# Load libraries and supporting functions ----
+
 # Load necessary libraries
 library(here)
 
 # Load supporting functions
-# Load libraries and supporting functions ----
-
 source(here::here("code", "R", "dqaf_metrics.R"))
 
 # Specify data and column names ----

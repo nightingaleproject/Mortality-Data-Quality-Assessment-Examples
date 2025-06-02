@@ -80,8 +80,8 @@ for (field in demographic_fields){
     }
     
     # The field is present, so now find the proportion that are blank
-    deaconsideredcords[, paste0("Blank ", mc)] <- 
-      as.numeric(is.na(deaconsidered_records[, mc]))
+    considered_records[, paste0("Blank ", mc)] <- 
+      as.numeric(is.na(considered_records[, mc]))
     
     proportion <- calculate_proportion(
       considered_records, 
@@ -95,7 +95,7 @@ for (field in demographic_fields){
       as.numeric(considered_records[, mc] %in% unknown_responses)
     
     proportion <- calculate_proportion(
-      consideredcords, 
+      considered_records, 
       metric = paste0("Unknown ", mc),
       metric_description = paste0("explicit 'unknown' values for ", mc), 
       print_output = TRUE
