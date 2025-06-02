@@ -27,7 +27,7 @@ medical_columns <- c(
   "Date Signed",
   "Actual or Presumed Date of Death",
   "Actual or Presumed Time of Death",
-  "Medical Examiner or Coroner Contacted",,
+  "Medical Examiner or Coroner Contacted",
   cause_of_death_columns,
   "Autopsy Performed",
   "Autopsy Findings Available",
