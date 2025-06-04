@@ -6,6 +6,9 @@ library(here)
 # Load supporting functions
 source(here::here("code", "R", "dqaf_metrics.R"))
 
+# Load variables common across all scripts -- to edit, see dqaf_common_variables.R
+source(here::here("code", "R", "dqaf_common_variables.R"))
+
 # Specify data and column names ----
 
 # Load the death records data
@@ -74,8 +77,8 @@ funeral_director_columns <- c(
 
 # Define responses corresponding to "unknown"
 unknown_responses <- c(
-  "Unknown",
-  "U"
+  common_unknown, # unknown responses common to all attributes
+  "UNK" # unknown response specific to these attributes
 )
 
 # Calculate metric ----

@@ -6,6 +6,9 @@ library(here)
 # Load supporting functions
 source(here::here("code", "R", "dqaf_metrics.R"))
 
+# Load variables common across all scripts -- to edit, see dqaf_common_variables.R
+source(here::here("code", "R", "dqaf_common_variables.R"))
+
 # Specify data and column names ----
 
 # Load the death records data

@@ -6,6 +6,9 @@ library(here)
 # Load supporting functions
 source(here::here("code", "R", "dqaf_metrics.R"))
 
+# Load variables common across all scripts -- to edit, see dqaf_common_variables.R
+source(here::here("code", "R", "dqaf_common_variables.R"))
+
 # Specify data and column names ----
 
 # Load the death records data
@@ -29,13 +32,22 @@ demographic_fields = c(
 
 # Define responses corresponding to "unknown"
 unknown_responses <- c(
-  "Unknown",
-  "U"
+  common_unknown, # unknown responses common to all attributes
+  "UNK" # unknown response specific to these attributes
 )
 
 # Additionally, define columns for sex and pregnancy in the data
 sex_column <- "Sex"
 pregancy_column <- "Pregnancy Status"
+
+# add in age -- what system allows
+age_low <- age_high <- NULL
+# 5 - 74
+
+# industry, occupation, -> age bracketed (14?)
+# marriage -> optional, jurisdiction
+# armed forces -> age
+# injury/manner of death -> based on death codes
 
 # Calculate metric ----
 
