@@ -53,7 +53,11 @@ medical_columns <- c(
 
 # Additionally, define columns for sex and pregnancy in the data
 sex_column <- "Sex"
-pregancy_column <- "Pregnancy Status"
+pregnancy_column <- "Pregnancy Status"
+age_column <- "Age"
+# Define age cutoffs for pregnancy
+age_pregnancy_low <- 5
+age_pregnancy_high <- 74
 
 # Define responses corresponding to "unknown"
 unknown_responses <- c(
@@ -79,23 +83,28 @@ if (any(!medical_columns %in% colnames(death_records))){
     ]
 }
 
-# Create a column that's True when any medical certifier field is empty; special
-# case pregnancy status since it only applies to female decedents
-death_records["Incomplete Medical Certifier Fields"] <- 
-  (death_records[, sex_column, drop = F] == "F" & (
-    is.na(death_records[, pregancy_column, drop = F]) |
-      death_records[, pregancy_column, drop = F] %in% unknown_responses
-  )) |
-  rowSums(
-    is.na(death_records[, medical_columns, drop = F]) | 
-      (death_records[, medical_columns, drop = F] %in% unknown_responses)
-  ) > 0
-
-# Calculate the proportion of records with incomplete funeral director fields
-proportion <- calculate_proportion(
-  death_records, 
-  metric = "Incomplete Medical Certifier Fields",
-  metric_description = "at least one medical certifier field incomplete", 
-  print_output = TRUE
-)
-
+if (length(medical_columns) > 0){
+  # Create a column that's True when any medical certifier field is empty; special
+  # case pregnancy status since it only applies to female decedents
+  death_records["Incomplete Medical Certifier Fields"] <- 
+    (death_records[, sex_column, drop = F] == "F" & 
+       death_records[, age_column] >= age_pregnancy_low &
+       death_records[, age_column] <= age_pregnancy_high & (
+         is.na(death_records[, pregnancy_column, drop = F]) |
+           death_records[, pregnancy_column, drop = F] %in% unknown_responses
+       )) |
+    rowSums(
+      is.na(death_records[, medical_columns[medical_columns != pregancy_column], drop = F]) | 
+        (death_records[, medical_columns[medical_columns != pregancy_column], drop = F] %in% unknown_responses)
+    ) > 0
+  
+  # Calculate the proportion of records with incomplete funeral director fields
+  proportion <- calculate_proportion(
+    death_records, 
+    metric = "Incomplete Medical Certifier Fields",
+    metric_description = "at least one medical certifier field incomplete", 
+    print_output = TRUE
+  )
+} else {
+  cat("No specified medical certifier fields in data\n")
+}

@@ -36,18 +36,29 @@ unknown_responses <- c(
   "UNK" # unknown response specific to these attributes
 )
 
-# Additionally, define columns for sex and pregnancy in the data
+# Additionally, define columns for sex, age, and pregnancy in the data
 sex_column <- "Sex"
-pregancy_column <- "Pregnancy Status"
+pregnancy_column <- "Pregnancy Status"
+age_column <- "Age"
 
-# add in age -- what system allows
-age_low <- age_high <- NULL
-# 5 - 74
+# Define age cutoffs for various attributes (if not in data, set both as NULL)
+# Pregnancy
+age_pregnancy_low <- 5
+age_pregnancy_high <- 74
+# Marital Status
+marital_status_column <- "Marital Status"
+age_marital_low <- 10 #TODO: check for cutoff
+# Occupation
+occupation_column <- "Decedent's Usual Occupation"
+age_occupation_low <- 14
+# Industry
+industry_column <- "Kind of Business/Industry"
+age_industry_low <- 14
+# Armed forces
+armed_forces_column <- "Ever in US Armed Forces"
+age_armed_low <- 14 #TODO: check for cutoff
 
-# industry, occupation, -> age bracketed (14?)
-# marriage -> optional, jurisdiction
-# armed forces -> age
-# injury/manner of death -> based on death codes
+# TODO: injury/manner of death -> based on death codes
 
 # Calculate metric ----
 
@@ -82,13 +93,42 @@ for (field in demographic_fields){
   # TODO: Maybe field list lambda includes the check to use?
   
   for (mc in matching_columns){
-    # If the field relates to pregnancy, we only need to consider missingness
-    # for female 
+    # Adjustments for age/sex cutoffs
     considered_records <- death_records
-    if (grepl("pregnancy", tolower(mc))){
-      cat(paste0("Only considering female records for pregnancy status", "\n"))
+    if (mc == pregnancy_column){
+      # If the field relates to pregnancy, we only need to consider missingness
+      # for female and within age
+      cat(paste0("Only considering female records within age cutoffs for pregnancy status", "\n"))
       considered_records <- 
-        considered_records[considered_records[, sex_column] == "F",]
+        considered_records[
+          considered_records[, sex_column] == "F" & 
+            considered_records[, age_column] >= age_pregnancy_low &
+            considered_records[, age_column] <= age_pregnancy_high,
+        ]
+    } else if (!is.null(marital_status_column) && mc == marital_status_column){
+      cat(paste0("Only considering records above age cutoff for marital status", "\n"))
+      considered_records <- 
+        considered_records[ 
+            considered_records[, age_column] >= age_marital_low,
+        ]
+    } else if (!is.null(occupdation_column) && mc == occupation_column){
+      cat(paste0("Only considering records above age cutoff for occupation", "\n"))
+      considered_records <- 
+        considered_records[ 
+          considered_records[, age_column] >= age_occupation_low,
+        ]
+    } else if (!is.null(industry_column) && mc == industry_column){
+      cat(paste0("Only considering records above age cutoff for industry", "\n"))
+      considered_records <- 
+        considered_records[ 
+          considered_records[, age_column] >= age_industry_low,
+        ]
+    } else if (!is.null(armed_forces_column) && mc == armed_forces_column){
+      cat(paste0("Only considering records above age cutoff for armed forces", "\n"))
+      considered_records <- 
+        considered_records[ 
+          considered_records[, age_column] >= age_armed_low,
+        ]
     }
     
     # The field is present, so now find the proportion that are blank
