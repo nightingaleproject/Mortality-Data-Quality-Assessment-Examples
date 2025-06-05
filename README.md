@@ -62,6 +62,12 @@ This code repository contains
 
 Note that there is currently no example code to determine the proportion of records with an implausible sequence for cause of death.
 
+## Data Requirements
+
+Data used for metric calculation should have a format where each row corresponds to one death record and each column corresponds to an attribute for the death record, such as "Date Certified" or "Underlying Cause of Death". ICD codes included in the data should not include periods (".").
+
+For an example of data in the correct format, please see [SyntheticDeathRecordData.csv](data/SyntheticDeathRecordData.csv).
+
 ## Requirements: Python
 
 Running the standalone example code requires
@@ -142,6 +148,10 @@ rmarkdown::render(
 (update the notebook as appropriate)
 
 Alternatively, open the relevant notebook in RStudio, such as [MortalityDataQualityAssessment.Rmd](code/R_notebook/MortalityDataQualityAssessment.Rmd). Then click the "Knit" button at the top of the script.
+
+## Disclosure
+
+Artificial Intelligence (AI) software was consulted in the development of this code and to ensure that R and Python versions of the code run identically.
 
 ## License
 
