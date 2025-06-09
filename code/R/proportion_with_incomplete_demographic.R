@@ -17,7 +17,7 @@ death_records <-
   load_death_records(file_path)
 
 # List of fields we want to check for individually
-demographic_fields = c(
+demographic_fields <- c(
   "Age",
   "County of Death",
   "Date of Death",
@@ -111,7 +111,7 @@ for (field in demographic_fields){
         considered_records[ 
             considered_records[, age_column] >= age_marital_low,
         ]
-    } else if (!is.null(occupdation_column) && mc == occupation_column){
+    } else if (!is.null(occupation_column) && mc == occupation_column){
       cat(paste0("Only considering records above age cutoff for occupation", "\n"))
       considered_records <- 
         considered_records[ 

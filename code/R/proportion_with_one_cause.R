@@ -21,6 +21,9 @@ cause_of_death_columns <- c(
   colnames(death_records)[startsWith(colnames(death_records), "Record Axis COD")]
 )
 
+# Specify certifier column name here
+certifier_name_column <- "Certifier Name"
+
 # Calculate metric ----
 
 # Create a new column that is True when a single Record Axis COD column is populated
@@ -41,6 +44,6 @@ proportion <- calculate_proportion(
 certifier_proportions <- calculate_proportion_by_column(
   death_records, 
   metric = "Single Record Axis COD",
-  column = "Certifier Name", 
+  column = certifier_name_column, 
   print_output = TRUE
 )

@@ -21,6 +21,9 @@ death_records <-
 date_of_death_column <- "Date of Death"
 date_certified_column <- "Date Certified"
 
+# Specify certifier column name here
+certifier_name_column <- "Certifier Name"
+
 # Specify amount of days appropriate for certification
 number_of_days <- 5
 
@@ -53,6 +56,6 @@ proportion <- calculate_proportion(
 certifier_proportions <- calculate_proportion_by_column(
   death_records, 
   metric = "Not Within Required Days",
-  column = "Certifier Name", 
+  column = certifier_name_column, 
   print_output = TRUE
 )

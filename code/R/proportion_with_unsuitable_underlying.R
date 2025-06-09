@@ -19,6 +19,9 @@ death_records <-
 # Specify required metric column names here
 underlying_cause_of_death_column <- "Underlying COD"
 
+# Specify certifier column name here
+certifier_name_column <- "Certifier Name"
+
 # Calculate metric ----
 
 # Load the unsuitable causes of death data
@@ -47,6 +50,6 @@ proportion <- calculate_proportion(
 certifier_proportions <- calculate_proportion_by_column(
   death_records, 
   metric = "Unsuitable Underlying",
-  column = "Certifier Name", 
+  column = certifier_name_column, 
   print_output = TRUE
 )
