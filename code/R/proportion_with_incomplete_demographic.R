@@ -60,6 +60,11 @@ age_armed_low <- 14 #TODO: check for cutoff
 
 # TODO: injury/manner of death -> based on death codes
 
+# Specify certifier column name here
+certifier_name_column <- "Certifier Name"
+# Specify number of certifier proportions to displat
+number_certifier_proportions <- 3
+
 # Calculate metric ----
 
 # For each field we first check if the field is present in the data;
@@ -142,6 +147,15 @@ for (field in demographic_fields){
       print_output = TRUE
     )
     
+    # Group the records by certifier and calculate the proportion of flagged records for each certifier
+    certifier_proportions <- calculate_proportion_by_column(
+      considered_records, 
+      metric = paste0("Blank ", mc),
+      column = certifier_name_column, 
+      print_output = TRUE,
+      num_print = number_certifier_proportions
+    )
+    
     # Now find the proportion that are "unknown"
     considered_records[, paste0("Unknown ", mc)] <- 
       as.numeric(considered_records[, mc] %in% unknown_responses)
@@ -151,6 +165,15 @@ for (field in demographic_fields){
       metric = paste0("Unknown ", mc),
       metric_description = paste0("explicit 'unknown' values for ", mc), 
       print_output = TRUE
+    )
+    
+    # Group the records by certifier and calculate the proportion of flagged records for each certifier
+    certifier_proportions <- calculate_proportion_by_column(
+      considered_records, 
+      metric = paste0("Unknown ", mc),
+      column = certifier_name_column, 
+      print_output = TRUE,
+      num_print = number_certifier_proportions
     )
   }
   

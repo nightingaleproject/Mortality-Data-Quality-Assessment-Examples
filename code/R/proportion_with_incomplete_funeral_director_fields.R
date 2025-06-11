@@ -99,6 +99,11 @@ age_industry_low <- 14
 armed_forces_column <- "Ever in US Armed Forces"
 age_armed_low <- 14 #TODO: check for cutoff
 
+# Specify certifier column name here
+certifier_name_column <- "Certifier Name"
+# Specify number of certifier proportions to displat
+number_certifier_proportions <- 3
+
 # Calculate metric ----
 
 # Bin the age cutoff metrics into one vector for ease
@@ -133,17 +138,14 @@ if (any(!funeral_director_columns %in% colnames(death_records))){
 
 if (length(funeral_director_columns) > 0){
   # Create a new column that is True when at least one funeral director field is empty or unknown
-  death_records["Incomplete Funeral Director Fields"] <-
+  death_records[, "Incomplete Funeral Director Fields"] <-
     rowSums(
-      is.na(death_records[, !funeral_director_columns %in% age_cutoff_colummns, drop = F]) | 
-        (death_records[, !funeral_director_columns %in% age_cutoff_colummns, drop = F] %in% unknown_responses)
+      is.na(death_records[, funeral_director_columns[!funeral_director_columns %in% age_cutoff_colummns], drop = F]) | 
+        (death_records[, funeral_director_columns[!funeral_director_columns %in% age_cutoff_colummns], drop = F] %in% unknown_responses)
     ) > 0
   # Add the results for the age cutoff columns
   if (length(age_cutoff_colummns) > 0){
     for (ac in age_cutoff_colummns){
-      death_records["Incomplete Funeral Director Fields"] <-
-        death_records["Incomplete Funeral Director Fields"] 
-      
       cutoff_results <-
         if (mc == marital_status_column){
           cat(paste0("Only considering records above age cutoff for marital status", "\n"))
@@ -170,6 +172,10 @@ if (length(funeral_director_columns) > 0){
               death_records[, armed_forces_column, drop = F] %in% unknown_responses
           ))
         }
+      
+      
+      death_records[,"Incomplete Funeral Director Fields"] <-
+        death_records[,"Incomplete Funeral Director Fields"] | cutoff_results
     }
   }
   
@@ -179,6 +185,15 @@ if (length(funeral_director_columns) > 0){
     metric = "Incomplete Funeral Director Fields",
     metric_description = "at least one funeral director field incomplete", 
     print_output = TRUE
+  )
+  
+  # Group the records by certifier and calculate the proportion of flagged records for each certifier
+  certifier_proportions <- calculate_proportion_by_column(
+    death_records, 
+    metric = "Incomplete Funeral Director Fields",
+    column = certifier_name_column, 
+    print_output = TRUE,
+    num_print = number_certifier_proportions
   )
 } else {
   cat("No specified funeral director fields in data\n")

@@ -59,6 +59,11 @@ unknown_responses <- c(
   "UNK" # unknown response specific to these attributes
 )
 
+# Specify certifier column name here
+certifier_name_column <- "Certifier Name"
+# Specify number of certifier proportions to displat
+number_certifier_proportions <- 3
+
 # Calculate metric ----
 
 # Subset the medical columns to those that appear in the data
@@ -80,17 +85,19 @@ if (any(!medical_columns %in% colnames(death_records))){
 if (length(medical_columns) > 0){
   # Create a column that's True when any medical certifier field is empty; special
   # case pregnancy status since it only applies to female decedents
-  death_records["Incomplete Medical Certifier Fields"] <- 
-    (death_records[, sex_column, drop = F] == "F" & 
-       death_records[, age_column] >= age_pregnancy_low &
-       death_records[, age_column] <= age_pregnancy_high & (
-         is.na(death_records[, pregnancy_column, drop = F]) |
-           death_records[, pregnancy_column, drop = F] %in% unknown_responses
-       )) |
-    rowSums(
-      is.na(death_records[, medical_columns[medical_columns != pregancy_column], drop = F]) | 
-        (death_records[, medical_columns[medical_columns != pregancy_column], drop = F] %in% unknown_responses)
-    ) > 0
+  death_records[,"Incomplete Medical Certifier Fields"] <- 
+    unname(
+      (death_records[, sex_column, drop = F] == "F" & 
+         death_records[, age_column] >= age_pregnancy_low &
+         death_records[, age_column] <= age_pregnancy_high & (
+           is.na(death_records[, pregnancy_column, drop = F]) |
+             death_records[, pregnancy_column, drop = F] %in% unknown_responses
+         )) |
+        rowSums(
+          is.na(death_records[, medical_columns[medical_columns != pregnancy_column], drop = F]) | 
+            (death_records[, medical_columns[medical_columns != pregnancy_column], drop = F] %in% unknown_responses)
+        ) > 0
+    )
   
   # Calculate the proportion of records with incomplete funeral director fields
   proportion <- calculate_proportion(
@@ -98,6 +105,15 @@ if (length(medical_columns) > 0){
     metric = "Incomplete Medical Certifier Fields",
     metric_description = "at least one medical certifier field incomplete", 
     print_output = TRUE
+  )
+  
+  # Group the records by certifier and calculate the proportion of flagged records for each certifier
+  certifier_proportions <- calculate_proportion_by_column(
+    death_records, 
+    metric = "Incomplete Medical Certifier Fields",
+    column = certifier_name_column, 
+    print_output = TRUE,
+    num_print = number_certifier_proportions
   )
 } else {
   cat("No specified medical certifier fields in data\n")
