@@ -33,7 +33,7 @@ calculate_proportion <- function(
 
 # Calculate the proportion of the provided metric for each distinct value in supplied column
 calculate_proportion_by_column <- function(
-    death_records, metric, column, print_output = TRUE
+    death_records, metric, column, print_output = TRUE, num_print = NA
   ){
   col_proportions <- 
     aggregate(
@@ -46,8 +46,15 @@ calculate_proportion_by_column <- function(
   colnames(col_proportions) <- c(column, "Proportion")
   
   if (print_output){
+    # if we're printing, we want to subset to the requested amount
+    print_proportions <- col_proportions
+    if (!is.na(num_print)){
+      print_proportions <- print_proportions[c(1:num_print),]
+      cat(paste0("Top ", num_print, " Proportions by Certifier Name:\n"))
+    }
+    
     # Print the proportions for each of the columns
-    print(col_proportions)
+    print(print_proportions)
   }
   
   return(col_proportions)

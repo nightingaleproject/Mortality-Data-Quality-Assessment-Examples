@@ -1,13 +1,28 @@
+# Load libraries and supporting functions ----
+
 # Load necessary libraries
 library(here)
 
 # Load supporting functions
 source(here::here("code", "R", "dqaf_metrics.R"))
 
+# Load variables common across all scripts -- to edit, see dqaf_common_variables.R
+source(here::here("code", "R", "dqaf_common_variables.R"))
+
+# Specify data and column names ----
+
 # Load the death records data
 file_path <- here::here("data", "SyntheticDeathRecordData.csv")
 death_records <- 
   load_death_records(file_path)
+
+# Specify required metric column names here
+underlying_cause_of_death_column <- "Underlying COD"
+
+# Specify certifier column name here
+certifier_name_column <- "Certifier Name"
+
+# Calculate metric ----
 
 # Load the unsuitable causes of death data
 unsuitable_causes <- read.csv(here::here("data", "unsuitable_COD_codes.csv"))
@@ -17,7 +32,7 @@ unsuitable_codes <- unsuitable_causes$code
 
 # Create a new column that is TRUE when the underlying COD is unsuitable
 death_records[, "Unsuitable Underlying"] <- sapply(
-  death_records$`Underlying COD`, 
+  death_records[, underlying_cause_of_death_column], 
   function(code){
     return(any(startsWith(code, unsuitable_codes)))
   }
@@ -35,6 +50,6 @@ proportion <- calculate_proportion(
 certifier_proportions <- calculate_proportion_by_column(
   death_records, 
   metric = "Unsuitable Underlying",
-  column = "Certifier Name", 
+  column = certifier_name_column, 
   print_output = TRUE
 )
