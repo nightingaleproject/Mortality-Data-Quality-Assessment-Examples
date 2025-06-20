@@ -1,0 +1,225 @@
+check_funeral_columns <- function(
+    death_records,
+    funeral_director_columns
+){
+  # Subset the funeral director columns to those that appear in the data
+  if (any(!funeral_director_columns %in% colnames(death_records))){
+    cat(
+      paste0(
+        "The following specified funeral director fields do not appear in the data: ",
+        paste(
+          funeral_director_columns[
+            !funeral_director_columns %in% colnames(death_records)
+          ], collapse = ", ")
+      ),
+      "\n"
+    )
+    funeral_director_columns <-
+      funeral_director_columns[
+        funeral_director_columns %in% colnames(death_records)
+      ]
+  }
+
+  return(funeral_director_columns)
+}
+
+parse_incomplete_funeral_director_fields <- function(
+    death_records,
+    funeral_director_columns,
+    age_cutoff_colummns,
+    age_column,
+    marital_status_column,
+    age_marital_low,
+    occupation_column,
+    age_occupation_low,
+    industry_column,
+    age_industry_low,
+    armed_forces_column,
+    age_armed_low
+){
+  # Create a new column that is True when at least one funeral director field is empty or unknown
+  death_records[, "Incomplete Funeral Director Fields"] <-
+    rowSums(
+      is.na(death_records[, funeral_director_columns[!funeral_director_columns %in% age_cutoff_colummns], drop = F]) |
+        (death_records[, funeral_director_columns[!funeral_director_columns %in% age_cutoff_colummns], drop = F] %in% unknown_responses)
+    ) > 0
+  # Add the results for the age cutoff columns
+  if (length(age_cutoff_colummns) > 0){
+    for (ac in age_cutoff_colummns){
+      cutoff_results <-
+        if (mc == marital_status_column){
+          cat(paste0("Only considering records above age cutoff for marital status", "\n"))
+          (death_records[, age_column] >= age_marital_low & (
+            is.na(death_records[, marital_status_column, drop = F]) |
+              death_records[, marital_status_column, drop = F] %in% unknown_responses
+          ))
+        } else if (mc == occupation_column){
+          cat(paste0("Only considering records above age cutoff for occupation", "\n"))
+          (death_records[, age_column] >= age_occupation_low & (
+            is.na(death_records[, occupation_column, drop = F]) |
+              death_records[, occupation_column, drop = F] %in% unknown_responses
+          ))
+        } else if (mc == industry_column){
+          cat(paste0("Only considering records above age cutoff for industry", "\n"))
+          (death_records[, age_column] >= age_industry_low & (
+            is.na(death_records[, industry_column, drop = F]) |
+              death_records[, industry_column, drop = F] %in% unknown_responses
+          ))
+        } else if (mc == armed_forces_column){
+          cat(paste0("Only considering records above age cutoff for armed forces", "\n"))
+          (death_records[, age_column] >= age_armed_low & (
+            is.na(death_records[, armed_forces_column, drop = F]) |
+              death_records[, armed_forces_column, drop = F] %in% unknown_responses
+          ))
+        }
+
+
+      death_records[,"Incomplete Funeral Director Fields"] <-
+        death_records[,"Incomplete Funeral Director Fields"] | cutoff_results
+    }
+  }
+
+  return(death_records)
+}
+
+
+proportion_with_incomplete_funeral_director_fields <- function(
+    death_records,
+    funeral_director_columns,
+    unknown_responses = c(
+      "Unknown",
+      "U",
+      "UNK" # unknown response specific to these attributes
+    ),
+    age_column = "Age",
+    marital_status_column = NULL,
+    age_marital_low = 10,
+    occupation_column = NULL,
+    age_occupation_low = 14,
+    industry_column = NULL,
+    age_industry_low = 14,
+    armed_forces_column = NULL,
+    age_armed_low = 14
+){
+
+
+  # Subset the funeral director columns to those that appear in the data
+  funeral_director_columns <- check_funeral_columns(
+    death_records,
+    funeral_director_columns
+  )
+  # if none remain, exit the function
+  if (length(funeral_director_columns) == 0){
+    cat("No specified funeral director fields in data\n")
+    return(NULL)
+  }
+
+  # Bin the age cutoff metrics into one vector for ease
+  age_cutoff_colummns <- c(
+    marital_status_column, occupation_column, industry_column, armed_forces_column
+  )
+  # If all cutoff columns are null, no need to subset
+  if (length(age_cutoff_colummns) > 0){
+    age_cutoff_colummns <-
+      age_cutoff_colummns[
+        age_cutoff_colummns %in% colnames(death_records)
+      ]
+  }
+
+  # Create a new column that is True when at least one funeral director field is empty or unknown
+  death_records <- parse_incomplete_funeral_director_fields(
+    death_records,
+    funeral_director_columns,
+    age_cutoff_colummns,
+    age_column,
+    marital_status_column,
+    age_marital_low,
+    occupation_column,
+    age_occupation_low,
+    industry_column,
+    age_industry_low,
+    armed_forces_column,
+    age_armed_low
+  )
+
+  # Calculate the proportion of records with incomplete funeral director fields
+  proportion <- calculate_proportion(
+    death_records,
+    metric = "Incomplete Funeral Director Fields",
+    metric_description = "at least one funeral director field incomplete",
+    print_output = TRUE
+  )
+
+  return(proportion)
+}
+
+certifier_proportion_with_incomplete_funeral_director_fields <- function(
+    death_records,
+    funeral_director_columns,
+    unknown_responses = c(
+      "Unknown",
+      "U",
+      "UNK" # unknown response specific to these attributes
+    ),
+    age_column = "Age",
+    marital_status_column = NULL,
+    age_marital_low = 10,
+    occupation_column = NULL,
+    age_occupation_low = 14,
+    industry_column = NULL,
+    age_industry_low = 14,
+    armed_forces_column = NULL,
+    age_armed_low = 14
+){
+
+
+  # Subset the funeral director columns to those that appear in the data
+  funeral_director_columns <- check_funeral_columns(
+    death_records,
+    funeral_director_columns
+  )
+  # if none remain, exit the function
+  if (length(funeral_director_columns) == 0){
+    cat("No specified funeral director fields in data\n")
+    return(NULL)
+  }
+
+  # Bin the age cutoff metrics into one vector for ease
+  age_cutoff_colummns <- c(
+    marital_status_column, occupation_column, industry_column, armed_forces_column
+  )
+  # If all cutoff columns are null, no need to subset
+  if (length(age_cutoff_colummns) > 0){
+    age_cutoff_colummns <-
+      age_cutoff_colummns[
+        age_cutoff_colummns %in% colnames(death_records)
+      ]
+  }
+
+  # Create a new column that is True when at least one funeral director field is empty or unknown
+  death_records <- parse_incomplete_funeral_director_fields(
+    death_records,
+    funeral_director_columns,
+    age_cutoff_colummns,
+    age_column,
+    marital_status_column,
+    age_marital_low,
+    occupation_column,
+    age_occupation_low,
+    industry_column,
+    age_industry_low,
+    armed_forces_column,
+    age_armed_low
+  )
+
+  # Group the records by certifier and calculate the proportion of flagged records for each certifier
+  certifier_proportions <- calculate_proportion_by_column(
+    death_records,
+    metric = "Incomplete Funeral Director Fields",
+    column = certifier_name_column,
+    print_output = TRUE,
+    num_print = number_certifier_proportions
+  )
+
+  return(certifier_proportions)
+}
