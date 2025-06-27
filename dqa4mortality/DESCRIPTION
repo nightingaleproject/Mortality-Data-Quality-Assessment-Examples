@@ -1,0 +1,20 @@
+Package: dqa4mortality
+Type: Package
+Title: Data Quality Assessment Metrics for Mortality Data
+Version: 1.1.0
+Authors@R: c(
+    person(
+      "Jane", "Doe",
+      email = "jane@example.com",
+      role = c("aut", "cre")
+    )
+  )
+Description: This release contains metric calculation for the Data Quality 
+  Assessment (DQA) framework. For more information on this DQA framework, please
+  see https://github.com/nightingaleproject/Mortality-Data-Quality-Assessment-Examples/.
+License: Apache License (>= 2)
+Encoding: UTF-8
+LazyData: true
+Imports:
+  lubridate
+RoxygenNote: 7.3.2
