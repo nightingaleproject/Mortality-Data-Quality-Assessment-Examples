@@ -1,3 +1,16 @@
+# Code for metric: proportion with incomplete demographics
+
+# internal ----
+
+#' Find the columns in death records dataframe that match the input field
+#'
+#' @param death_records death records dataframe with rows corresponding to
+#'  records and columns corresponding to record attributes
+#' @param field string, field we are looking to match in death_records. If string ends with ".\*", matches fields that start with all characters preceding it. For example, "Race .\*" will search for all fields starting with "Race ".
+#'
+#' @returns character vector of column name(s) matching field in death_records
+#' @keywords internal
+#'
 find_matching_columns <- function(
     death_records,
     field
@@ -12,8 +25,31 @@ find_matching_columns <- function(
   return(matching_columns)
 }
 
+#' Subset death records data to relevant records based on age cutoffs
+#'
+#' @param death_records death records dataframe with rows corresponding to
+#'  records and columns corresponding to record attributes
+#' @param mc string, column we are calculating proportions for
+#' @param sex_column string, sex column in death_records
+#' @param pregnancy_column string, pregnancy column in death_records
+#' @param age_column string, age column in death_records
+#' @param age_pregnancy_low number, low cutoff for pregnancy age
+#' @param age_pregnancy_high number, high cutoff for pregnancy age
+#' @param marital_status_column string, marital status column in death_records. NULL if not in death_records.
+#' @param age_marital_low number, low cutoff for marital status age
+#' @param occupation_column string, occupation column in death_records. NULL if not in death_records.
+#' @param age_occupation_low number, low cutoff for occupation age
+#' @param industry_column string, industry column in death_records. NULL if not in death_records.
+#' @param age_industry_low number, low cutoff for industry age
+#' @param armed_forces_column string, armed forces column in death_records. NULL if not in death_records.
+#' @param age_armed_low number, low cutoff for armed forces age
+#'
+#' @returns death_records, subset to the relevant records in mc based on cutoffs
+#' @export
+#'
 subset_records_for_cutoffs <- function(
     death_records,
+    mc,
     sex_column,
     pregnancy_column,
     age_column,
@@ -69,6 +105,34 @@ subset_records_for_cutoffs <- function(
   return(considered_records)
 }
 
+# external ----
+
+#' Calculate proportion of records with incomplete demographic fields
+#'
+#' @param death_records death records dataframe with rows corresponding to
+#'  records and columns corresponding to record attributes
+#' @param demographic_fields character vector of column strings in death_records for fields related to demographics. If string ends with ".\*", matches fields that start with all characters preceding it. For example, "Race .\*" will search for all fields starting with "Race ".
+#' @param unknown_responses character vector of strings corresponding to "unknown" in funeral director fields. Default to empty vector.
+#' @param sex_column string, sex column in death_records
+#' @param pregnancy_column string, pregnancy column in death_records
+#' @param age_column string, age column in death_records
+#' @param age_pregnancy_low number, low cutoff for pregnancy age
+#' @param age_pregnancy_high number, high cutoff for pregnancy age
+#' @param marital_status_column string, marital status column in death_records. NULL if not in death_records.
+#' @param age_marital_low number, low cutoff for marital status age
+#' @param occupation_column string, occupation column in death_records. NULL if not in death_records.
+#' @param age_occupation_low number, low cutoff for occupation age
+#' @param industry_column string, industry column in death_records. NULL if not in death_records.
+#' @param age_industry_low number, low cutoff for industry age
+#' @param armed_forces_column string, armed forces column in death_records. NULL if not in death_records.
+#' @param age_armed_low number, low cutoff for armed forces age
+#'
+#' @returns data frame with 3 columns:
+#'    Column Name: demographic fields
+#'    Proportion Blank: proportion missing for a given demographic field
+#'    Proportion Unknown: proportion unknown for a given demographic field
+#' @export
+#'
 proportion_with_incomplete_demographic <- function(
     death_records,
     demographic_fields = c(
@@ -83,11 +147,7 @@ proportion_with_incomplete_demographic <- function(
       "Race .*", # Match any field starting with 'Race'
       "Tobacco Use Contributed to Death"
     ),
-    unknown_responses = c(
-      "Unknown",
-      "U",
-      "UNK" # unknown response specific to these attributes
-    ),
+    unknown_responses = c(),
     sex_column = "Sex",
     pregnancy_column = "Pregnancy Status",
     age_column = "Age",
@@ -202,6 +262,35 @@ proportion_with_incomplete_demographic <- function(
   return(all_proportions)
 }
 
+#' Calculate proportion of records with incomplete demographic fields by certifier
+#'
+#' @param death_records death records dataframe with rows corresponding to
+#'  records and columns corresponding to record attributes
+#' @param demographic_fields character vector of column strings in death_records for fields related to demographics. If string ends with ".\*", matches fields that start with all characters preceding it. For example, "Race .\*" will search for all fields starting with "Race ".
+#' @param unknown_responses character vector of strings corresponding to "unknown" in funeral director fields. Default to empty vector.
+#' @param sex_column string, sex column in death_records
+#' @param pregnancy_column string, pregnancy column in death_records
+#' @param age_column string, age column in death_records
+#' @param age_pregnancy_low number, low cutoff for pregnancy age
+#' @param age_pregnancy_high number, high cutoff for pregnancy age
+#' @param marital_status_column string, marital status column in death_records. NULL if not in death_records.
+#' @param age_marital_low number, low cutoff for marital status age
+#' @param occupation_column string, occupation column in death_records. NULL if not in death_records.
+#' @param age_occupation_low number, low cutoff for occupation age
+#' @param industry_column string, industry column in death_records. NULL if not in death_records.
+#' @param age_industry_low number, low cutoff for industry age
+#' @param armed_forces_column string, armed forces column in death_records. NULL if not in death_records.
+#' @param age_armed_low number, low cutoff for armed forces age
+#' @param certifier_name_column string, certifier name column in death_records
+#' @param number_certifier_proportions number of certifier proportions to display. Default 3.
+#'
+#' @returns data frame with 4 columns:
+#'    Column Name: demographic fields
+#'    Certifier Name: certifier name
+#'    Proportion Blank: proportion missing for a given demographic field and certifier name
+#'    Proportion Unknown: proportion unknown for a given demographic field and certifier name
+#' @export
+#'
 certifier_proportion_with_incomplete_demographic <- function(
     death_records,
     demographic_fields = c(
@@ -216,11 +305,7 @@ certifier_proportion_with_incomplete_demographic <- function(
       "Race .*", # Match any field starting with 'Race'
       "Tobacco Use Contributed to Death"
     ),
-    unknown_responses = c(
-      "Unknown",
-      "U",
-      "UNK" # unknown response specific to these attributes
-    ),
+    unknown_responses = c(),
     sex_column = "Sex",
     pregnancy_column = "Pregnancy Status",
     age_column = "Age",

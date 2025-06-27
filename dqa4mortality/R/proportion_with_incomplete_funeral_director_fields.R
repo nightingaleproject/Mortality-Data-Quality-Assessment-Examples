@@ -1,3 +1,16 @@
+# Code for metric: proportion with incomplete funeral director fields
+
+# internal ----
+
+#' Check which funeral director columns are in death records data
+#'
+#' @param death_records death records dataframe with rows corresponding to
+#'  records and columns corresponding to record attributes
+#' @param funeral_director_columns character vector of column names in death_records for fields filled out by funeral directors
+#'
+#' @returns funeral_director_columns subset to those appearing in death_records
+#' @keywords internal
+#'
 check_funeral_columns <- function(
     death_records,
     funeral_director_columns
@@ -23,9 +36,30 @@ check_funeral_columns <- function(
   return(funeral_director_columns)
 }
 
+#' Add column for incomplete funeral director fields
+#'
+#' @param death_records death records dataframe with rows corresponding to
+#'  records and columns corresponding to record attributes
+#' @param funeral_director_columns character vector of column names in death_records for fields filled out by funeral directors
+#' @param unknown_responses character vector of strings corresponding to "unknown" in funeral director fields. Default to empty vector.
+#' @param age_cutoff_colummns character vector of column names in death_records corresponding to columns requiring age cutoffs (such as marital status, etc.)
+#' @param age_column string, age column in death_records
+#' @param marital_status_column string, marital status column in death_records. NULL if not in death_records.
+#' @param age_marital_low number, low cutoff for marital status age
+#' @param occupation_column string, occupation column in death_records. NULL if not in death_records.
+#' @param age_occupation_low number, low cutoff for occupation age
+#' @param industry_column string, industry column in death_records. NULL if not in death_records.
+#' @param age_industry_low number, low cutoff for industry age
+#' @param armed_forces_column string, armed forces column in death_records. NULL if not in death_records.
+#' @param age_armed_low number, low cutoff for armed forces age
+#'
+#' @returns death_records with an additional boolean column "Incomplete Funeral Director Fields", specifying if the record has at least one incomplete funeral director field
+#' @keywords internal
+#'
 parse_incomplete_funeral_director_fields <- function(
     death_records,
     funeral_director_columns,
+    unknown_responses,
     age_cutoff_colummns,
     age_column,
     marital_status_column,
@@ -73,7 +107,6 @@ parse_incomplete_funeral_director_fields <- function(
           ))
         }
 
-
       death_records[,"Incomplete Funeral Director Fields"] <-
         death_records[,"Incomplete Funeral Director Fields"] | cutoff_results
     }
@@ -82,15 +115,31 @@ parse_incomplete_funeral_director_fields <- function(
   return(death_records)
 }
 
+# external ----
 
+#' Calculate proportion of records with at least one incomplete funeral director field
+#'
+#' @param death_records death records dataframe with rows corresponding to
+#'  records and columns corresponding to record attributes
+#' @param funeral_director_columns character vector of column names in death_records for fields filled out by funeral directors
+#' @param unknown_responses character vector of strings corresponding to "unknown" in funeral director fields. Default to empty vector.
+#' @param age_column string, age column in death_records
+#' @param marital_status_column string, marital status column in death_records. NULL if not in death_records. Default NULL.
+#' @param age_marital_low number, low cutoff for marital status age. Default 10.
+#' @param occupation_column string, occupation column in death_records. NULL if not in death_records. Default NULL.
+#' @param age_occupation_low number, low cutoff for occupation age. Default 14.
+#' @param industry_column string, industry column in death_records. NULL if not in death_records. Default NULL.
+#' @param age_industry_low number, low cutoff for industry age. Default 14.
+#' @param armed_forces_column string, armed forces column in death_records. NULL if not in death_records. Default NULL.
+#' @param age_armed_low number, low cutoff for armed forces age. Default 14.
+#'
+#' @returns number, proportion of records with at least one incomplete funeral director field
+#' @export
+#'
 proportion_with_incomplete_funeral_director_fields <- function(
     death_records,
     funeral_director_columns,
-    unknown_responses = c(
-      "Unknown",
-      "U",
-      "UNK" # unknown response specific to these attributes
-    ),
+    unknown_responses = c(),
     age_column = "Age",
     marital_status_column = NULL,
     age_marital_low = 10,
@@ -153,6 +202,27 @@ proportion_with_incomplete_funeral_director_fields <- function(
   return(proportion)
 }
 
+#' Calculate proportion of records with at least one incomplete funeral director field by certifier
+#'
+#' @param death_records death records dataframe with rows corresponding to
+#'  records and columns corresponding to record attributes
+#' @param funeral_director_columns character vector of column names in death_records for fields filled out by funeral directors
+#' @param unknown_responses character vector of strings corresponding to "unknown" in funeral director fields. Default to empty vector.
+#' @param age_column string, age column in death_records
+#' @param marital_status_column string, marital status column in death_records. NULL if not in death_records. Default NULL.
+#' @param age_marital_low number, low cutoff for marital status age. Default 10.
+#' @param occupation_column string, occupation column in death_records. NULL if not in death_records. Default NULL.
+#' @param age_occupation_low number, low cutoff for occupation age. Default 14.
+#' @param industry_column string, industry column in death_records. NULL if not in death_records. Default NULL.
+#' @param age_industry_low number, low cutoff for industry age. Default 14.
+#' @param armed_forces_column string, armed forces column in death_records. NULL if not in death_records. Default NULL.
+#' @param age_armed_low number, low cutoff for armed forces age. Default 14.
+#' @param certifier_name_column string, certifier name column in death_records
+#' @param number_certifier_proportions number of certifier proportions to display. Default 3.
+#'
+#' @returns dataframe with one column corresponding to the unique certifiers by name and another column corresponding to the proportions of records with at least one incomplete funeral director field
+#' @export
+#'
 certifier_proportion_with_incomplete_funeral_director_fields <- function(
     death_records,
     funeral_director_columns,
@@ -169,7 +239,9 @@ certifier_proportion_with_incomplete_funeral_director_fields <- function(
     industry_column = NULL,
     age_industry_low = 14,
     armed_forces_column = NULL,
-    age_armed_low = 14
+    age_armed_low = 14,
+    certifier_name_column = "Certifier Name",
+    number_certifier_proportions = 3
 ){
 
 

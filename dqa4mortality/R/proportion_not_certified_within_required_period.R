@@ -1,4 +1,18 @@
+# Code for metric: proportion not certified within required time period
 
+# internal ----
+
+#' Add column for not certified within required period
+#'
+#' @param death_records death records dataframe with rows corresponding to
+#'  records and columns corresponding to record attributes
+#' @param date_of_death_column string, date of death column in death_records
+#' @param date_certified_column string, date certified column in death_records
+#' @param number_of_days number, days that a record must be certified by
+#'
+#' @returns death_records with an additional boolean column "Not Within Required Days", specifying if the record was not certified within the specified period
+#' @keywords internal
+#'
 parse_not_certified_within_required_period <- function(
     death_records,
     date_of_death_column = "Date of Death",
@@ -21,6 +35,19 @@ parse_not_certified_within_required_period <- function(
   return(death_records)
 }
 
+# external ----
+
+#' Calculate proportion of records not certified within required period
+#'
+#' @param death_records death records dataframe with rows corresponding to
+#'  records and columns corresponding to record attributes
+#' @param date_of_death_column string, date of death column in death_records
+#' @param date_certified_column string, date certified column in death_records
+#' @param number_of_days number, days that a record must be certified by
+#'
+#' @returns number, proportion of records not certified within required period
+#' @export
+#'
 proportion_not_certified_within_required_period <- function(
     death_records,
     date_of_death_column,
@@ -35,7 +62,7 @@ proportion_not_certified_within_required_period <- function(
     number_of_days = 5
   )
 
-  # Calculate the proportion of records where the Date Certified is not within 5 days of the Date of Death
+  # Calculate the proportion of records where the Date Certified is not within required days of the Date of Death
   proportion <- calculate_proportion(
     death_records,
     metric = "Not Within Required Days",
@@ -48,6 +75,18 @@ proportion_not_certified_within_required_period <- function(
   return(proportion)
 }
 
+#' Calculate proportion of records not certified within required period by certifier
+#'
+#' @param death_records death records dataframe with rows corresponding to
+#'  records and columns corresponding to record attributes
+#' @param date_of_death_column string, date of death column in death_records
+#' @param date_certified_column string, date certified column in death_records
+#' @param number_of_days number, days that a record must be certified by
+#' @param certifier_name_column string, certifier name column in death_records
+#'
+#' @returns dataframe with one column corresponding to the unique certifiers by name and another column corresponding to the proportions of records with date certified not within required days
+#' @export
+#'
 certifier_proportion_not_certified_within_required_period <- function(
     death_records,
     date_of_death_column = "Date of Death",

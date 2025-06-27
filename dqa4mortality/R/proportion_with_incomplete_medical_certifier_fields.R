@@ -1,3 +1,16 @@
+# Code for metric: proportion with incomplete medical certifier fields
+
+# internal ----
+
+#' Check which medical certifier columns are in death records data
+#'
+#' @param death_records death records dataframe with rows corresponding to
+#'  records and columns corresponding to record attributes
+#' @param medical_columns character vector of column names in death_records for fields filled out by medical certifiers
+#'
+#' @returns medical_columns subset to those appearing in death_records
+#' @keywords internal
+#'
 check_medical_columns <- function(
     death_records,
     medical_columns
@@ -21,9 +34,24 @@ check_medical_columns <- function(
   return(medical_columns)
 }
 
+#' Add column for incomplete medical certifier fields
+#'
+#' @param death_records death records dataframe with rows corresponding to
+#'  records and columns corresponding to record attributes
+#' @param medical_columns character vector of column names in death_records for fields filled out by medical certifiers
+#' @param unknown_responses character vector of strings corresponding to "unknown" in funeral director fields. Default to empty vector.
+#' @param sex_column string, sex column in death_records
+#' @param pregnancy_column string, pregnancy column in death_records
+#' @param age_column string, age column in death_records
+#' @param age_pregnancy_low number, low cutoff for pregnancy age
+#' @param age_pregnancy_high number, high cutoff for pregnancy age
+#'
+#' @returns death_records with an additional boolean column "Incomplete Medical Certifier Fields", specifying if the record has at least one incomplete medical certifier field
+#' @keywords internal
+#'
 parse_incomplete_medical_certifier_fields <- function(
     death_records,
-    funeral_director_columns,
+    medical_columns,
     unknown_responses,
     sex_column,
     pregnancy_column,
@@ -50,14 +78,27 @@ parse_incomplete_medical_certifier_fields <- function(
   return(death_records)
 }
 
+# external ----
+
+#' Calculate proportion of records with at least one incomplete medical certifier field
+#'
+#' @param death_records death records dataframe with rows corresponding to
+#'  records and columns corresponding to record attributes
+#' @param medical_columns character vector of column names in death_records for fields filled out by medical certifiers
+#' @param unknown_responses character vector of strings corresponding to "unknown" in funeral director fields. Default to empty vector.
+#' @param sex_column string, sex column in death_records
+#' @param pregnancy_column string, pregnancy column in death_records
+#' @param age_column string, age column in death_records
+#' @param age_pregnancy_low number, low cutoff for pregnancy age
+#' @param age_pregnancy_high number, high cutoff for pregnancy age
+#'
+#' @returns number, proportion of records with at least one incomplete medical certifier field
+#' @export
+#'
 proportion_with_incomplete_medical_certifier_fields <- function(
     death_records,
-    funeral_director_columns,
-    unknown_responses = c(
-      "Unknown",
-      "U",
-      "UNK" # unknown response specific to these attributes
-    ),
+    medical_columns,
+    unknown_responses = c(),
     sex_column = "Sex",
     pregnancy_column = "Pregnancy Status",
     age_column = "Age",
@@ -99,19 +140,34 @@ proportion_with_incomplete_medical_certifier_fields <- function(
   return(proportion)
 }
 
+#' Calculate proportion of records with at least one incomplete medical certifier field by certifier
+#'
+#' @param death_records death records dataframe with rows corresponding to
+#'  records and columns corresponding to record attributes
+#' @param medical_columns character vector of column names in death_records for fields filled out by medical certifiers
+#' @param unknown_responses character vector of strings corresponding to "unknown" in funeral director fields. Default to empty vector.
+#' @param sex_column string, sex column in death_records
+#' @param pregnancy_column string, pregnancy column in death_records
+#' @param age_column string, age column in death_records
+#' @param age_pregnancy_low number, low cutoff for pregnancy age
+#' @param age_pregnancy_high number, high cutoff for pregnancy age
+#' @param certifier_name_column string, certifier name column in death_records
+#' @param number_certifier_proportions number of certifier proportions to display. Default 3.
+#'
+#' @returns dataframe with one column corresponding to the unique certifiers by name and another column corresponding to the proportions of records with at least one incomplete medical certifier field
+#' @export
+#'
 certifier_proportion_with_incomplete_medical_certifier_fields <- function(
     death_records,
-    funeral_director_columns,
-    unknown_responses = c(
-      "Unknown",
-      "U",
-      "UNK" # unknown response specific to these attributes
-    ),
+    medical_columns,
+    unknown_responses = c(),
     sex_column = "Sex",
     pregnancy_column = "Pregnancy Status",
     age_column = "Age",
     age_pregnancy_low = 5,
-    age_pregnancy_high = 74
+    age_pregnancy_high = 74,
+    certifier_name_column = "Certifier Name",
+    number_certifier_proportions = 3
 ){
 
   # Subset the medical columns to those that appear in the data

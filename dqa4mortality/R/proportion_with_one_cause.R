@@ -1,4 +1,16 @@
+# Code for metric: proportion with one cause of death
 
+# internal ----
+
+#' Add column for one cause of death
+#'
+#' @param death_records death records dataframe with rows corresponding to
+#'  records and columns corresponding to record attributes
+#' @param cause_of_death_columns character vector, cause of death columns in death_records
+#'
+#' @returns death_records with an additional boolean column "Single Record Axis COD", specifying if the record has only one cause of death specified
+#' @keywords internal
+#'
 parse_with_one_cause <- function(
     death_records,
     cause_of_death_columns
@@ -12,6 +24,17 @@ parse_with_one_cause <- function(
   return(death_records)
 }
 
+# external ----
+
+#' Calculate proportion of records with one cause of death
+#'
+#' @param death_records death records dataframe with rows corresponding to
+#'  records and columns corresponding to record attributes
+#' @param cause_of_death_columns character vector, cause of death columns in death_records
+#'
+#' @returns number, proportion of records with one cause of death
+#' @export
+#'
 proportion_with_one_cause <- function(
     death_records,
     cause_of_death_columns
@@ -33,11 +56,19 @@ proportion_with_one_cause <- function(
   return(proportion)
 }
 
+#' Calculate proportion of records not certified within required period by certifier
+#'
+#' @param death_records death records dataframe with rows corresponding to
+#'  records and columns corresponding to record attributes
+#' @param cause_of_death_columns character vector, cause of death columns in death_records
+#' @param certifier_name_column string, certifier name column in death_records
+#'
+#' @returns dataframe with one column corresponding to the unique certifiers by name and another column corresponding to the proportions of records with one cause of death
+#' @export
+#'
 certifier_proportion_with_one_cause <- function(
     death_records,
-    date_of_death_column = "Date of Death",
-    date_certified_column  = "Date Certified",
-    number_of_days = 5,
+    cause_of_death_columns,
     certifier_name_column = "Certifier Name"
 ){
   # add calculated variables for not within required time frame
