@@ -13,6 +13,7 @@
 #' @returns death_records with an additional boolean column "Not Within Required Days", specifying if the record was not certified within the specified period
 #' @keywords internal
 #'
+#' @import lubridate
 parse_not_certified_within_required_period <- function(
     death_records,
     date_of_death_column = "Date of Death",

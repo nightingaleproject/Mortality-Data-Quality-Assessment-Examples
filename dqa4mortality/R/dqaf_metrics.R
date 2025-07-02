@@ -40,6 +40,7 @@ calculate_proportion <- function(
 #' @returns dataframe with one column corresponding to the unique groups in "column" and another column corresponding to the proportions of records with metric as TRUE for each group
 #' @keywords internal
 #'
+#' @importFrom stats aggregate
 calculate_proportion_by_column <- function(
     death_records, metric, column, print_output = TRUE, num_print = NA
 ){
@@ -84,6 +85,9 @@ calculate_proportion_by_column <- function(
 #'  here::here("..", "data", "SyntheticDeathRecordData.csv")
 #' )
 #' }
+#'
+#' @importFrom here here
+#' @importFrom utils read.csv
 #'
 load_death_records <- function(file){
   # Load the death records data
