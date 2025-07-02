@@ -79,7 +79,7 @@ calculate_proportion_by_column <- function(
 #' @export
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' death_records <- load_death_records(
 #'  here::here("..", "data", "SyntheticDeathRecordData.csv")
 #' )

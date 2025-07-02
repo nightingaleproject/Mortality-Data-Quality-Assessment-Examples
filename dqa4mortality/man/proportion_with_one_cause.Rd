@@ -23,8 +23,8 @@ prop <- proportion_with_one_cause(
   synthetic_death_records,
   # in synthetic data, many columns matching "Record Axis COD" represent the causes of death
   cause_of_death_columns = c(
-    colnames(death_records)[
-      startsWith(colnames(death_records), "Record Axis COD")
+    colnames(synthetic_death_records)[
+      startsWith(colnames(synthetic_death_records), "Record Axis COD")
     ]
   )
 )
