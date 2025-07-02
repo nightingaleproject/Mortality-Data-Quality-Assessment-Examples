@@ -94,7 +94,7 @@ proportion_with_one_cause <- function(
 certifier_proportion_with_one_cause <- function(
     death_records,
     cause_of_death_columns,
-    certifier_name_column = "Certifier Name"
+    certifier_name_column
 ){
   # add calculated variables for not within required time frame
   death_records <- parse_with_one_cause(

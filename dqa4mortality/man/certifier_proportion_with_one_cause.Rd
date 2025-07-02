@@ -7,7 +7,7 @@
 certifier_proportion_with_one_cause(
   death_records,
   cause_of_death_columns,
-  certifier_name_column = "Certifier Name"
+  certifier_name_column
 )
 }
 \arguments{
