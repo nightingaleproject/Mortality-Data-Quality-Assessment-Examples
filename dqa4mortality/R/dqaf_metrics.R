@@ -78,6 +78,13 @@ calculate_proportion_by_column <- function(
 #' @returns data frame with death records information
 #' @export
 #'
+#' @examples
+#' \donttest{
+#' death_records <- load_death_records(
+#'  here::here("..", "data", "SyntheticDeathRecordData.csv")
+#' )
+#' }
+#'
 load_death_records <- function(file){
   # Load the death records data
   death_records <- read.csv(

@@ -21,3 +21,10 @@ number, proportion of records with unsuitable underlying causes of death
 \description{
 Calculate proportion of records with unsuitable underlying causes of death
 }
+\examples{
+prop <- proportion_with_unsuitable_underlying(
+  synthetic_death_records,
+  underlying_cause_of_death_column = "Underlying COD"
+)
+
+}

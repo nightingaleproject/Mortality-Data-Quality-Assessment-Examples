@@ -95,6 +95,45 @@ parse_incomplete_medical_certifier_fields <- function(
 #' @returns number, proportion of records with at least one incomplete medical certifier field
 #' @export
 #'
+#' @examples
+#' prop <- proportion_with_incomplete_medical_certifier_fields(
+#'   synthetic_death_records,
+#'   medical_columns = c(
+#'     "Date of Death",
+#'     "Time Pronounced Dead",
+#'     "Signature of Person Pronouncing Death",
+#'     "License Number",
+#'     "Date Signed",
+#'     "Actual or Presumed Date of Death",
+#'     "Actual or Presumed Time of Death",
+#'     "Medical Examiner or Coroner Contacted",
+#'     "Autopsy Performed",
+#'     "Autopsy Findings Available",
+#'     "Tobacco Use Contributed to Death",
+#'     "Pregnancy Status",
+#'     "Manner of Death",
+#'     "Date of Injury",
+#'     "Time of Injury",
+#'     "Place of Injury",
+#'     "Injury at Work",
+#'     "Location of Injury",
+#'     "Describe How Injury Occurred",
+#'     "Transportation Injury",
+#'     "Certifier Type",
+#'     "Certifier Name",
+#'     "Title of Certifier",
+#'     "License Number",
+#'     "Date Certified"
+#'   ),
+#'   unknown_responses = c("Unknown"),
+#'   sex_column = "Sex",
+#'   pregnancy_column = "Pregnancy Status",
+#'   age_column = "Age",
+#'   age_pregnancy_low = 5,
+#'   age_pregnancy_high = 74
+#' )
+#'
+#'
 proportion_with_incomplete_medical_certifier_fields <- function(
     death_records,
     medical_columns,
@@ -120,7 +159,7 @@ proportion_with_incomplete_medical_certifier_fields <- function(
   # Create a new column that is True when at least one funeral director field is empty or unknown
   death_records <- parse_incomplete_medical_certifier_fields(
     death_records,
-    funeral_director_columns,
+    medical_columns,
     unknown_responses,
     sex_column,
     pregnancy_column,
@@ -157,6 +196,47 @@ proportion_with_incomplete_medical_certifier_fields <- function(
 #' @returns dataframe with one column corresponding to the unique certifiers by name and another column corresponding to the proportions of records with at least one incomplete medical certifier field
 #' @export
 #'
+#' @examples
+#' certifier_prop <- certifier_proportion_with_incomplete_medical_certifier_fields(
+#'   synthetic_death_records,
+#'   medical_columns = c(
+#'     "Date of Death",
+#'     "Time Pronounced Dead",
+#'     "Signature of Person Pronouncing Death",
+#'     "License Number",
+#'     "Date Signed",
+#'     "Actual or Presumed Date of Death",
+#'     "Actual or Presumed Time of Death",
+#'     "Medical Examiner or Coroner Contacted",
+#'     "Autopsy Performed",
+#'     "Autopsy Findings Available",
+#'     "Tobacco Use Contributed to Death",
+#'     "Pregnancy Status",
+#'     "Manner of Death",
+#'     "Date of Injury",
+#'     "Time of Injury",
+#'     "Place of Injury",
+#'     "Injury at Work",
+#'     "Location of Injury",
+#'     "Describe How Injury Occurred",
+#'     "Transportation Injury",
+#'     "Certifier Type",
+#'     "Certifier Name",
+#'     "Title of Certifier",
+#'     "License Number",
+#'     "Date Certified"
+#'   ),
+#'   unknown_responses = c("Unknown"),
+#'   sex_column = "Sex",
+#'   pregnancy_column = "Pregnancy Status",
+#'   age_column = "Age",
+#'   age_pregnancy_low = 5,
+#'   age_pregnancy_high = 74,
+#'   certifier_name_column = "Certifier Name",
+#'   number_certifier_proportions = 3
+#' )
+#'
+#'
 certifier_proportion_with_incomplete_medical_certifier_fields <- function(
     death_records,
     medical_columns,
@@ -166,7 +246,7 @@ certifier_proportion_with_incomplete_medical_certifier_fields <- function(
     age_column = "Age",
     age_pregnancy_low = 5,
     age_pregnancy_high = 74,
-    certifier_name_column = "Certifier Name",
+    certifier_name_column,
     number_certifier_proportions = 3
 ){
 
@@ -184,7 +264,7 @@ certifier_proportion_with_incomplete_medical_certifier_fields <- function(
   # Create a new column that is True when at least one funeral director field is empty or unknown
   death_records <- parse_incomplete_medical_certifier_fields(
     death_records,
-    funeral_director_columns,
+    medical_columns,
     unknown_responses,
     sex_column,
     pregnancy_column,

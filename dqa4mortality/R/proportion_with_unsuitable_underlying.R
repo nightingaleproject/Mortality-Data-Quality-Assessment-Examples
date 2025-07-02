@@ -17,7 +17,7 @@ parse_with_unsuitable_underlying <- function(
 ){
 
   # Load the unsuitable causes of death data
-  unsuitable_causes <- read.csv(here::here("data", "unsuitable_COD_codes.csv"))
+  unsuitable_causes <- unsuitable_COD_codes
 
   # Extract the unsuitable codes
   unsuitable_codes <- unsuitable_causes$code
@@ -43,6 +43,13 @@ parse_with_unsuitable_underlying <- function(
 #'
 #' @returns number, proportion of records with unsuitable underlying causes of death
 #' @export
+#'
+#' @examples
+#' prop <- proportion_with_unsuitable_underlying(
+#'   synthetic_death_records,
+#'   underlying_cause_of_death_column = "Underlying COD"
+#' )
+#'
 proportion_with_unsuitable_underlying <- function(
     death_records,
     underlying_cause_of_death_column
@@ -73,15 +80,23 @@ proportion_with_unsuitable_underlying <- function(
 #'
 #' @returns dataframe with one column corresponding to the unique certifiers by name and another column corresponding to the proportions of records with unsuitable underlying causes of death
 #' @export
+#'
+#' @examples
+#' certifier_prop <- certifier_proportion_with_unsuitable_underlying(
+#'   synthetic_death_records,
+#'   underlying_cause_of_death_column = "Underlying COD",
+#'   certifier_name_column = "Certifier Name"
+#' )
+#'
 certifier_proportion_with_unsuitable_underlying <- function(
     death_records,
     underlying_cause_of_death_column,
-    certifier_name_column = "Certifier Name"
+    certifier_name_column
 ){
   # add calculated variables for not within required time frame
   death_records <- parse_with_unsuitable_underlying(
     death_records,
-    cause_of_death_columns
+    underlying_cause_of_death_column
   )
 
   # Group the records by certifier and calculate the proportion of unsuitable records for each certifier

@@ -7,7 +7,7 @@
 certifier_proportion_with_unsuitable_underlying(
   death_records,
   underlying_cause_of_death_column,
-  certifier_name_column = "Certifier Name"
+  certifier_name_column
 )
 }
 \arguments{
@@ -23,4 +23,12 @@ dataframe with one column corresponding to the unique certifiers by name and ano
 }
 \description{
 Calculate proportion of records with unsuitable underlying causes of death by certifier
+}
+\examples{
+certifier_prop <- certifier_proportion_with_unsuitable_underlying(
+  synthetic_death_records,
+  underlying_cause_of_death_column = "Underlying COD",
+  certifier_name_column = "Certifier Name"
+)
+
 }

@@ -28,3 +28,12 @@ number, proportion of records not certified within required period
 \description{
 Calculate proportion of records not certified within required period
 }
+\examples{
+prop <- proportion_not_certified_within_required_period(
+  synthetic_death_records,
+  date_of_death_column = "Date of Death",
+  date_certified_column = "Date Certified",
+  number_of_days = 5
+)
+
+}

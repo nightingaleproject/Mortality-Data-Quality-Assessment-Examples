@@ -14,7 +14,7 @@ certifier_proportion_with_incomplete_medical_certifier_fields(
   age_column = "Age",
   age_pregnancy_low = 5,
   age_pregnancy_high = 74,
-  certifier_name_column = "Certifier Name",
+  certifier_name_column,
   number_certifier_proportions = 3
 )
 }
@@ -45,4 +45,46 @@ dataframe with one column corresponding to the unique certifiers by name and ano
 }
 \description{
 Calculate proportion of records with at least one incomplete medical certifier field by certifier
+}
+\examples{
+certifier_prop <- certifier_proportion_with_incomplete_medical_certifier_fields(
+  synthetic_death_records,
+  medical_columns = c(
+    "Date of Death",
+    "Time Pronounced Dead",
+    "Signature of Person Pronouncing Death",
+    "License Number",
+    "Date Signed",
+    "Actual or Presumed Date of Death",
+    "Actual or Presumed Time of Death",
+    "Medical Examiner or Coroner Contacted",
+    "Autopsy Performed",
+    "Autopsy Findings Available",
+    "Tobacco Use Contributed to Death",
+    "Pregnancy Status",
+    "Manner of Death",
+    "Date of Injury",
+    "Time of Injury",
+    "Place of Injury",
+    "Injury at Work",
+    "Location of Injury",
+    "Describe How Injury Occurred",
+    "Transportation Injury",
+    "Certifier Type",
+    "Certifier Name",
+    "Title of Certifier",
+    "License Number",
+    "Date Certified"
+  ),
+  unknown_responses = c("Unknown"),
+  sex_column = "Sex",
+  pregnancy_column = "Pregnancy Status",
+  age_column = "Age",
+  age_pregnancy_low = 5,
+  age_pregnancy_high = 74,
+  certifier_name_column = "Certifier Name",
+  number_certifier_proportions = 3
+)
+
+
 }

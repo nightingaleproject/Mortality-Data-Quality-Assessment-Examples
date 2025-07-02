@@ -111,7 +111,7 @@ subset_records_for_cutoffs <- function(
 #'
 #' @param death_records death records dataframe with rows corresponding to
 #'  records and columns corresponding to record attributes
-#' @param demographic_fields character vector of column strings in death_records for fields related to demographics. If string ends with ".\*", matches fields that start with all characters preceding it. For example, "Race .\*" will search for all fields starting with "Race ".
+#' @param demographic_fields character vector of column strings in death_records for fields related to demographics. If string ends with ".\*", matches fields that start with all characters preceding it. For example, "Race .\*" will search for all fields starting with "Race ". Default to vector of demographic fields in standard death certificate.
 #' @param unknown_responses character vector of strings corresponding to "unknown" in funeral director fields. Default to empty vector.
 #' @param sex_column string, sex column in death_records
 #' @param pregnancy_column string, pregnancy column in death_records
@@ -128,10 +128,42 @@ subset_records_for_cutoffs <- function(
 #' @param age_armed_low number, low cutoff for armed forces age
 #'
 #' @returns data frame with 3 columns:
-#'    Column Name: demographic fields
-#'    Proportion Blank: proportion missing for a given demographic field
-#'    Proportion Unknown: proportion unknown for a given demographic field
+#'    Column.Name: demographic fields
+#'    Proportion.Blank: proportion missing for a given demographic field
+#'    Proportion.Unknown: proportion unknown for a given demographic field
 #' @export
+#'
+#' @examples
+#' prop <- proportion_with_incomplete_demographic(
+#'   synthetic_death_records,
+#'   demographic_fields = c(
+#'     "Age",
+#'     "County of Death",
+#'     "Date of Death",
+#'     "Education",
+#'     "Hispanic .*", #' Match any field starting with 'Hispanic'
+#'     "Manner of Death",
+#'     "Place of Death",
+#'     "Pregnancy Status",
+#'     "Race .*", #' Match any field starting with 'Race'
+#'     "Tobacco Use Contributed to Death"
+#'   ),
+#'   unknown_responses = c("Unknown", "UNK"),
+#'   sex_column = "Sex",
+#'   pregnancy_column = "Pregnancy Status",
+#'   age_column = "Age",
+#'   age_pregnancy_low = 5,
+#'   age_pregnancy_high = 74,
+#'   marital_status_column = NULL,
+#'   age_marital_low = 10,
+#'   occupation_column = NULL,
+#'   age_occupation_low = 14,
+#'   industry_column = NULL,
+#'   age_industry_low = 14,
+#'   armed_forces_column = NULL,
+#'   age_armed_low = 14
+#' )
+#'
 #'
 proportion_with_incomplete_demographic <- function(
     death_records,
@@ -196,6 +228,7 @@ proportion_with_incomplete_demographic <- function(
         pregnancy_column,
         age_column,
         age_pregnancy_low,
+        age_pregnancy_high,
         marital_status_column,
         age_marital_low,
         occupation_column,
@@ -217,15 +250,6 @@ proportion_with_incomplete_demographic <- function(
         print_output = TRUE
       )
 
-      # Group the records by certifier and calculate the proportion of flagged records for each certifier
-      certifier_proportions <- calculate_proportion_by_column(
-        considered_records,
-        metric = paste0("Blank ", mc),
-        column = certifier_name_column,
-        print_output = TRUE,
-        num_print = number_certifier_proportions
-      )
-
       # Now find the proportion that are "unknown"
       considered_records[, paste0("Unknown ", mc)] <-
         as.numeric(considered_records[, mc] %in% unknown_responses)
@@ -235,15 +259,6 @@ proportion_with_incomplete_demographic <- function(
         metric = paste0("Unknown ", mc),
         metric_description = paste0("explicit 'unknown' values for ", mc),
         print_output = TRUE
-      )
-
-      # Group the records by certifier and calculate the proportion of flagged records for each certifier
-      certifier_proportions <- calculate_proportion_by_column(
-        considered_records,
-        metric = paste0("Unknown ", mc),
-        column = certifier_name_column,
-        print_output = TRUE,
-        num_print = number_certifier_proportions
       )
 
       all_proportions <- rbind(
@@ -266,7 +281,7 @@ proportion_with_incomplete_demographic <- function(
 #'
 #' @param death_records death records dataframe with rows corresponding to
 #'  records and columns corresponding to record attributes
-#' @param demographic_fields character vector of column strings in death_records for fields related to demographics. If string ends with ".\*", matches fields that start with all characters preceding it. For example, "Race .\*" will search for all fields starting with "Race ".
+#' @param demographic_fields character vector of column strings in death_records for fields related to demographics. If string ends with ".\*", matches fields that start with all characters preceding it. For example, "Race .\*" will search for all fields starting with "Race ". Default to vector of demographic fields in standard death certificate.
 #' @param unknown_responses character vector of strings corresponding to "unknown" in funeral director fields. Default to empty vector.
 #' @param sex_column string, sex column in death_records
 #' @param pregnancy_column string, pregnancy column in death_records
@@ -290,6 +305,40 @@ proportion_with_incomplete_demographic <- function(
 #'    Proportion Blank: proportion missing for a given demographic field and certifier name
 #'    Proportion Unknown: proportion unknown for a given demographic field and certifier name
 #' @export
+#'
+#' @examples
+#' certifier_prop <- certifier_proportion_with_incomplete_demographic(
+#'   synthetic_death_records,
+#'   demographic_fields = c(
+#'     "Age",
+#'     "County of Death",
+#'     "Date of Death",
+#'     "Education",
+#'     "Hispanic .*", #' Match any field starting with 'Hispanic'
+#'     "Manner of Death",
+#'     "Place of Death",
+#'     "Pregnancy Status",
+#'     "Race .*", #' Match any field starting with 'Race'
+#'     "Tobacco Use Contributed to Death"
+#'   ),
+#'   unknown_responses = c("Unknown", "UNK"),
+#'   sex_column = "Sex",
+#'   pregnancy_column = "Pregnancy Status",
+#'   age_column = "Age",
+#'   age_pregnancy_low = 5,
+#'   age_pregnancy_high = 74,
+#'   marital_status_column = NULL,
+#'   age_marital_low = 10,
+#'   occupation_column = NULL,
+#'   age_occupation_low = 14,
+#'   industry_column = NULL,
+#'   age_industry_low = 14,
+#'   armed_forces_column = NULL,
+#'   age_armed_low = 14,
+#'   certifier_name_column = "Certifier Name",
+#'   number_certifier_proportions = 3
+#' )
+#'
 #'
 certifier_proportion_with_incomplete_demographic <- function(
     death_records,
@@ -319,7 +368,7 @@ certifier_proportion_with_incomplete_demographic <- function(
     age_industry_low = 14,
     armed_forces_column = NULL,
     age_armed_low = 14,
-    certifier_name_column = "Certifier Name",
+    certifier_name_column,
     number_certifier_proportions = 3
 ){
   # For each field we first check if the field is present in the data;
@@ -355,6 +404,7 @@ certifier_proportion_with_incomplete_demographic <- function(
         pregnancy_column,
         age_column,
         age_pregnancy_low,
+        age_pregnancy_high,
         marital_status_column,
         age_marital_low,
         occupation_column,

@@ -8,7 +8,7 @@
 certifier_proportion_with_incomplete_funeral_director_fields(
   death_records,
   funeral_director_columns,
-  unknown_responses = c("Unknown", "U", "UNK"),
+  unknown_responses = c(),
   age_column = "Age",
   marital_status_column = NULL,
   age_marital_low = 10,
@@ -18,7 +18,7 @@ certifier_proportion_with_incomplete_funeral_director_fields(
   age_industry_low = 14,
   armed_forces_column = NULL,
   age_armed_low = 14,
-  certifier_name_column = "Certifier Name",
+  certifier_name_column,
   number_certifier_proportions = 3
 )
 }
@@ -57,4 +57,81 @@ dataframe with one column corresponding to the unique certifiers by name and ano
 }
 \description{
 Calculate proportion of records with at least one incomplete funeral director field by certifier
+}
+\examples{
+certifier_prop <- certifier_proportion_with_incomplete_funeral_director_fields(
+  synthetic_death_records,
+  funeral_director_columns = c(
+    "Decdent's Legal Name",
+    "Sex",
+    "Social Security Number",
+    "Age",
+    "Under 1 Year",
+    "Under 1 Day",
+    "Date of Birth",
+    "Birthplace",
+    "Residence-State",
+    "County",
+    "City or Town",
+    "Street and Number",
+    "Apt. No.",
+    "ZIP Code",
+    "Inside City Limits",
+    "Ever in US Armed Forces",
+    "Marital Status at Time of Death",
+    "Surviving Spouse's Name",
+    "Father's Name",
+    "Mother's Name Prior to First Marriage",
+    "Informant's Name",
+    "Relationship to Decedent",
+    "Mailing Address",
+    "Place of Death",
+    "Facility Name",
+    "Facility City, State, and ZIP Code",
+    "County of Death",
+    "Method of Disposition",
+    "Place of Disposition",
+    "Location - City, Town, and State",
+    "Name and Complete Address of Funeral Facility",
+    "Signature of Funeral Service Licensee or Other Agent",
+    "License Number",
+    "Decedent's Education",
+    "Race White", "Race Black or African American",
+    "Race American Indian or Alaska Native",
+    "Race Asian Indian",
+    "Race Chinese",
+    "Race Filipino",
+    "Race Japanese",
+    "Race Korean",
+    "Race Vietnamese",
+    "Race Other Asian",
+    "Race Native Hawaiian",
+    "Race Guamanian or Chamorro",
+    "Race Samoan",
+    "Race Other Pacific Islander",
+    "Race Other",
+    "Hispanic No",
+    "Hispanic Mexican",
+    "Hispanic Puerto Rican",
+    "Hispanic Cuban",
+    "Hispanic Other",
+    "Decedent's Usual Occupation",
+    "Kind of Business/Industry",
+    "Funeral Facility"
+  ),
+  unknown_responses = c("Unknown", "UNK"),
+  age_column = "Age",
+  marital_status_column = NULL,
+  age_marital_low = 10,
+  occupation_column = NULL,
+  age_occupation_low = 14,
+  industry_column = NULL,
+  age_industry_low = 14,
+  armed_forces_column = NULL,
+  age_armed_low = 14,
+  certifier_name_column = "Certifier Name",
+  number_certifier_proportions = 3
+)
+
+
 }

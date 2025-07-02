@@ -29,7 +29,7 @@ proportion_with_incomplete_demographic(
 \item{death_records}{death records dataframe with rows corresponding to
 records and columns corresponding to record attributes}
 
-\item{demographic_fields}{character vector of column strings in death_records for fields related to demographics. If string ends with ".\*", matches fields that start with all characters preceding it. For example, "Race .\*" will search for all fields starting with "Race ".}
+\item{demographic_fields}{character vector of column strings in death_records for fields related to demographics. If string ends with ".\*", matches fields that start with all characters preceding it. For example, "Race .\*" will search for all fields starting with "Race ". Default to vector of demographic fields in standard death certificate.}
 
 \item{unknown_responses}{character vector of strings corresponding to "unknown" in funeral director fields. Default to empty vector.}
 
@@ -61,10 +61,43 @@ records and columns corresponding to record attributes}
 }
 \value{
 data frame with 3 columns:
-   Column Name: demographic fields
-   Proportion Blank: proportion missing for a given demographic field
-   Proportion Unknown: proportion unknown for a given demographic field
+   Column.Name: demographic fields
+   Proportion.Blank: proportion missing for a given demographic field
+   Proportion.Unknown: proportion unknown for a given demographic field
 }
 \description{
 Calculate proportion of records with incomplete demographic fields
+}
+\examples{
+prop <- proportion_with_incomplete_demographic(
+  synthetic_death_records,
+  demographic_fields = c(
+    "Age",
+    "County of Death",
+    "Date of Death",
+    "Education",
+    "Hispanic .*", #' Match any field starting with 'Hispanic'
+    "Manner of Death",
+    "Place of Death",
+    "Pregnancy Status",
+    "Race .*", #' Match any field starting with 'Race'
+    "Tobacco Use Contributed to Death"
+  ),
+  unknown_responses = c("Unknown", "UNK"),
+  sex_column = "Sex",
+  pregnancy_column = "Pregnancy Status",
+  age_column = "Age",
+  age_pregnancy_low = 5,
+  age_pregnancy_high = 74,
+  marital_status_column = NULL,
+  age_marital_low = 10,
+  occupation_column = NULL,
+  age_occupation_low = 14,
+  industry_column = NULL,
+  age_industry_low = 14,
+  armed_forces_column = NULL,
+  age_armed_low = 14
+)
+
+
 }

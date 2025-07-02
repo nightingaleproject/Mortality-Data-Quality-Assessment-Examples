@@ -48,6 +48,14 @@ parse_not_certified_within_required_period <- function(
 #' @returns number, proportion of records not certified within required period
 #' @export
 #'
+#' @examples
+#' prop <- proportion_not_certified_within_required_period(
+#'   synthetic_death_records,
+#'   date_of_death_column = "Date of Death",
+#'   date_certified_column = "Date Certified",
+#'   number_of_days = 5
+#' )
+#'
 proportion_not_certified_within_required_period <- function(
     death_records,
     date_of_death_column,
@@ -57,9 +65,9 @@ proportion_not_certified_within_required_period <- function(
   # add calculated variables for not within required time frame
   death_records <- parse_not_certified_within_required_period(
     death_records,
-    date_of_death_column = "Date of Death",
-    date_certified_column  = "Date Certified",
-    number_of_days = 5
+    date_of_death_column,
+    date_certified_column,
+    number_of_days
   )
 
   # Calculate the proportion of records where the Date Certified is not within required days of the Date of Death
@@ -87,12 +95,21 @@ proportion_not_certified_within_required_period <- function(
 #' @returns dataframe with one column corresponding to the unique certifiers by name and another column corresponding to the proportions of records with date certified not within required days
 #' @export
 #'
+#' @examples
+#' certifier_prop <- certifier_proportion_not_certified_within_required_period(
+#'   synthetic_death_records,
+#'   date_of_death_column = "Date of Death",
+#'   date_certified_column = "Date Certified",
+#'   number_of_days = 5,
+#'   certifier_name_column = "Certifier Name"
+#' )
+#'
 certifier_proportion_not_certified_within_required_period <- function(
     death_records,
-    date_of_death_column = "Date of Death",
-    date_certified_column  = "Date Certified",
-    number_of_days = 5,
-    certifier_name_column = "Certifier Name"
+    date_of_death_column,
+    date_certified_column,
+    number_of_days,
+    certifier_name_column
 ){
   # add calculated variables for not within required time frame
   death_records <- parse_not_certified_within_required_period(

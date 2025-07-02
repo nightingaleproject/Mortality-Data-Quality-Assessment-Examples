@@ -16,3 +16,11 @@ data frame with death records information
 \description{
 Use supplied path to death records and load as a dataframe
 }
+\examples{
+\donttest{
+death_records <- load_death_records(
+ here::here("..", "data", "SyntheticDeathRecordData.csv")
+)
+}
+
+}

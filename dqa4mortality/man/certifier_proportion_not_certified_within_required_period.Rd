@@ -7,10 +7,10 @@
 \usage{
 certifier_proportion_not_certified_within_required_period(
   death_records,
-  date_of_death_column = "Date of Death",
-  date_certified_column = "Date Certified",
-  number_of_days = 5,
-  certifier_name_column = "Certifier Name"
+  date_of_death_column,
+  date_certified_column,
+  number_of_days,
+  certifier_name_column
 )
 }
 \arguments{
@@ -30,4 +30,14 @@ dataframe with one column corresponding to the unique certifiers by name and ano
 }
 \description{
 Calculate proportion of records not certified within required period by certifier
+}
+\examples{
+certifier_prop <- certifier_proportion_not_certified_within_required_period(
+  synthetic_death_records,
+  date_of_death_column = "Date of Death",
+  date_certified_column = "Date Certified",
+  number_of_days = 5,
+  certifier_name_column = "Certifier Name"
+)
+
 }

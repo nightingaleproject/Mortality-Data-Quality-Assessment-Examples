@@ -35,6 +35,17 @@ parse_with_one_cause <- function(
 #' @returns number, proportion of records with one cause of death
 #' @export
 #'
+#' @examples
+#' prop <- proportion_with_one_cause(
+#'   synthetic_death_records,
+#'   # in synthetic data, many columns matching "Record Axis COD" represent the causes of death
+#'   cause_of_death_columns = c(
+#'     colnames(death_records)[
+#'       startsWith(colnames(death_records), "Record Axis COD")
+#'     ]
+#'   )
+#' )
+#'
 proportion_with_one_cause <- function(
     death_records,
     cause_of_death_columns
@@ -65,6 +76,20 @@ proportion_with_one_cause <- function(
 #'
 #' @returns dataframe with one column corresponding to the unique certifiers by name and another column corresponding to the proportions of records with one cause of death
 #' @export
+#'
+#' @examples
+#' certifier_prop <- certifier_proportion_with_one_cause(
+#'   synthetic_death_records,
+#'   # in synthetic data, many columns matching "Record Axis COD" represent the causes of death
+#'   cause_of_death_columns = c(
+#'     colnames(death_records)[
+#'       startsWith(colnames(death_records), "Record Axis COD")
+#'     ]
+#'   ),
+#'   certifier_name_column = "Certifier Name"
+#' )
+#'
+#'
 #'
 certifier_proportion_with_one_cause <- function(
     death_records,

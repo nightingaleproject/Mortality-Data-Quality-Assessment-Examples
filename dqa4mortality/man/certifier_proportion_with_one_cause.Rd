@@ -24,3 +24,18 @@ dataframe with one column corresponding to the unique certifiers by name and ano
 \description{
 Calculate proportion of records not certified within required period by certifier
 }
+\examples{
+certifier_prop <- certifier_proportion_with_one_cause(
+  synthetic_death_records,
+  # in synthetic data, many columns matching "Record Axis COD" represent the causes of death
+  cause_of_death_columns = c(
+    colnames(death_records)[
+      startsWith(colnames(death_records), "Record Axis COD")
+    ]
+  ),
+  certifier_name_column = "Certifier Name"
+)
+
+
+
+}
