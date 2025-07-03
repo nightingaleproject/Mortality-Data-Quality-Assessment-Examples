@@ -2,6 +2,8 @@
 
 # internal ----
 
+utils::globalVariables(c("unsuitable_COD_codes"))
+
 #' Add column for unsuitable underlying causes of death
 #'
 #' @param death_records death records dataframe with rows corresponding to
