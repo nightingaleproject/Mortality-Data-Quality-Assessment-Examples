@@ -28,9 +28,11 @@ This code repository contains
 
 * [python](python): A set of Python scripts and Jupyter notebooks to demonstrate calculation of several metrics for assessing mortality data quality, as seen in the Data Quality Assessment Framework. Contains information on installation and usage of scripts.
 
-* [dqa4mortality](dqa4mortality): An R package to calculate metrics for assessing mortality data quality, as seen in the Data Quality Assessment Framework. Contains information on installation and usage.
+* [R](R): Contains dqa4mortality, an R package to calculate metrics for assessing mortality data quality, as seen in the Data Quality Assessment Framework. Contains information on installation and usage.
 
 * An example synthetic data file ([SyntheticDeathRecordData.csv](data/SyntheticDeathRecordData.csv)), located in the [data](data) directory, containing synthetic mortality data representing the type of data that a jurisdiction should have available for quality assessment.
+
+  * If updating this data, please see the section "For Maintainers" below.
 
 * A data file ([unsuitable_COD_codes.csv](data/unsuitable_COD_codes.csv)), located in the [data](data) directory, containing ICD10 codes that have been identified as unsuitable underlying causes of death as listed in ([Flagg 2021](https://stacks.cdc.gov/view/cdc/100414)).
 
@@ -40,11 +42,20 @@ This code repository contains
 
     * Software that tests for matches to the list of unsuitable underlying causes of death should simply test if the underlying code in a record begins with an unsuitable code from the data file, e.g., J189 appearing as the underlying code in a record should match against J18 from the list of unsuitable codes since J189 begins with J18.
 
+  * If updating this data, please see the section "For Maintainers" below.
+
 ## Data Requirements
 
 Data used for metric calculation should have a format where each row corresponds to one death record and each column corresponds to an attribute for the death record, such as "Date Certified" or "Underlying Cause of Death". ICD codes included in the data should not include periods (".").
 
 For an example of data in the correct format, please see [SyntheticDeathRecordData.csv](data/SyntheticDeathRecordData.csv).
+
+## For Maintainers
+
+After updating CSVs in [data](data), data updates need to be passed to the R package. To do this:
+
+1. Open dqa4mortality.Rproj (found under R/dqa4mortality) in RStudio.
+2. Open and re-run all scripts in [R/dqa4mortality/data-raw](R/dqa4mortality/data-raw).
 
 ## Disclosure
 

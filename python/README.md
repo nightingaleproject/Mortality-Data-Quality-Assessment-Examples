@@ -22,7 +22,7 @@ This library of simple Python code examples complements the recently developed D
 Framework and complementary Jurisdictional Playbook for Implementation of Mortality Data Quality
 Assessment Framework.
 
-All code in this section of the repository is intended for Python users. If you prefer to use R, please see [dqa4mortality](dqa4mortality).
+All code in this section of the repository is intended for Python users. If you prefer to use R, please see [R/dqa4mortality](R/dqa4mortality).
 
 ## Overview
 
@@ -30,19 +30,19 @@ This folder contains:
 
 * A Jupyter Notebook ([MortalityDataQualityAssessment.ipynb](python/jupyter/MortalityDataQualityAssessment.ipynb)) that demonstrates calculation of several metrics for assessing mortality data quality.
 
-* Example python scripts to demonstrate calculation of various metrics for assessing mortality data quality:
+* Example python scripts in [dqa4mortality](python/dqa4mortality) to demonstrate calculation of various metrics for assessing mortality data quality:
 
-  * [proportion_not_certified_within_required_period.py](python/python/proportion_not_certified_within_required_period.py) – Proportion of records that were not certified within the expected time – jurisdictions typically specify how quickly a death should be certified after the actual date of death.
+  * [proportion_not_certified_within_required_period.py](python/dqa4mortality/proportion_not_certified_within_required_period.py) – Proportion of records that were not certified within the expected time – jurisdictions typically specify how quickly a death should be certified after the actual date of death.
 
-  * [proportion_with_incomplete_funeral_director_fields.py](python/python/proportion_with_incomplete_funeral_director_fields.py) – Proportion of records with at least one “funeral director” field incomplete – funeral directors are typically responsible for providing identifying information and some demographic information.
+  * [proportion_with_incomplete_funeral_director_fields.py](python/dqa4mortality/proportion_with_incomplete_funeral_director_fields.py) – Proportion of records with at least one “funeral director” field incomplete – funeral directors are typically responsible for providing identifying information and some demographic information.
 
-  * [proportion_with_incomplete_medical_certifier_fields.py](python/python/proportion_with_incomplete_medical_certifier_fields.py) – Proportion of records with at least one “medical certifier” field incomplete – the medical certifier is the medical professional or authorized person who determines the cause of death and manner of death.
+  * [proportion_with_incomplete_medical_certifier_fields.py](python/dqa4mortality/proportion_with_incomplete_medical_certifier_fields.py) – Proportion of records with at least one “medical certifier” field incomplete – the medical certifier is the medical professional or authorized person who determines the cause of death and manner of death.
 
-  * [proportion_with_incomplete_demographic.py](python/python/proportion_with_incomplete_demographic.py) – Proportion of records with incomplete information for any of several demographic fields – demographic fields include variables such as age, race/ethnicity, and occupation.
+  * [proportion_with_incomplete_demographic.py](python/dqa4mortality/proportion_with_incomplete_demographic.py) – Proportion of records with incomplete information for any of several demographic fields – demographic fields include variables such as age, race/ethnicity, and occupation.
 
-  * [proportion_with_one_cause.py](python/python/proportion_with_one_cause.py) – Proportion of records with only one cause of death condition – multiple clinical conditions are typically reported by the medical certifier within Part I and Part II of the death certificate.
+  * [proportion_with_one_cause.py](python/dqa4mortality/proportion_with_one_cause.py) – Proportion of records with only one cause of death condition – multiple clinical conditions are typically reported by the medical certifier within Part I and Part II of the death certificate.
 
-  * [proportion_with_unsuitable_underlying.py](python/python/proportion_with_unsuitable_underlying.py) – Proportion of records with unsuitable underlying cause of death (UCOD) – unsuitable UCODs are those which are unknown and ill-defined; immediate and intermediate; and nonspecific. This code example also shows how the results can be displayed on a per-certifier basis.
+  * [proportion_with_unsuitable_underlying.py](python/dqa4mortality/proportion_with_unsuitable_underlying.py) – Proportion of records with unsuitable underlying cause of death (UCOD) – unsuitable UCODs are those which are unknown and ill-defined; immediate and intermediate; and nonspecific. This code example also shows how the results can be displayed on a per-certifier basis.
 
 Note that there is currently no example code to determine the proportion of records with an implausible sequence for cause of death.
 

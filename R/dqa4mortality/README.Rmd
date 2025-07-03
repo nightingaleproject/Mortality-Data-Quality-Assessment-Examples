@@ -39,13 +39,15 @@ opportunities to improve data quality.
 dqa4mortality implements functions to execute Data Quality Assessment
 Framework fort mortality data.
 
+All code in this section of the repository is intended for R users. If you prefer to use Python, please see [python/dqa4mortality](python/dqa4mortality).
+
 ## Installation
 
 You can install dqa4mortality from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("nightingaleproject/Mortality-Data-Quality-Assessment-Examples/dqa4mortality")
+devtools::install_github("nightingaleproject/Mortality-Data-Quality-Assessment-Examples/R/dqa4mortality")
 ```
 
 ## Data Requirements
