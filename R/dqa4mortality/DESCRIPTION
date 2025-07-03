@@ -4,9 +4,17 @@ Title: Data Quality Assessment Metrics for Mortality Data
 Version: 1.1.0
 Authors@R: c(
     person(
-      "Jane", "Doe",
-      email = "jane@example.com",
-      role = c("aut", "cre")
+      "CDC NVSS Modernization",
+      email = "nvssmodernization@cdc.gov",
+      role = "cre"
+    ),
+    person(
+      "Hannah", "De los Santos",
+      role = c("aut")
+    ),
+    person(
+      "Peter", "Krautscheid",
+      role = c("aut")
     )
   )
 Description: This release contains metric calculation for the Data Quality 
@@ -21,3 +29,5 @@ Imports:
 RoxygenNote: 7.3.2
 Depends: 
     R (>= 3.5)
+URL: https://github.com/nightingaleproject/Mortality-Data-Quality-Assessment-Examples
+BugReports: https://github.com/nightingaleproject/Mortality-Data-Quality-Assessment-Examples/issues
