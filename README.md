@@ -28,7 +28,7 @@ This code repository contains
 
 * [python](python): A set of Python scripts and Jupyter notebooks to demonstrate calculation of several metrics for assessing mortality data quality, as seen in the Data Quality Assessment Framework. Contains information on installation and usage of scripts.
 
-* [R](R): Contains dqa4mortality, an R package to calculate metrics for assessing mortality data quality, as seen in the Data Quality Assessment Framework. Contains information on installation and usage.
+* [R](R/dqa4mortality): Contains dqa4mortality, an R package to calculate metrics for assessing mortality data quality, as seen in the Data Quality Assessment Framework. Contains information on installation and usage.
 
 * An example synthetic data file ([SyntheticDeathRecordData.csv](data/SyntheticDeathRecordData.csv)), located in the [data](data) directory, containing synthetic mortality data representing the type of data that a jurisdiction should have available for quality assessment.
 

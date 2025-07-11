@@ -39,7 +39,7 @@ opportunities to improve data quality.
 dqa4mortality implements functions to execute Data Quality Assessment
 Framework fort mortality data.
 
-All code in this section of the repository is intended for R users. If you prefer to use Python, please see [python/dqa4mortality](python/dqa4mortality).
+All code in this section of the repository is intended for R users. If you prefer to use Python, please see [../../python/dqa4mortality](python/dqa4mortality).
 
 ## Installation
 
@@ -77,17 +77,17 @@ dqa4mortality includes several functions to assess quality of your given mortali
 
 Functions to assess data quality are:
 
-  * *(proportion/certifier_proportion)_not_certified_within_required_period()* – Proportion of records that were not certified within the expected time – jurisdictions typically specify how quickly a death should be certified after the actual date of death.
+  * **(proportion/certifier_proportion)_not_certified_within_required_period()** – Proportion of records that were not certified within the expected time – jurisdictions typically specify how quickly a death should be certified after the actual date of death.
 
-  * *(proportion/certifier_proportion)_with_incomplete_funeral_director_fields()* – Proportion of records with at least one “funeral director” field incomplete – funeral directors are typically responsible for providing identifying information and some demographic information.
+  * **(proportion/certifier_proportion)_with_incomplete_funeral_director_fields()** – Proportion of records with at least one “funeral director” field incomplete – funeral directors are typically responsible for providing identifying information and some demographic information.
 
-  * *(proportion/certifier_proportion)_with_incomplete_medical_certifier_fields()* – Proportion of records with at least one “medical certifier” field incomplete – the medical certifier is the medical professional or authorized person who determines the cause of death and manner of death.
+  * **(proportion/certifier_proportion)_with_incomplete_medical_certifier_fields()** – Proportion of records with at least one “medical certifier” field incomplete – the medical certifier is the medical professional or authorized person who determines the cause of death and manner of death.
 
-  * *(proportion/certifier_proportion)_with_incomplete_demographic()* – Proportion of records with incomplete information for any of several demographic fields – demographic fields include variables such as age, race/ethnicity, and occupation.
+  * **(proportion/certifier_proportion)_with_incomplete_demographic()*** – Proportion of records with incomplete information for any of several demographic fields – demographic fields include variables such as age, race/ethnicity, and occupation.
 
-  * *(proportion/certifier_proportion)_with_one_cause()* – Proportion of records with only one cause of death condition – multiple clinical conditions are typically reported by the medical certifier within Part I and Part II of the death certificate.
+  * **(proportion/certifier_proportion)_with_one_cause()** – Proportion of records with only one cause of death condition – multiple clinical conditions are typically reported by the medical certifier within Part I and Part II of the death certificate.
 
-  * *(proportion/certifier_proportion)_with_unsuitable_underlying()* – Proportion of records with unsuitable underlying cause of death (UCOD) – unsuitable UCODs are those which are unknown and ill-defined; immediate and intermediate; and nonspecific.
+  * **(proportion/certifier_proportion)_with_unsuitable_underlying()** – Proportion of records with unsuitable underlying cause of death (UCOD) – unsuitable UCODs are those which are unknown and ill-defined; immediate and intermediate; and nonspecific.
   
 For more information on inputs, outputs, and return values for each function, see the help text for each function by prefacing it with a question mark in your console. For example:
 
@@ -134,7 +134,7 @@ We can see that our proportion is printed by Certifier Name in our dataset, and 
 
 We could then use the data frame that's returned to visualize our certifiers with the highest proportions:
 
-```{r}
+```{r, fig.width=5}
 library(ggplot2)
 
 ggplot(
@@ -143,7 +143,8 @@ ggplot(
 )+
   geom_col(color = "black", fill = "lightblue")+
   theme_bw()+
-  scale_x_discrete(guide = guide_axis(angle = 45))
+  scale_x_discrete(guide = guide_axis(angle = 45))+
+  xlab("Certifier Name")
 ```
 
 ## Disclosure
