@@ -134,7 +134,7 @@ We can see that our proportion is printed by Certifier Name in our dataset, and 
 
 We could then use the data frame that's returned to visualize our certifiers with the highest proportions:
 
-```{r, fig.height=3, fig.width=2}
+```{r}
 library(ggplot2)
 
 ggplot(
