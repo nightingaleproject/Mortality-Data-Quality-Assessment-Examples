@@ -22,7 +22,7 @@ This library of simple Python code examples complements the recently developed D
 Framework and complementary Jurisdictional Playbook for Implementation of Mortality Data Quality
 Assessment Framework.
 
-All code in this section of the repository is intended for Python users. If you prefer to use R, please see [../R/dqa4mortality](R/dqa4mortality).
+All code in this section of the repository is intended for Python users. If you prefer to use R, please see [R/dqa4mortality](../R/dqa4mortality).
 
 ## Overview
 

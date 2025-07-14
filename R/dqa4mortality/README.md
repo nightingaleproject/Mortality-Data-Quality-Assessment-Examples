@@ -34,7 +34,7 @@ Framework fort mortality data.
 
 All code in this section of the repository is intended for R users. If
 you prefer to use Python, please see
-[../../python/dqa4mortality](python/dqa4mortality).
+[python/dqa4mortality](../../python/dqa4mortality).
 
 ## Installation
 
@@ -134,7 +134,7 @@ head(synthetic_death_records[,1:33])
 ```
 
 The raw CSV is also included in this repository; please see
-[SyntheticDeathRecordData.csv](data/SyntheticDeathRecordData.csv).
+[SyntheticDeathRecordData.csv](../../data/SyntheticDeathRecordData.csv).
 
 ## Functions
 
@@ -162,7 +162,7 @@ Functions to assess data quality are:
   authorized person who determines the cause of death and manner of
   death.
 
-- (proportion/certifier_proportion)\_with_incomplete_demographic()\* –
+- (proportion/certifier_proportion)\_with_incomplete_demographic() –
   Proportion of records with incomplete information for any of several
   demographic fields – demographic fields include variables such as age,
   race/ethnicity, and occupation.
