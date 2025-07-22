@@ -11,7 +11,7 @@ certifier_proportion_with_incomplete_funeral_director_fields(
   unknown_responses = c(),
   age_column = "Age",
   marital_status_column = NULL,
-  age_marital_low = 10,
+  age_marital_low = 12,
   occupation_column = NULL,
   age_occupation_low = 14,
   industry_column = NULL,

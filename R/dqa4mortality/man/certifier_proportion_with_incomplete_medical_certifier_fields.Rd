@@ -13,7 +13,7 @@ certifier_proportion_with_incomplete_medical_certifier_fields(
   pregnancy_column = "Pregnancy Status",
   age_column = "Age",
   age_pregnancy_low = 5,
-  age_pregnancy_high = 74,
+  age_pregnancy_high = 75,
   certifier_name_column,
   number_certifier_proportions = 3
 )
