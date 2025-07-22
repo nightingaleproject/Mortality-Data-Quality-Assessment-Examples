@@ -195,6 +195,11 @@ proportion_with_incomplete_demographic <- function(
     age_armed_low = 14
 ){
 
+  unspecified_arguments_error(
+    arg_passed = names(as.list(match.call())[-1]),
+    proportion_with_incomplete_demographic
+  )
+
   # For each field we first check if the field is present in the data;
   # if it's present, we evaluate the proportion of records that have a
   # blank value for the field and the proportion of records that have
@@ -363,6 +368,12 @@ certifier_proportion_with_incomplete_demographic <- function(
     certifier_name_column,
     number_certifier_proportions = 3
 ){
+
+  unspecified_arguments_error(
+    arg_passed = names(as.list(match.call())[-1]),
+    certifier_proportion_with_incomplete_demographic
+  )
+
   # For each field we first check if the field is present in the data;
   # if it's present, we evaluate the proportion of records that have a
   # blank value for the field and the proportion of records that have

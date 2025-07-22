@@ -2,6 +2,27 @@
 
 # internal ----
 
+#' Check if not all arguments are specified
+#'
+#' @param arg_passed character vector, arguments passed to function
+#' @param metric character string corresponding to the boolean column in death_records we want to calculate proportion for
+#'
+#' @returns nothing, will error if not all arguments are specified
+#' @keywords internal
+#'
+unspecified_arguments_error <- function(arg_passed, func){
+  arg_required <- formalArgs(func)
+  if (length(arg_passed) < length(arg_required)){
+    stop(paste0(
+      "Not all required arguments specified. Please add values for missing arguments:\n\n",
+      paste(
+        arg_required[!arg_required %in% arg_passed],
+        collapse = "\n"
+      )
+    ))
+  }
+}
+
 #' Calculate and print the overall proportion of the provided metric on the records we loaded above
 #'
 #' @param death_records death records dataframe with rows corresponding to

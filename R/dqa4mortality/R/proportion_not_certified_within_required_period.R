@@ -63,6 +63,11 @@ proportion_not_certified_within_required_period <- function(
     date_certified_column,
     number_of_days
   ){
+  unspecified_arguments_error(
+    arg_passed = names(as.list(match.call())[-1]),
+    proportion_not_certified_within_required_period
+  )
+
   # add calculated variables for not within required time frame
   death_records <- parse_not_certified_within_required_period(
     death_records,
@@ -112,6 +117,11 @@ certifier_proportion_not_certified_within_required_period <- function(
     number_of_days,
     certifier_name_column
 ){
+  unspecified_arguments_error(
+    arg_passed = names(as.list(match.call())[-1]),
+    certifier_proportion_not_certified_within_required_period
+  )
+
   # add calculated variables for not within required time frame
   death_records <- parse_not_certified_within_required_period(
     death_records,

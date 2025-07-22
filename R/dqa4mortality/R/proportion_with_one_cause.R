@@ -50,6 +50,11 @@ proportion_with_one_cause <- function(
     death_records,
     cause_of_death_columns
 ){
+  unspecified_arguments_error(
+    arg_passed = names(as.list(match.call())[-1]),
+    proportion_with_one_cause
+  )
+
   # add calculated variables for not within required time frame
   death_records <- parse_with_one_cause(
     death_records,
@@ -96,6 +101,11 @@ certifier_proportion_with_one_cause <- function(
     cause_of_death_columns,
     certifier_name_column
 ){
+  unspecified_arguments_error(
+    arg_passed = names(as.list(match.call())[-1]),
+    certifier_proportion_with_one_cause
+  )
+
   # add calculated variables for not within required time frame
   death_records <- parse_with_one_cause(
     death_records,

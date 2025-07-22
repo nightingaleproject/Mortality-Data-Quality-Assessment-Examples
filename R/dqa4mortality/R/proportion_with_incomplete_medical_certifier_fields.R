@@ -145,6 +145,11 @@ proportion_with_incomplete_medical_certifier_fields <- function(
     age_pregnancy_high = 74
 ){
 
+  unspecified_arguments_error(
+    arg_passed = names(as.list(match.call())[-1]),
+    proportion_with_incomplete_medical_certifier_fields
+  )
+
   # Subset the medical columns to those that appear in the data
   medical_columns <- check_funeral_columns(
     death_records,
@@ -249,6 +254,11 @@ certifier_proportion_with_incomplete_medical_certifier_fields <- function(
     certifier_name_column,
     number_certifier_proportions = 3
 ){
+
+  unspecified_arguments_error(
+    arg_passed = names(as.list(match.call())[-1]),
+    certifier_proportion_with_incomplete_medical_certifier_fields
+  )
 
   # Subset the medical columns to those that appear in the data
   medical_columns <- check_funeral_columns(
