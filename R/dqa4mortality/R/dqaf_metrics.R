@@ -5,11 +5,12 @@
 #' Check if not all arguments are specified
 #'
 #' @param arg_passed character vector, arguments passed to function
-#' @param metric character string corresponding to the boolean column in death_records we want to calculate proportion for
+#' @param func function that arguments will be checked against
 #'
 #' @returns nothing, will error if not all arguments are specified
 #' @keywords internal
 #'
+#' @importFrom methods formalArgs
 unspecified_arguments_error <- function(arg_passed, func){
   arg_required <- formalArgs(func)
   if (length(arg_passed) < length(arg_required)){

@@ -9,7 +9,7 @@ unspecified_arguments_error(arg_passed, func)
 \arguments{
 \item{arg_passed}{character vector, arguments passed to function}
 
-\item{metric}{character string corresponding to the boolean column in death_records we want to calculate proportion for}
+\item{func}{function that arguments will be checked against}
 }
 \value{
 nothing, will error if not all arguments are specified

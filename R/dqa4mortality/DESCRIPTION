@@ -25,7 +25,8 @@ Encoding: UTF-8
 LazyData: true
 Imports:
   lubridate,
-  here
+  here,
+  methods
 RoxygenNote: 7.3.2
 Depends: 
     R (>= 3.5)
