@@ -57,6 +57,8 @@ After updating CSVs in [data](data), data updates need to be passed to the R pac
 1. Open dqa4mortality.Rproj (found under R/dqa4mortality) in RStudio.
 2. Open and re-run all scripts in [R/dqa4mortality/data-raw](R/dqa4mortality/data-raw).
 
+Additionally, if you would like to contribute to the repository via issue or pull request, please see [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## Disclosure
 
 Artificial Intelligence (AI) software was consulted in the development of this code and to ensure that R and Python versions of the code run identically.

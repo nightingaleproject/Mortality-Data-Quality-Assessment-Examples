@@ -58,11 +58,12 @@ Running the standalone example code requires
 
 * Python 3.6 or higher
 * The pandas library
+* The six library
 
-You can install pandas with pip:
+You can install pandas and six with pip:
 
 ```
-pip install pandas
+pip install pandas six
 ```
 
 Running the Jupyter Notebook example requires Jupyter Notebook to be installed. Jupyter Notebook can be installed with pip:

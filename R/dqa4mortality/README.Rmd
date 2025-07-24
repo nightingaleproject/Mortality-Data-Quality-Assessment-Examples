@@ -54,12 +54,11 @@ devtools::install_github("nightingaleproject/Mortality-Data-Quality-Assessment-E
 
 Data used for metric calculation should have a format where each row corresponds to one death record and each column corresponds to an attribute for the death record, such as "Date Certified" or "Underlying Cause of Death". ICD codes included in the data should not include periods (".").
 
-You can load your CSV data by using the following function, replacing "file_path" with the path to your mortality CSV:
+If your data has not been previously loaded as a data frame in the correct format, you can load your CSV data by using the following function, replacing "file_path" with the path to your mortality CSV:
 ```{r, eval=FALSE}
 library(dqa4mortality)
 death_records <- load_death_records(file_path)
 ```
-
 
 Example data is included in this package, called *synthetic_death_records*. To look at the first few rows and columns of this example data:
 

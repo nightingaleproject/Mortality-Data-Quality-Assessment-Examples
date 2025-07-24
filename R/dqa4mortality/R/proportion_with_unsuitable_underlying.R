@@ -56,6 +56,11 @@ proportion_with_unsuitable_underlying <- function(
     death_records,
     underlying_cause_of_death_column
 ){
+  unspecified_arguments_error(
+    arg_passed = names(as.list(match.call())[-1]),
+    proportion_with_unsuitable_underlying
+  )
+
   # add calculated variables for not within required time frame
   death_records <- parse_with_unsuitable_underlying(
     death_records,
@@ -95,6 +100,11 @@ certifier_proportion_with_unsuitable_underlying <- function(
     underlying_cause_of_death_column,
     certifier_name_column
 ){
+  unspecified_arguments_error(
+    arg_passed = names(as.list(match.call())[-1]),
+    certifier_proportion_with_unsuitable_underlying
+  )
+
   # add calculated variables for not within required time frame
   death_records <- parse_with_unsuitable_underlying(
     death_records,

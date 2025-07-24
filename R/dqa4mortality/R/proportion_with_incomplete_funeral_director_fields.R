@@ -224,6 +224,12 @@ proportion_with_incomplete_funeral_director_fields <- function(
     armed_forces_column = NULL,
     age_armed_low = 14
 ){
+
+  unspecified_arguments_error(
+    arg_passed = names(as.list(match.call())[-1]),
+    proportion_with_incomplete_funeral_director_fields
+  )
+
   # Subset the funeral director columns to those that appear in the data
   funeral_director_columns <- check_funeral_columns(
     death_records,
@@ -378,7 +384,7 @@ certifier_proportion_with_incomplete_funeral_director_fields <- function(
     unknown_responses = c(),
     age_column = "Age",
     marital_status_column = NULL,
-    age_marital_low = 10,
+    age_marital_low = 12,
     occupation_column = NULL,
     age_occupation_low = 14,
     industry_column = NULL,
@@ -389,6 +395,10 @@ certifier_proportion_with_incomplete_funeral_director_fields <- function(
     number_certifier_proportions = 3
 ){
 
+  unspecified_arguments_error(
+    arg_passed = names(as.list(match.call())[-1]),
+    certifier_proportion_with_incomplete_funeral_director_fields
+  )
 
   # Subset the funeral director columns to those that appear in the data
   funeral_director_columns <- check_funeral_columns(

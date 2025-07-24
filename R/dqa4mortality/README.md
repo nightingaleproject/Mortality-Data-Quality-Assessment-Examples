@@ -53,8 +53,9 @@ attribute for the death record, such as “Date Certified” or “Underlying
 Cause of Death”. ICD codes included in the data should not include
 periods (“.”).
 
-You can load your CSV data by using the following function, replacing
-“file_path” with the path to your mortality CSV:
+If your data has not been previously loaded as a data frame in the
+correct format, you can load your CSV data by using the following
+function, replacing “file_path” with the path to your mortality CSV:
 
 ``` r
 library(dqa4mortality)
